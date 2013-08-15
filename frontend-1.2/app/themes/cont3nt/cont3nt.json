@@ -11,7 +11,7 @@
 	 */
 	"files" : {
 		"css" : ["css/bootstrap.min", "css/style","css/cont3nt","css/kratos","css/mygridfluid120","css/blog-style"],
-		"js" : ["js/theme_controllers"]
+		"js" : ["js/theme_controllers","js/jquery.nicescroll"]
 	},
 
 	/*

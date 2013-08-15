@@ -81,6 +81,7 @@ $app.controller('mapController', function($scope, geolocation, $http){
       $.ajax({
         type:'POST',
         data:dat,
+        //url:"http://yinkeangseng.byethost8.com/check-user.php"
         url:"http://localhost:8030/cont3nt-service/check-user.php"
       }).done(function(data){
 
@@ -150,6 +151,7 @@ $app.controller('HomeController', function ($scope, plus) {
       ////// get ajax
       $.ajax({
         type:'GET',
+        //url:"http://yinkeangseng.byethost8.com"
         url:"http://localhost:8030/cont3nt-service/get-news.php"
       }).done(function(data){
           var objs=eval(data);
@@ -164,12 +166,15 @@ $app.controller('HomeController', function ($scope, plus) {
              
       b=true;
       });
+
+      $("#wrapper").niceScroll({touchbehavior:true});
      });
   if(b==true){
       $scope.news={content:""};
         ////// get ajax
         $.ajax({
           type:'GET',
+          //url:"http://yinkeangseng.byethost8.com"
           url:"http://localhost:8030/cont3nt-service/get-news.php"
         }).done(function(data){
             var objs=eval(data);
@@ -183,6 +188,7 @@ $app.controller('HomeController', function ($scope, plus) {
             }
                
         });
+        $("#wrapper").niceScroll({touchbehavior:true});
    }
 
 
@@ -197,6 +203,8 @@ $app.controller('HomeController', function ($scope, plus) {
         $.ajax({
           type:'POST',
           data:dat,
+          
+          //url:"http://yinkeangseng.byethost8.com/check-user.php"
           url:"http://localhost:8030/cont3nt-service/check-user.php"
         }).done(function(data){
 
