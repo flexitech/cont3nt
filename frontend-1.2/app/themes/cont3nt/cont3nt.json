@@ -10,7 +10,7 @@
 	 * these paths are relative to the root of your theme directory
 	 */
 	"files" : {
-		"css" : ["css/bootstrap.min", "css/style","css/cont3nt","css/kratos","css/mygridfluid120"],
+		"css" : ["css/bootstrap.min", "css/style","css/cont3nt"],
 		"js" : ["js/theme_controllers"]
 	},
 
@@ -20,8 +20,11 @@
 	 * Because how the paths and routing work, you need run plus.io Frontend on a local server such as xampp (http://www.apachefriends.org/en/xampp.html) or mamp (http://www.mamp.info/en/index.html)
 	 */
 	"routes" : [
+		{"path":"/map",	"layout":"layouts/main",		"template":"map",	"controller":"mapController", "title":"Home Page","class":"list"},
+
 		{"path":"/home",	"layout":"layouts/main",		"template":"home",	"controller":"HomeController", "title":"Home","class":"list"},
-		{"path":"/freelencer",	"layout":"layouts/main",		"template":"freelencer", "title":"Freelencer","class":"list"},
+		
+		{"path":"/freelencer",	"layout":"layouts/main",		"template":"freelencer", "title":"Home","class":"list"},
 		
 		{ "otherwise" : "/home" }
 	]

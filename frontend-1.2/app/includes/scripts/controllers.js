@@ -15,4 +15,5 @@ $app.controller('HomeController', function ($scope, plus) {
   	});
   }, 1000);
   
+
 });

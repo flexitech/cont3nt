@@ -1,0 +1,33 @@
+.logo{
+	margin-top:15px;
+}
+.left{
+	float:left;
+}
+header .navbar-inner .brand{
+	position: relative;
+	top:8px;
+	text-shadow: none;
+	font-family: "RobotoThin";
+	color: #ccc;
+	font-size: 18px;
+	float: none;
+	text-align: center;
+	margin-left: 0;
+	margin:0px auto;
+}
+.container-fluid{
+	display:relative;
+	text-align: center
+	float:left;
+}
+.menu{
+	float:none;
+	margin: 0px auto;
+	position: relative;;
+	width:80%;
+}
+
+.navbar-fixed-bottom .navbar-inner {
+    box-shadow:none !important;
+}
