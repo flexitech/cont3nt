@@ -190,7 +190,7 @@ $app.controller('HomeController', function ($scope, plus) {
               //$scope.news.content =$scope.news.content  + str;
               $('.news-group').html($('.news-group').html() + str);
             }
-               
+          $("#wrapper").niceScroll({touchbehavior:true});
         });
         $("#wrapper").niceScroll({touchbehavior:true});
    }
