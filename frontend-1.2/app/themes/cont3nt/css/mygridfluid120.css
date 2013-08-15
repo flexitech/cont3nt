@@ -238,6 +238,10 @@
 {
     padding:0px;
 }
+.padd-lr5{
+	padding-left:5px;
+	padding-right:5px;
+}
 .padd-lr0
 {
     padding-left:0px;
@@ -247,6 +251,11 @@
 {
     padding-left:20px;
     padding-right:20px;
+}
+.padd-lr15
+{
+    padding-left:15px;
+    padding-right:15px;
 }
 .padd-l0{
     padding-left:0px;
@@ -414,6 +423,12 @@ span.mobile-only
     	padding-left:10px;
     	padding-right:10px;
     }
+    .tablet-right{
+    	float:right;
+    }
+    .tablet-left{
+    	float:left;
+    }
 
 }
 @media screen and (max-width: 480px)
@@ -491,6 +506,19 @@ span.mobile-only
 	}
 	.button{
 		padding:10px 10px !important;
+	}
+	.freelencer .title h1{
+		font-size:20px;
+	}
+	.freelencer .title h4{
+		font-size:14px;
+	}
+	.mobile-100px{
+		width:100px;
+	}
+	.mobile-lr-0{
+		padding-left:0px !important;
+		padding-right: 0px !important;
 	}
 }
 /*-------------------------- end mobile query------------------------------

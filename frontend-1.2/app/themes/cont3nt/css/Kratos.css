@@ -46,20 +46,22 @@
 	color:white;
 }
 
-.myarticle article header h4{
+.boxWhite .myarticle article header h4{
 	color:#edbe00;
 	padding-bottom:10px;
 	border-bottom:1px dashed #777;
 }
-.myarticle article p{
+.boxWhite .myarticle article p{
 	color:#777;
 }
-.myarticle article img{
+.boxWhite .myarticle article img{
 	height:124px;
 	/*border:1px solid red;*/
 }
-.boxYellow{
-
+/*---------------------------- Yellow Box -------------------------*/
+.boxYellow article header h4{
+	background-color:#EDBE00;
+	border-radius:8px 8px 0px 0px;
 }
 .boxYellow div article{
 	border-radius:8px 8px 0px 0px;
@@ -70,12 +72,22 @@
 	/*border:1px solid red;*/
 }
 .boxYellow header{
-	border-radius:8px 8px 0px 0px;
-	background-color:#EDBE00;
+	/*border-radius:8px 8px 0px 0px;*/
+	/*background-color:#EDBE00;*/
 }
 .boxYellow header h4{
 	color:#f2e8c1;
 }
+.boxYellow .myarticle{
+	margin-bottom:20px;
+}
+/*----------------------------End Yellow Box -------------------------*/
+/*
+.myarticle p{
+	padding-left:15px;
+	padding-right:15px;
+}*/
+
 .borderTop{
 	border-top:1px dashed #CCCCCC;
 }
@@ -85,6 +97,12 @@
 }
 .div-center{
 	margin:0px auto;
+}
+.imgRadius{
+	border-radius:5px;
+}
+.copyRight span{
+	padding-left:40px;
 }
 
 /*------------------- End Page Freelencer ----------------------*/
