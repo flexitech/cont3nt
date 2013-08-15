@@ -11,7 +11,7 @@
 	 */
 	"files" : {
 		"css" : ["css/bootstrap.min", "css/style","css/cont3nt","css/kratos","css/mygridfluid120","css/blog-style"],
-		"js" : ["js/theme_controllers"]
+		"js" : ["js/theme_controllers","js/jquery-1.10.2.min"]
 	},
 
 	/*
@@ -20,13 +20,15 @@
 	 * Because how the paths and routing work, you need run plus.io Frontend on a local server such as xampp (http://www.apachefriends.org/en/xampp.html) or mamp (http://www.mamp.info/en/index.html)
 	 */
 	"routes" : [
-		{"path":"/map",	"layout":"layouts/main",		"template":"map",	"controller":"mapController", "title":"Home Page","class":"list"},
+		{"path":"/map",	"layout":"layouts/main",		"template":"map",	"controller":"mapController", "title":"Home Page","class":"home"},
 
-		{"path":"/home",	"layout":"layouts/main",		"template":"home",	"controller":"HomeController", "title":"Home","class":"list"},
+		{"path":"/home",	"layout":"layouts/main",		"template":"home",	"controller":"HomeController", "title":"Home","class":"blog"},
 		
-		{"path":"/freelencer",	"layout":"layouts/main",		"template":"freelencer", "title":"Home","class":"list"},
+		{"path":"/freelencer",	"layout":"layouts/main",		"template":"freelencer", "title":"Home","class":"freelancer"},
 
-		{"path":"/blog",	"layout":"layouts/main",		"template":"blog", "title":"blog","class":"list"},
+		{"path":"/blog",	"layout":"layouts/main",		"template":"blog", "title":"blog","class":"blog"},
+
+		
 		
 		{ "otherwise" : "/home" }
 	]

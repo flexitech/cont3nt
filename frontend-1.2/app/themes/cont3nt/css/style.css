@@ -14,7 +14,7 @@ html, body{
 
 #wrapper{
 	position: absolute;
-	background-color: #fff;
+	background-color: rgb(244,244,244);
 	top: 60px; /* height of header */
 	bottom: 40px; /*120 height of footer ( x 2?)*/
 	left: 0;
@@ -97,14 +97,13 @@ footer.navbar .nav li:hover {
  /*background-color: #333;*/
  /*background-color: rgba(220,220,220,0.2);*/
 
-	background-color:#333;
+	background-color: rgba(220,220,220,0.2);
 }
 footer.navbar .nav li:hover:first-child {
  /*background-color: #333;*/
  /*background-color: rgba(220,220,220,0.2);*/
 
 	border-top-left-radius: 10px;
-	background-color:#333;
 }
 footer .navbar-inner .nav li.active a{
 	cursor: pointer;
@@ -116,10 +115,15 @@ footer .navbar-inner .nav li.active a{
 footer.navbar .nav li:first-child{
 	border-top-left-radius: 10px;
 }
-footer .navbar-inner .nav li.home a{ background-image: url('../img/ico_home.png'); }
+/*footer .navbar-inner .nav li.home a{ background-image: url('../img/ico_home.png'); }
 footer .navbar-inner .nav li.list a{ background-image: url('../img/ico_list.png'); }
 footer .navbar-inner .nav li.globe a{ background-image: url('../img/ico_globe.png'); }
-footer .navbar-inner .nav li.settings a{ background-image: url('../img/ico_settings.png'); }
+footer .navbar-inner .nav li.settings a{ background-image: url('../img/ico_settings.png'); }*/
+
+footer .navbar-inner .nav li.home a{ background-image: url('../img/cont3nt/home-48.png'); }
+footer .navbar-inner .nav li.blog a{ background-image: url('../img/cont3nt/bebo-48.png'); }
+footer .navbar-inner .nav li.freelancer a{ background-image: url('../img/cont3nt/conference-48.png'); }
+footer .navbar-inner .nav li.settings a{ background-image: url('../img/cont3nt/tree_structure-48.png'); }
 
 .leaflet-container {
 	position: relative;

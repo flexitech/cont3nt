@@ -71,4 +71,51 @@ $app.controller('mapController', function($scope, geolocation, $http){
     });
   });
 
+
+  $scope.auth={user:"",pass:""};
+  $scope.user={name:""};
+  $scope.login=function(){
+      if ($scope.auth.user=="admin" && $scope.auth.pass=="admin"){
+          alert("Login Successfully!");
+          $scope.user.name=$scope.auth.user;
+          if(typeof(Storage)!=="undefined")
+          {
+          // Yes! localStorage and sessionStorage support!
+          // Some code.....
+            alert("support web storage");
+              localStorage.username = $scope.auth.user;
+          }
+        else
+          {
+            alert("not support web storage");
+          }
+          $(".popupBox").removeClass("show");
+          $(".popupBox").addClass("hide");
+      }
+      else{
+        alert("Incorrect Username or password!");        
+      }
+  };
+
+});
+ 
+$app.controller('HomeController', function ($scope, plus) {
+  // defaulting the time on Angular's model variable.
+  
+  
+  if(typeof(Storage)!=="undefined")
+  {// Yes! localStorage and sessionStorage support!
+    // Some code.....
+    
+    //localStorage.username = $scope.auth.user;
+    if ($scope.user!=undefined){
+      alert("support web storage" + $scope.user);
+    }
+   
+    
+  }
+  else
+    {
+    alert("not support web storage");
+    }
 });
