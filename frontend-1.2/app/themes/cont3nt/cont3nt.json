@@ -10,7 +10,7 @@
 	 * these paths are relative to the root of your theme directory
 	 */
 	"files" : {
-		"css" : ["css/bootstrap.min", "css/style","css/cont3nt"],
+		"css" : ["css/bootstrap.min", "css/style","css/cont3nt","css/blog-style"],
 		"js" : ["js/theme_controllers"]
 	},
 
