@@ -43,6 +43,7 @@ src: url("../font/lsansuni.ttf");
 	}
 #banner{
 	width:96%; 
+	height: auto;
 	margin: 2%;
 	margin-bottom: 0%;
 	/*max-height:100%;*/	 
