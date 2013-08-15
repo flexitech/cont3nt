@@ -20,7 +20,7 @@
 	background-color:white;
 }
 .freelencer .title{
-	border-bottom:1px dashed gray;
+	border-bottom:1px dashed CCCCCC;
 }
 .freelencer .imgShow .imgContainer img{
 	width:100%;
@@ -34,6 +34,17 @@
 	background-color:#EDBE00;
 	border-radius:6px;
 }
+.freelencer .cusBox1 .yellowBotton a{
+	font-size:18px;
+	text-align: center;
+	color:#f2e8c1;
+}
+.freelencer .cusBox1 .yellowBotton:hover{
+	background-color:#555555;
+}
+.freelencer .cusBox1 .yellowBotton:hover>a{
+	color:white;
+}
 
 .myarticle article header h4{
 	color:#edbe00;
@@ -46,6 +57,31 @@
 .myarticle article img{
 	height:124px;
 	/*border:1px solid red;*/
+}
+.boxYellow{
+
+}
+.boxYellow div article{
+	border-radius:8px 8px 0px 0px;
+	background-color:#e8e8e8;
+}
+.boxYellow article img{
+	height:202px;
+	/*border:1px solid red;*/
+}
+.boxYellow header{
+	border-radius:8px 8px 0px 0px;
+	background-color:#EDBE00;
+}
+.boxYellow header h4{
+	color:#f2e8c1;
+}
+.borderTop{
+	border-top:1px dashed #CCCCCC;
+}
+
+.profile img{
+	height:203px;
 }
 
 /*------------------- End Page Freelencer ----------------------*/
