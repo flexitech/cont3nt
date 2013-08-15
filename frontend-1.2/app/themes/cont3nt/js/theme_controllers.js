@@ -225,3 +225,20 @@ $app.controller('HomeController', function ($scope, plus) {
 
 
 });
+
+$app.controller('FreelancerController', function ($scope, plus) {
+   
+});
+
+$app.controller('BlogController', function ($scope, plus) {
+   // var b=false;
+     
+   //  $(document).ready(function(){
+   //      $("#wrapper").niceScroll({touchbehavior:true});
+   //      b=true;
+   //  });
+   // if(!b)
+   //  $("#wrapper").niceScroll({touchbehavior:true});
+});
+  // defaulting the time on Angular's model variable.
+ 
