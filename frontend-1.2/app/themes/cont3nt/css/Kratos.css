@@ -1,0 +1,12 @@
+.kratos h1{
+	font-size: 25px;
+}
+.kratos h2{
+	font-size:18px;
+}
+.freelencer{
+	background-color:white;
+}
+.freelencer .title header h1,h2{
+	text-align: center;
+}
