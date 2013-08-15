@@ -127,3 +127,38 @@ footer .navbar-inner .nav li.settings a{ background-image: url('../img/ico_setti
 	height: 100%;
 	background: #1c1c1c;
 }
+
+
+/*---------------------------- Text Setting -------------------------- */
+.text-center{
+	text-align:center;
+}
+.text-left{
+	text-align:left;
+}
+.text-right{
+	text-align:right;
+}
+
+.text-color-yellow{
+	color:#EDBE00;
+}
+
+/*---------------------------- Text Setting -------------------------- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

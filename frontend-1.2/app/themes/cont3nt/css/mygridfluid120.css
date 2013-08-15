@@ -181,11 +181,18 @@
 	padding-top:10px;
 	padding-bottom:10px;
 }
+.padd-tb20{
+	padding-top:20px;
+	padding-bottom:20px;
+}
 
  .padd-top-5
 {
     
     padding-top:5px;
+}
+.padd-top-10{
+	padding-top:10px;
 }
 .padd-bottom-5
 {
@@ -210,6 +217,11 @@
 {
     padding:10px;
 }
+.padd-20
+{
+    padding:20px;
+}
+
 .padd-0
 {
     padding:0px;
@@ -299,6 +311,12 @@
 .marg-10
 {
     margin:10px;
+}
+.padd-l-5{
+	padding-left:5px;
+}
+.padd-r-5{
+	padding-right:5px;
 }
 /*-------------------------End Margin Setting---------------------------*/
 

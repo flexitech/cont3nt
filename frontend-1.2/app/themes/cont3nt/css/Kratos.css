@@ -1,5 +1,6 @@
 .kratos{
-	width:960px;
+	/*width:960px;*/
+	max-width:960px;
 	margin:0px auto;
 }
 .kratos h1{
@@ -12,9 +13,6 @@
 
 /*------------------- Page Freelencer ----------------------*/
 
-.freelencer .title header h1,h2,h3,h4{
-	text-align: center;
-}
 .freelencer .title header h4{
 	color:gray;
 }
@@ -23,6 +21,31 @@
 }
 .freelencer .title{
 	border-bottom:1px dashed gray;
+}
+.freelencer .imgShow .imgContainer img{
+	width:100%;
+	height:auto;
+}
+.freelencer .cusBox1{
+	background-color:#e8e8e8;
+	border-radius:2px;
+}
+.freelencer .cusBox1 .yellowBotton{
+	background-color:#EDBE00;
+	border-radius:6px;
+}
+
+.myarticle article header h4{
+	color:#edbe00;
+	padding-bottom:10px;
+	border-bottom:1px dashed #777;
+}
+.myarticle article p{
+	color:#777;
+}
+.myarticle article img{
+	height:124px;
+	/*border:1px solid red;*/
 }
 
 /*------------------- End Page Freelencer ----------------------*/
