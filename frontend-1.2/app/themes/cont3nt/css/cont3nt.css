@@ -18,7 +18,7 @@ header .navbar-inner .brand{
 }
 .container-fluid{
 	display:relative;
-	text-align: center
+	text-align: center;
 	float:left;
 }
 .menu{
