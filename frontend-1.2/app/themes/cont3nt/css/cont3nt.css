@@ -7,8 +7,11 @@
 .right{
 	float:right;
 }
+.color-yellow{color:rgb(237, 190, 0);}
+.color-dark-silver{color:rgb(128, 128, 128);}
 .clear{clear:both;}
 .center{margin:0px auto ;}
+ul.accolade{margin-left:20px !important;}
 header .navbar-inner .brand{
 	position: relative;
 	top:8px;
@@ -22,13 +25,12 @@ header .navbar-inner .brand{
 	margin:0px auto;
 }
 .container-fluid{
-	display:relative;
 	text-align: center;
 }
 .menu{
 	float:none;
 	margin: 0px auto;
-	position: relative;;
+	position: relative;
 	width:80%;
 }
 
@@ -92,4 +94,17 @@ form .login input:last-child{
 	border-bottom-right-radius: 15px;
 	padding:25px;
 
+}
+/****************
+/**************** News
+*****************/
+.news-group{}
+.news-group > article p.header-info{
+	color:rgb(200,200,200);
+}
+.news-group > article p.content{
+	}
+.news-group > article{
+	margin-top:0px;
+	margin-bottom: 0px;
 }

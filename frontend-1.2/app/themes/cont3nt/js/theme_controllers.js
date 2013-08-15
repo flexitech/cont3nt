@@ -75,7 +75,29 @@ $app.controller('mapController', function($scope, geolocation, $http){
   $scope.auth={user:"",pass:""};
   $scope.user={name:""};
   $scope.login=function(){
-      if ($scope.auth.user=="admin" && $scope.auth.pass=="admin"){
+      var dat={};
+      dat['user']=$scope.auth.user;
+      dat['pass']=$scope.auth.pass;
+      $.ajax({
+        type:'POST',
+        data:dat,
+        url:"http://localhost:8030/cont3nt-service/check-user.php"
+      }).done(function(data){
+
+            
+          var objs=eval(data);
+          if(objs.length>0){
+            if(objs[0].status=="fail"){
+              alert("Incorrect Username or password!");
+            }
+            else{
+              alert("Welcome: " + objs[0].username);
+            }
+            $(".popupBox").removeClass("show");
+            $(".popupBox").addClass("hide");
+          }
+      });
+      /*if ($scope.auth.user=="admin" && $scope.auth.pass=="admin"){
           alert("Login Successfully!");
           $scope.user.name=$scope.auth.user;
           if(typeof(Storage)!=="undefined")
@@ -89,12 +111,11 @@ $app.controller('mapController', function($scope, geolocation, $http){
           {
             alert("not support web storage");
           }
-          $(".popupBox").removeClass("show");
-          $(".popupBox").addClass("hide");
+          
       }
       else{
         alert("Incorrect Username or password!");        
-      }
+      }*/
   };
 
 });
@@ -118,4 +139,81 @@ $app.controller('HomeController', function ($scope, plus) {
     {
     alert("not support web storage");
     }
+    // $(document).ready(function(){
+           ///////NEws loading
+      var b=false;
+    // });
+ $(document).ready(function(){
+           ///////NEws loading
+      $scope.news={content:""};
+      $('.news-group').html('');
+      ////// get ajax
+      $.ajax({
+        type:'GET',
+        url:"http://localhost:8030/cont3nt-service/get-news.php"
+      }).done(function(data){
+          var objs=eval(data);
+          //alert(objs.length);
+          for(var i=0;i<objs.length;i++){
+            var data_info = objs[i].upload_date + "<br/>" +  objs[i].news_short_dec;
+            var data =  objs[i].news_dec;
+            var str = '<article><h4>' + objs[i].news_title  +'</h4><p class="header-info">' + data_info + '</p><p class="content">' + data +'</p></article>';
+            //$scope.news.content =$scope.news.content  + str;
+            $('.news-group').html($('.news-group').html() + str);
+          }
+             
+      b=true;
+      });
+     });
+  if(b==true){
+      $scope.news={content:""};
+        ////// get ajax
+        $.ajax({
+          type:'GET',
+          url:"http://localhost:8030/cont3nt-service/get-news.php"
+        }).done(function(data){
+            var objs=eval(data);
+            //alert(objs.length);
+            for(var i=0;i<objs.length;i++){
+              var data_info = objs[i].upload_date + "<br/>" +  objs[i].news_short_dec;
+              var data =  objs[i].news_dec;
+              var str = '<article><h4>' + objs[i].news_title  +'</h4><p class="header-info">' + data_info + '</p><p class="content">' + data +'</p></article>';
+              //$scope.news.content =$scope.news.content  + str;
+              $('.news-group').html($('.news-group').html() + str);
+            }
+               
+        });
+   }
+
+
+
+
+    $scope.auth={user:"",pass:""};
+    $scope.user={name:""};
+    $scope.login=function(){
+        var dat={};
+        dat['user']=$scope.auth.user;
+        dat['pass']=$scope.auth.pass;
+        $.ajax({
+          type:'POST',
+          data:dat,
+          url:"http://localhost:8030/cont3nt-service/check-user.php"
+        }).done(function(data){
+
+              
+            var objs=eval(data);
+            if(objs.length>0){
+              if(objs[0].status=="fail"){
+                alert("Incorrect Username or password!");
+              }
+              else{
+                alert("Welcome: " + objs[0].username);
+              }
+              $(".popupBox").removeClass("show");
+              $(".popupBox").addClass("hide");
+            }
+        });
+      }
+
+
 });

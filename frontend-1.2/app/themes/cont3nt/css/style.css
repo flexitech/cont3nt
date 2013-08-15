@@ -36,8 +36,7 @@ header .navbar-inner{
 header .navbar-inner .nav{
 	position: absolute;
 	top: 5px;
-	right: 20px;
-	left: auto;
+	
 }
 
 
@@ -124,6 +123,7 @@ footer .navbar-inner .nav li.home a{ background-image: url('../img/cont3nt/home-
 footer .navbar-inner .nav li.blog a{ background-image: url('../img/cont3nt/bebo-48.png'); }
 footer .navbar-inner .nav li.freelancer a{ background-image: url('../img/cont3nt/conference-48.png'); }
 footer .navbar-inner .nav li.settings a{ background-image: url('../img/cont3nt/tree_structure-48.png'); }
+footer .navbar-inner .nav li.news a{ background-image: url('../img/cont3nt/news-48.png'); }
 
 .leaflet-container {
 	position: relative;

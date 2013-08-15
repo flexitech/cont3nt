@@ -11,7 +11,7 @@
 	 */
 	"files" : {
 		"css" : ["css/bootstrap.min", "css/style","css/cont3nt","css/kratos","css/mygridfluid120","css/blog-style"],
-		"js" : ["js/theme_controllers","js/jquery-1.10.2.min"]
+		"js" : ["js/theme_controllers"]
 	},
 
 	/*
@@ -22,7 +22,7 @@
 	"routes" : [
 		{"path":"/map",	"layout":"layouts/main",		"template":"map",	"controller":"mapController", "title":"Home Page","class":"home"},
 
-		{"path":"/home",	"layout":"layouts/main",		"template":"home",	"controller":"HomeController", "title":"Home","class":"blog"},
+		{"path":"/home",	"layout":"layouts/main",		"template":"home",	"controller":"HomeController", "title":"Home","class":"news"},
 		
 		{"path":"/freelencer",	"layout":"layouts/main",		"template":"freelencer", "title":"Home","class":"freelancer"},
 
