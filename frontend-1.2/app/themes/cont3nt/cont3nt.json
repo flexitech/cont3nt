@@ -21,6 +21,7 @@
 	 */
 	"routes" : [
 		{"path":"/home",	"layout":"layouts/main",		"template":"home",	"controller":"HomeController", "title":"Home","class":"list"},
+		{"path":"/freelencer",	"layout":"layouts/main",		"template":"freelencer",	"controller":"freelencerController", "title":"Home","class":"list"},
 		
 		{ "otherwise" : "/home" }
 	]
