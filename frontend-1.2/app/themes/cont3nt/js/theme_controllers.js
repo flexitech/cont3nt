@@ -81,8 +81,8 @@ $app.controller('mapController', function($scope, geolocation, $http){
       $.ajax({
         type:'POST',
         data:dat,
-        //url:"http://yinkeangseng.byethost8.com/check-user.php"
-        url:"http://localhost:8030/cont3nt-service/check-user.php"
+        url:"http://yinkeangseng.byethost8.com/check-user.php"
+        //url:"http://localhost:8030/cont3nt-service/check-user.php"
       }).done(function(data){
 
             
@@ -151,8 +151,8 @@ $app.controller('HomeController', function ($scope, plus) {
       ////// get ajax
       $.ajax({
         type:'GET',
-        //url:"http://yinkeangseng.byethost8.com"
-        url:"http://localhost:8030/cont3nt-service/get-news.php"
+        url:"http://yinkeangseng.byethost8.com"
+        //url:"http://localhost:8030/cont3nt-service/get-news.php"
       }).done(function(data){
           var objs=eval(data);
           //alert(objs.length);
@@ -174,8 +174,8 @@ $app.controller('HomeController', function ($scope, plus) {
         ////// get ajax
         $.ajax({
           type:'GET',
-          //url:"http://yinkeangseng.byethost8.com"
-          url:"http://localhost:8030/cont3nt-service/get-news.php"
+          url:"http://yinkeangseng.byethost8.com"
+          //url:"http://localhost:8030/cont3nt-service/get-news.php"
         }).done(function(data){
             var objs=eval(data);
             //alert(objs.length);
@@ -204,8 +204,8 @@ $app.controller('HomeController', function ($scope, plus) {
           type:'POST',
           data:dat,
           
-          //url:"http://yinkeangseng.byethost8.com/check-user.php"
-          url:"http://localhost:8030/cont3nt-service/check-user.php"
+          url:"http://yinkeangseng.byethost8.com/check-user.php"
+          //url:"http://localhost:8030/cont3nt-service/check-user.php"
         }).done(function(data){
 
               
@@ -227,18 +227,29 @@ $app.controller('HomeController', function ($scope, plus) {
 });
 
 $app.controller('FreelancerController', function ($scope, plus) {
-   
+   var b=false;
+     
+    $(document).ready(function(){
+        $("#wrapper").niceScroll({touchbehavior:true});
+        b=true;
+    });
+  
+    $("#wrapper").niceScroll({touchbehavior:true});
+    $scope.onClick1=function(){
+      alert(0);
+    }
+    
 });
 
 $app.controller('BlogController', function ($scope, plus) {
-   // var b=false;
+   var b=false;
      
-   //  $(document).ready(function(){
-   //      $("#wrapper").niceScroll({touchbehavior:true});
-   //      b=true;
-   //  });
-   // if(!b)
-   //  $("#wrapper").niceScroll({touchbehavior:true});
+    $(document).ready(function(){
+        $("#wrapper").niceScroll({touchbehavior:true});
+        b=true;
+    });
+   if(!b)
+    $("#wrapper").niceScroll({touchbehavior:true});
 });
   // defaulting the time on Angular's model variable.
  

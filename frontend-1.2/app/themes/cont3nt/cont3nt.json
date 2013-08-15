@@ -26,7 +26,8 @@
 		
 		{"path":"/freelencer",	"layout":"layouts/main",		"template":"freelencer","controller":"FreelancerController",  "title":"Home","class":"freelancer"},
 
-		{"path":"/blog",	"layout":"layouts/main",		"template":"blog","controller":"BlogController", "title":"blog","class":"blog"},
+		{"path":"/blog",	"layout":"layouts/main",		"template":"blog","controller":"BlogController", "title":"blog","class":"blog"}
+		,
 
 		
 		

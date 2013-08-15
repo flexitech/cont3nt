@@ -27,7 +27,8 @@
         following tag to your config.xml; you will still have the INTERNET
         permission on your app, which PhoneGap requires.
     -->
-    <preference name="permissions"                value="none"/>
+    <preference name="permissions"                value="internet"/>
+	
 
     <!-- Customize your app and platform with the preference element. -->
     <preference name="phonegap-version"           value="2.7.0" />          <!-- all: current version of PhoneGap -->
@@ -89,6 +90,7 @@
         Otherwise, you can specify specific domains:
     -->
     <access origin="http://127.0.0.1*"/> <!-- allow local pages -->
+	<access origin="*" /> 
     <!--
         <access origin="http://phonegap.com" />                    - allow any secure requests to http://phonegap.com/
         <access origin="http://phonegap.com" subdomains="true" />  - same as above, but including subdomains, such as http://build.phonegap.com/
