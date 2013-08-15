@@ -147,7 +147,7 @@ $app.controller('HomeController', function ($scope, plus) {
  $(document).ready(function(){
            ///////NEws loading
       $scope.news={content:""};
-      $('.news-group').html('');
+      /*$('.news-group').html('');
       ////// get ajax
       $.ajax({
         type:'GET',
@@ -162,12 +162,14 @@ $app.controller('HomeController', function ($scope, plus) {
             var str = '<article><h4>' + objs[i].news_title  +'</h4><p class="header-info">' + data_info + '</p><p class="content">' + data +'</p></article>';
             //$scope.news.content =$scope.news.content  + str;
             $('.news-group').html($('.news-group').html() + str);
+            $('.news-group').html($('.news-group').html() + str);
           }
              
          b=true;
 
           $("#wrapper").niceScroll({touchbehavior:true});
       });
+*/
 
       $("#wrapper").niceScroll({touchbehavior:true});
      });
