@@ -25,6 +25,8 @@
 		{"path":"/home",	"layout":"layouts/main",		"template":"home",	"controller":"HomeController", "title":"Home","class":"list"},
 		
 		{"path":"/freelencer",	"layout":"layouts/main",		"template":"freelencer", "title":"Home","class":"list"},
+
+		{"path":"/blog",	"layout":"layouts/main",		"template":"blog", "title":"blog","class":"list"},
 		
 		{ "otherwise" : "/home" }
 	]
