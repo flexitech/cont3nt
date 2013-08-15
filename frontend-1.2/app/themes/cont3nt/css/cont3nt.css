@@ -83,8 +83,7 @@ form .login input:first-child{
 	border-top-right-radius: 15px;
 
 	border-bottom-left-radius: 0px;
-	border-bottom-right-radius: 0px;
-	padding:25px;
+	height:50px;
 
 }
 form .login input:last-child{
@@ -93,7 +92,7 @@ form .login input:last-child{
 
 	border-bottom-left-radius: 15px;
 	border-bottom-right-radius: 15px;
-	padding:25px;
+	height:50px;
 
 }
 /****************

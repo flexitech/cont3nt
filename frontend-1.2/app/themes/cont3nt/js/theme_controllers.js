@@ -147,7 +147,7 @@ $app.controller('HomeController', function ($scope, plus) {
  $(document).ready(function(){
            ///////NEws loading
       $scope.news={content:""};
-      /*$('.news-group').html('');
+      $('.news-group').html('');
       ////// get ajax
       $.ajax({
         type:'GET',
@@ -169,7 +169,7 @@ $app.controller('HomeController', function ($scope, plus) {
 
           $("#wrapper").niceScroll({touchbehavior:true});
       });
-*/
+
 
       $("#wrapper").niceScroll({touchbehavior:true});
      });
