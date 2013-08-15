@@ -1,0 +1,38 @@
+<div id="hello-world">
+	<h1 >Hello World! </h1>
+	<div class="box1">
+		Magic Box: 
+		<br/>
+		<br/>
+		<button class="btn btn-small" ng-click="updateTitle()">
+			Click here to see!
+		</button>
+		<br/>
+		<div style="color:#fff;" >
+			{{magicbox.title}} created on {{magicbox.date}}
+
+		</div>
+	</div>
+	<br/>
+	<h3>What to see next!</h3>
+	<div class="data-handle">
+		<table>
+			<tr>
+				<td>What is your name? </td><td><input type="text" ng-model="quiz.name"/></td>
+			</tr>
+			<tr>
+				<td>How old are you?</td><td> <input type="number" ng-model="quiz.age" /></td>
+			</tr>
+		</table>
+		<br/>
+		<button class="btn btn-small" ng-click="askMeBack(quiz)">
+			Ask Me!
+		</button>
+		<plus-data collection="quizs">
+			<ul>
+				<li ng-repeat="item in collection.data">{{ item.quiz.name }}</li>
+			</ul>
+		</plus-data>
+
+	</div>
+</div>

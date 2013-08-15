@@ -1,0 +1,20 @@
+{
+	"name" : "Cont3nt Demo",
+	"server_url" : "https://flawless-outlet-307.appspot.com/",
+	"server_secret" : "520b6a37957ee775402d",
+
+	/*
+	 * Specify the name of the desired theme
+	 */
+	"theme" : "cont3nt",
+
+	/*
+	 * plugins add to the functionality of Plus.io Frontend
+	 */
+	"plugins" : ["leaflet"],
+
+	/*
+	 * This array specifies the names of javascript files in your app/includes/scripts folder
+	 */
+	"scripts" : ["controllers"]
+}
