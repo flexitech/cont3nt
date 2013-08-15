@@ -1,4 +1,4 @@
-﻿/*
+﻿
 	**** mygrid.css file *****
 	Created: 01.jun.13
 	Updated: 01.jun.13
@@ -36,6 +36,9 @@
 {
     height:auto;
 }
+
+/*----------------------------- Grid Setting---------------------------*/
+
 .grid-10, .grid-20, .grid-30, .grid-40, .grid-50, .grid-60, .grid-70, .grid-80, .grid-90, .grid-100,.grid-105,.grid-110,.grid-115,.grid-120,
 .grid-15, .grid-25, .grid-35, .grid-45, .grid-55, .grid-65, .grid-75, .grid-85, .grid-95, .grid-5
 {
@@ -167,6 +170,9 @@
     width:100%;
      
 }
+/*----------------------------- End Grid Setting---------------------------*/
+
+/*------------------------------padding setting -----------------------*/
 .padd-tb5{
 	padding-top:5px;
 	padding-bottom:5px;
@@ -208,6 +214,25 @@
 {
     padding:0px;
 }
+.padd-lr0
+{
+    padding-left:0px;
+    padding-right:0px;
+}
+.padd-l0{
+    padding-left:0px;
+}
+.padd-r0{
+    padding-right:0px;
+}
+.padd-rlt3{
+    padding: 3px 0 3px 3px;
+}
+
+/*------------------------------ End Padding Setting ----------------------------*/
+
+
+/*---------------------------------Margin Setting------------------------------*/
 .marg-0{
 	margin:0px;
 }
@@ -234,11 +259,6 @@
 .marg-5
 {
     margin:5px;
-}
-.padd-lr0
-{
-    padding-left:0px;
-	padding-right:0px;
 }
 .marg-lr0
 {
@@ -280,15 +300,11 @@
 {
     margin:10px;
 }
-.padd-l0{
-	padding-left:0px;
-}
-.padd-r0{
-	padding-right:0px;
-}
-.padd-rlt3{
-	padding: 3px 0 3px 3px;
-}
+/*-------------------------End Margin Setting---------------------------*/
+
+
+
+/*--------------------------mobile query------------------------------*/
 .mobile-only
 {
 	display:none;
@@ -408,6 +424,5 @@ span.mobile-only
 	.button{
 		padding:10px 10px !important;
 	}
-    
-
 }
+/*-------------------------- end mobile query------------------------------

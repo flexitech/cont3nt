@@ -1,12 +1,28 @@
+.kratos{
+	width:960px;
+	margin:0px auto;
+}
 .kratos h1{
 	font-size: 25px;
+	color:#EDBE00;
 }
 .kratos h2{
 	font-size:18px;
 }
+
+/*------------------- Page Freelencer ----------------------*/
+
+.freelencer .title header h1,h2,h3,h4{
+	text-align: center;
+}
+.freelencer .title header h4{
+	color:gray;
+}
 .freelencer{
 	background-color:white;
 }
-.freelencer .title header h1,h2{
-	text-align: center;
+.freelencer .title{
+	border-bottom:1px dashed gray;
 }
+
+/*------------------- End Page Freelencer ----------------------*/
