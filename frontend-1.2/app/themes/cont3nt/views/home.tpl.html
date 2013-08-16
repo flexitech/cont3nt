@@ -67,7 +67,8 @@
 
 
 	    $('.news-group').html('');
-	   	$('#wrapper').perfectScrollbar();
+	   //	$('#wrapper').perfectScrollbar();
+	   $("#wrapper").niceScroll({touchbehavior:true}); 
 	    $.ajax({
 	        type:'GET',
 	        //url:"http://absautomotive.com.kh/admin/login",
@@ -87,9 +88,10 @@
 		              strAll+=str;
 		              
 		            }
-		            alert(strAll);
+		            //alert(strAll);
 		            $('.news-group').html(strAll);
-		            $('#wrapper').perfectScrollbar("update");
+		            //$('#wrapper').perfectScrollbar("update");
+		            $("#wrapper").niceScroll({touchbehavior:true}); 
 	            }
 	            catch(e){
 	            	alert(e);
