@@ -98,73 +98,34 @@ $app.controller('mapController', function($scope, geolocation, $http){
             $(".popupBox").addClass("hide");
           }
       });
-      /*if ($scope.auth.user=="admin" && $scope.auth.pass=="admin"){
-          alert("Login Successfully!");
-          $scope.user.name=$scope.auth.user;
-          if(typeof(Storage)!=="undefined")
-          {
-          // Yes! localStorage and sessionStorage support!
-          // Some code.....
-            alert("support web storage");
-              localStorage.username = $scope.auth.user;
-          }
-        else
-          {
-            alert("not support web storage");
-          }
-          
-      }
-      else{
-        alert("Incorrect Username or password!");        
-      }*/
+     
   };
 
 });
  
 $app.controller('HomeController', function ($scope, plus) {
-  // defaulting the time on Angular's model variable.
   
-  
-  if(typeof(Storage)!=="undefined")
-  {// Yes! localStorage and sessionStorage support!
-    // Some code.....
+    var b=false;
     
-    //localStorage.username = $scope.auth.user;
-    if ($scope.user!=undefined){
-      alert("support web storage" + $scope.user);
-    }
-   
-    
-  }
-  else
-    {
-    alert("not support web storage");
-    }
-    // $(document).ready(function(){
-           ///////NEws loading
-      var b=false;
-    // });
       $(document).ready(function(){
-           ///////NEws loading
+       
+      
         $scope.news={content:""};
         $('.news-group').html('');
         ////// get ajax
         $.ajax({
             type:'GET',
-            url:"http://yinkeangseng.byethost8.com"
-          //url:"http://localhost:8030/cont3nt-service/get-news.php"
+            //url:"http://yinkeangseng.byethost8.com"
+            url:"http://localhost:8030/cont3nt-service/get-news.php"
             }).done(function(data){
                 var objs=eval(data);
-                //alert(objs.length);
                 for(var i=0;i<objs.length;i++){
                   var data_info = objs[i].upload_date + "<br/>" +  objs[i].news_short_dec;
                   var data =  objs[i].news_dec;
                   var str = '<article><h4>' + objs[i].news_title  +'</h4><p class="header-info">' + data_info + '</p><p class="content">' + data +'</p></article>';
-                  //$scope.news.content =$scope.news.content  + str;
-                  $('.news-group').html($('.news-group').html() + str);
+                  
                   $('.news-group').html($('.news-group').html() + str);
                 }
-                   
                 b=true;
 
                 $("#wrapper").niceScroll({touchbehavior:true});
@@ -173,27 +134,6 @@ $app.controller('HomeController', function ($scope, plus) {
 
         $("#wrapper").niceScroll({touchbehavior:true});
      });
-  if(b==true){
-      $scope.news={content:""};
-        ////// get ajax
-        $.ajax({
-          type:'GET',
-          url:"http://yinkeangseng.byethost8.com"
-          //url:"http://localhost:8030/cont3nt-service/get-news.php"
-        }).done(function(data){
-            var objs=eval(data);
-            //alert(objs.length);
-            for(var i=0;i<objs.length;i++){
-              var data_info = objs[i].upload_date + "<br/>" +  objs[i].news_short_dec;
-              var data =  objs[i].news_dec;
-              var str = '<article><h4>' + objs[i].news_title  +'</h4><p class="header-info">' + data_info + '</p><p class="content">' + data +'</p></article>';
-              //$scope.news.content =$scope.news.content  + str;
-              $('.news-group').html($('.news-group').html() + str);
-            }
-          $("#wrapper").niceScroll({touchbehavior:true});
-        });
-        $("#wrapper").niceScroll({touchbehavior:true});
-   }
 
 
 
