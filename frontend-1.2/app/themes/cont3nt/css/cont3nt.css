@@ -112,3 +112,27 @@ form .login input:last-child{
 	margin-top:0px;
 	margin-bottom: 0px;
 }
+/*
+.footer-nav{
+	position: fixed;
+	height:30px;
+	width:500px;
+	bacgkround-color:black !important;
+}
+.footer-nav ul{
+	list-style-type: none;
+	padding: 0px;
+	margin: 0px;
+	height:70px;
+	line-height: 70px;
+}
+.footer-nav ul li{
+	padding: 0px;
+	margin: 0px;
+	display: inline-block;
+	width:20%;
+}
+.navbar-inner{
+	line-height: 40px;
+}
+*/
