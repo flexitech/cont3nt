@@ -170,8 +170,7 @@ visibility: visible;width:100%;height:50%;
 	.video{
 		visibility: visible;
 		margin:auto 0%;
-		width:100%;		
-		height: 50%;
+		width:100%;				
 	}
 	#banner{
 	width:96%; 
@@ -192,8 +191,7 @@ visibility: visible;width:100%;height:50%;
 @media screen and (max-width: 640px) {
 	.video{
 		visibility: visible;
-		width:100%;		
-		height: auto;		
+		width:100%;				
 	}
 .content{
 	style="float:left;width:100%;
@@ -230,7 +228,6 @@ visibility: visible;width:100%;height:50%;
 	}
 	.video{
 		visibility: visible;
-		width:100%;		
-		height: 50%;		
+		width:100%;				
 	}
 }
