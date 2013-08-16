@@ -1,3 +1,31 @@
+/*----------------------------Font Setting -------------------------*/
+@font-face {
+	font-family: 'garuda';
+	src: url('../font/garuda.eot'); /* IE9 Compat Modes */
+	src: url('../font/garuda.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+	     url('../font/garuda.woff') format('woff'), /* Modern Browsers */
+	     url('../font/garuda.ttf')  format('truetype'), /* Safari, Android, iOS */
+	     url('../font/garuda.svg#svgFontName') format('svg'); /* Legacy iOS */
+	}
+@font-face {
+	font-family: 'latinia';
+	src: url('../font/latinia.eot'); /* IE9 Compat Modes */
+	src: url('../font/latinia.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+	     url('../font/latinia.woff') format('woff'), /* Modern Browsers */
+	     url('../font/latinia.ttf')  format('truetype'), /* Safari, Android, iOS */
+	     url('../font/latinia.svg#svgFontName') format('svg'); /* Legacy iOS */
+	}
+@font-face {
+	font-family: 'lsansuni';
+	src: url('../font/lsansuni.ttf.eot'); /* IE9 Compat Modes */
+	src: url('../font/lsansuni.ttf.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+	     url('../font/lsansuni.ttf.woff') format('woff'), /* Modern Browsers */
+	     url('../font/lsansuni.ttf.ttf')  format('truetype'), /* Safari, Android, iOS */
+	     url('../font/lsansuni.ttf.svg#svgFontName') format('svg'); /* Legacy iOS */
+	}
+
+/*---------------------------- End Font Setting -------------------------*/
+
 .kratos{
 	/*width:960px;*/
 	max-width:960px;
@@ -14,6 +42,8 @@
 /*------------------- Page Freelencer ----------------------*/
 
 .freelencer .title header h4{
+	font-family:'lsansuni';
+	font-weight:normal;
 	color:gray;
 }
 .freelencer{
@@ -104,5 +134,7 @@
 .copyRight span{
 	padding-left:40px;
 }
+
+
 
 /*------------------- End Page Freelencer ----------------------*/
