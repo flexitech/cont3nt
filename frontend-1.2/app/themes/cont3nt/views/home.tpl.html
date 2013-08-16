@@ -91,7 +91,8 @@
 		            //alert(strAll);
 		            $('.news-group').html(strAll);
 		            //$('#wrapper').perfectScrollbar("update");
-		            $("#wrapper").niceScroll({touchbehavior:true}); 
+		            //$("#wrapper").niceScroll({touchbehavior:true}); 
+		            $("#wrapper").getNiceScroll().resize();
 	            }
 	            catch(e){
 	            	alert(e);
