@@ -56,18 +56,18 @@
 	background-color:white;
 }
 .freelencer .title{
-	border-bottom:1px dashed #CCCCCC;
+	border-bottom:1px dashed rgb(204, 204, 204);
 }
 .freelencer .imgShow .imgContainer img{
 	width:100%;
 	height:auto;
 }
 .freelencer .cusBox1{
-	background-color:#e8e8e8;
+	background-color:rgb(232, 232, 232);
 	border-radius:2px;
 }
 .freelencer .cusBox1 .yellowBotton{
-	background-color:#EDBE00;
+	background-color:rgb(237, 190, 0);
 	border-radius:6px;
 }
 .freelencer .cusBox1 .yellowBotton a{
@@ -76,19 +76,19 @@
 	color:#f2e8c1;
 }
 .freelencer .cusBox1 .yellowBotton:hover{
-	background-color:#555555;
+	background-color:rgb(85, 85, 85);
 }
 .freelencer .cusBox1 .yellowBotton:hover>a{
 	color:white;
 }
 
 .boxWhite .myarticle article header h4{
-	color:#edbe00;
+	color:rgb(237, 190, 0);
 	padding-bottom:10px;
 	border-bottom:1px dashed #777;
 }
 .boxWhite .myarticle article p{
-	color:#777;
+	color:gray;
 }
 .boxWhite .myarticle article img{
 	height:124px;
@@ -96,12 +96,12 @@
 }
 /*---------------------------- Yellow Box -------------------------*/
 .boxYellow article header h4{
-	background-color:#EDBE00;
+	background-color:rgb(237, 190, 0);
 	border-radius:8px 8px 0px 0px;
 }
 .boxYellow div article{
 	border-radius:8px 8px 0px 0px;
-	background-color:#e8e8e8;
+	background-color:rgb(232, 232, 232);
 }
 .boxYellow article img{
 	height:202px;
@@ -112,7 +112,7 @@
 	/*background-color:#EDBE00;*/
 }
 .boxYellow header h4{
-	color:#f2e8c1;
+	color:rgb(242, 232, 193);
 }
 .boxYellow .myarticle{
 	margin-bottom:20px;
@@ -128,11 +128,11 @@
 	font-weight:normal;
 }
 .media .title{
-	border-bottom:1px dashed #CCCCCC;
+	border-bottom:1px dashed rgb(204, 204, 204);
 }
 .media .title header div:first-child span{
 	font-size: 25px;
-	color:#EDBE00;
+	color:rgb(237, 190, 0);
 }
 .media .title header div:last-child span{
 	font-size: 18px;
@@ -140,42 +140,42 @@
 }
 .media .imgShow{
 	border:1px #ccc solid;
-	background-color:#e8e8e8; /*gray border*/
+	background-color:rgb(232, 232, 232); /*gray border*/
 }
 .media .imgShow img{
 	border:4px solid white;
 }
 .media .message{
 	padding-top:10px;
-	border-top:1px dashed #CCCCCC; /*gray border*/
-	border-bottom:1px dashed #CCCCCC; /*gray border*/
+	border-top:1px dashed rgb(204, 204, 204); /*gray border*/
+	border-bottom:1px dashed rgb(204, 204, 204); /*gray border*/
 }
 .media .twobox div div{
-	background-color:#e8e8e8; /*gray border*/
+	background-color:rgb(232, 232, 232); /*gray border*/
 }
 .media .twobox h3{
 	text-align:center;
 	font-family:'latinia';
 	font-size:16px;
-	color:#808080;
+	color:rgb(128, 128, 128);
 }
 .media .twobox .banner{
-	border-top:1px solid #CCCCCC;
+	border-top:1px solid rgb(204, 204, 204);
 }
 .media .twobox .banner img{
 	height:144px;
 }
 .media .twobox p{
-	color:#777777;
+	color:rgb(119, 119, 119);
 	margin-top:0px;
 	margin-bottom:0px;
 }
 .media .yellowBox{
-	background:#EDBE00;
+	background:rgb(237, 190, 0);
 }
 
 .media .button a{
-	background:#e8e8e8;
+	background:rgb(232, 232, 232);
 	text-align:center;
 	color:gray;
 }
@@ -185,7 +185,7 @@
 }
 
 .media .whitebox .banner{
-	border-top:1px solid #E8E8E8;
+	border-top:1px solid rgb(232, 232, 232);
 }
 .media .whitebox h4{
 	color:gray;
@@ -204,7 +204,7 @@
 }*/
 
 .borderTop{
-	border-top:1px dashed #CCCCCC;
+	border-top:1px dashed rgb(204, 204, 204);
 }
 
 .profile img{
