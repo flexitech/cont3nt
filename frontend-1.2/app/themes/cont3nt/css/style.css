@@ -99,13 +99,18 @@ footer.navbar .nav{
 
 
 footer.navbar .nav li {
+	/*display: table-cell;
+	height: 100%;
+	float: none;
+	height: 70px;
+	text-align: center;
+	list-style-type: none;*/
 	display: table-cell;
 	height: 100%;
 	float: none;
 	height: 70px;
 	text-align: center;
 	list-style-type: none;
-
 }
 
 footer.navbar .nav li a{

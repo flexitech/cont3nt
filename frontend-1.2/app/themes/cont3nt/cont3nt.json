@@ -30,8 +30,9 @@
 		{"path":"/privacy",	"layout":"layouts/main",		"template":"privacy","controller":"PrivacyController", "title":" ","class":"blog"},
 
 		
-		{"path":"/mediacompany",	"layout":"layouts/main",		"template":"mediacompany","controller":"mediaController", "title":"media","class":"media"},
-		
+		{"path":"/mediacompany",	"layout":"layouts/main",		"template":"mediacompany","controller":"mediaController", "title":"","class":"media"},
+
+				
 		{ "otherwise" : "/home" }
 	]
 }
