@@ -73,7 +73,7 @@
 .freelencer .cusBox1 .yellowBotton a{
 	font-size:18px;
 	text-align: center;
-	color:#f2e8c1;
+	color:rgb(242, 232, 193);
 }
 .freelencer .cusBox1 .yellowBotton:hover{
 	background-color:rgb(85, 85, 85);
@@ -173,13 +173,15 @@
 .media .yellowBox{
 	background:rgb(237, 190, 0);
 }
-
-.media .button a{
+.media .yellowBox h4{
+	color:rgb(242, 232, 193);
+}
+.media .buttongray a{
 	background:rgb(232, 232, 232);
 	text-align:center;
 	color:gray;
 }
-.media .button:hover>a{
+.media .buttongray:hover>a{
 	color:white;
 	background:#555555 !important;
 }
