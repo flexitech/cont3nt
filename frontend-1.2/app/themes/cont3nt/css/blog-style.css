@@ -231,3 +231,33 @@ visibility: visible;width:100%;height:50%;
 		width:100%;				
 	}
 }
+
+@media screen and (max-width: 1280px) {
+
+	#wrapperfull{		
+		margin-left: 2%;
+		float: left;
+		width: 96%;
+	}
+	h1{
+	font-size:16px;
+	width:100%;
+	}
+	#banner{
+	width:96%; 
+	height: auto;
+	margin-bottom: 0%;
+	/*max-height:100%;*/	 
+	}
+	.video{
+		visibility: visible;
+		width:100%;	
+		height: 600px;			
+	}
+	.rightContent{	
+	visibility: hidden;
+	width: 0px;
+	height: 0px;
+	display: none;
+	}	
+}
