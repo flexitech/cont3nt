@@ -26,7 +26,9 @@
 		
 		{"path":"/freelencer",	"layout":"layouts/main",		"template":"freelencer","controller":"freelancerController",  "title":"freelencer","class":"freelancer"},
 
-		{"path":"/blog",	"layout":"layouts/main",		"template":"blog","controller":"BlogController", "title":"blog","class":"blog"},
+		{"path":"/blog",	"layout":"layouts/main",		"template":"blog","controller":"BlogController", "title":" ","class":"blog"},
+		{"path":"/privacy",	"layout":"layouts/main",		"template":"privacy","controller":"PrivacyController", "title":" ","class":"blog"},
+
 		
 		{"path":"/mediacompany",	"layout":"layouts/main",		"template":"mediacompany","controller":"mediaController", "title":"media","class":"media"},
 		
