@@ -38,6 +38,9 @@
 .kratos h2{
 	font-size:18px;
 }
+.kratos h1,h2,h3,h4{
+	margin:0px;
+}
 
 /*------------------- Page Freelencer ----------------------*/
 
@@ -50,7 +53,7 @@
 	background-color:white;
 }
 .freelencer .title{
-	border-bottom:1px dashed CCCCCC;
+	border-bottom:1px dashed #CCCCCC;
 }
 .freelencer .imgShow .imgContainer img{
 	width:100%;
@@ -112,6 +115,68 @@
 	margin-bottom:20px;
 }
 /*----------------------------End Yellow Box -------------------------*/
+
+
+
+
+/*---------------------------- Media Page -------------------------*/
+.media .title header div span{
+	font-family:'lsansuni';
+	font-weight:normal;
+}
+.media .title{
+	border-bottom:1px dashed #CCCCCC;
+}
+.media .title header div:first-child span{
+	font-size: 25px;
+	color:#EDBE00;
+}
+.media .title header div:last-child span{
+	font-size: 18px;
+	color:gray;
+}
+.media .imgShow{
+	border:1px #ccc solid;
+	background-color:#e8e8e8; /*gray border*/
+}
+.media .imgShow img{
+	border:4px solid white;
+}
+.media .message{
+	border-top:1px dashed #CCCCCC; /*gray border*/
+	border-bottom:1px dashed #CCCCCC; /*gray border*/
+}
+.media .twobox div div{
+	background-color:#e8e8e8; /*gray border*/
+}
+.media .twobox h3{
+	text-align:center;
+	font-family:'latinia';
+	font-size:16px;
+	color:#808080;
+}
+.media .twobox .banner{
+	border-top:1px solid #CCCCCC;
+}
+.media .twobox .banner img{
+	height:144px;
+}
+.media .twobox p{
+	color:#777777;
+	margin-top:0px;
+	margin-bottom:0px;
+}
+.media .yellowBox{
+	background:#EDBE00;
+}
+.media .yellowBox .button{
+	text-align:center;
+	color:#444444;
+	background:#808080;
+}
+/*---------------------------- Media Page -------------------------*/
+
+
 /*
 .myarticle p{
 	padding-left:15px;
@@ -133,6 +198,15 @@
 }
 .copyRight span{
 	padding-left:40px;
+}
+.boxRadius{
+	border-radius:6px;
+}
+.boxRadius-Top{
+	border-radius:10px 10px 0px 0px;
+}
+.boxRadius-Bottom{
+	border-radius:0px 0px 5px 5px;
 }
 
 
