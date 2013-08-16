@@ -30,7 +30,7 @@
 		{"path":"/blog",	"layout":"layouts/main",		"template":"blog","controller":"BlogController", "title":" ","class":"blog"},
 		{"path":"/press",	"layout":"layouts/main",		"template":"press","controller":"mediaController", "title":"","class":"press"},
 		{"path":"/privacy",	"layout":"layouts/main",		"template":"privacy","controller":"PrivacyController", "title":" ","class":"private"},
-
+		{ "path" : "/pages/construction",	"layout" : "layouts/main",		"template" : "construction" },
 				
 		{ "otherwise" : "/home" }
 	]
