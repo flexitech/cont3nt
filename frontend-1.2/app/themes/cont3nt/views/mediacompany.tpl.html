@@ -160,3 +160,14 @@
 		<div class="grid-120" style="margin-bottom:100px">&nbsp;</div>
 	</div>
 </div>
+<script type="text/javascript">
+
+var scroll1;
+function loaded() {
+	scroll1 = new iScroll('#wrapper');
+}
+
+document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+document.addEventListener('DOMContentLoaded', loaded, false);
+$("#wrapper").niceScroll({touchbehavior:true});
+</script>

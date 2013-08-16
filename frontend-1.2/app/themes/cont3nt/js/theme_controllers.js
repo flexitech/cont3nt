@@ -229,15 +229,13 @@ $app.controller('BlogController', function ($scope, plus) {
 });
 
 $app.controller('mediaController', function ($scope, plus) {
-   var b=false;
+  
      
     $(document).ready(function(){
         $("#wrapper").niceScroll({touchbehavior:true});
-        b=true;
+       
     });
-   if(!b)
-    $("#wrapper").niceScroll({touchbehavior:true});
-
+  
 
   $scope.auth={user:"",pass:""};
     $scope.user={name:""};
