@@ -1,6 +1,6 @@
 input{color:black;}
 .logo{
-	margin-top:15px;
+	
 }
 .left{
 	float:left;
@@ -15,15 +15,17 @@ input{color:black;}
 ul.accolade{margin-left:20px !important;}
 header .navbar-inner .brand{
 	position: relative;
-	top:8px;
+	
 	text-shadow: none;
 	font-family: "RobotoThin";
 	color: #ccc;
 	font-size: 18px;
-	float: none;
+	float: left;
 	text-align: center;
 	margin-left: 0;
-	margin:0px auto;
+	display: inline;
+
+	/*margin:0px auto;*/
 }
 .container-fluid{
 	text-align: center;
@@ -39,9 +41,10 @@ header .navbar-inner .brand{
     box-shadow:none !important;
 }
 .nav-top{
-	margin: 0px auto;
-	width:200px;
-	height:30px;
+	
+	position:absolute;
+	top:5px;
+	right:10px;
 }
 .hide{
 	opacity: 0;
@@ -55,15 +58,16 @@ header .navbar-inner .brand{
 }
 .popupBox{
 	position: absolute;
-	left:50%;
+	/*left:50%;*/
+	right :10px;
 	z-index: 99999;
 	width:60%;
-	top:100px;
+	top:70px;
 	max-width: 450px;
 }
 .popupBox .main{
 	position:relative;
-	left:-50%;
+	/*left:-50%;*/
 	background-color:white;
 	padding:15px;
 	border-radius:10px;

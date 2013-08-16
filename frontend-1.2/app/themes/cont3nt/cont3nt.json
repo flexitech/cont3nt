@@ -10,8 +10,8 @@
 	 * these paths are relative to the root of your theme directory
 	 */
 	"files" : {
-		"css" : ["css/bootstrap.min", "css/style","css/cont3nt","css/kratos","css/mygridfluid120","css/blog-style"],
-		"js" : ["js/theme_controllers","js/jquery.nicescroll"]
+		"css" : ["css/bootstrap.min", "css/style","css/cont3nt","css/kratos","css/mygridfluid120","css/blog-style","css/perfect-scrollbar-0.4.3.min"],
+		"js" : ["js/theme_controllers","js/jquery.nicescroll","js/perfect-scrollbar-0.4.3.with-mousewheel.min"]
 	},
 
 	/*

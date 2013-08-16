@@ -1,4 +1,4 @@
-
+<div class="kratos">
 <div class="grid-120 marg-top-20" style="margin-bottom:100px;">
 	<div class="grid-70 mobile-grid"> 
 		<h3>Press from :234 <span class="color-yellow">Cont3nt</span></h3>
@@ -57,32 +57,32 @@
 	</div>
 	<div class="clear"></div>
 </div>
+</div>
 <script type="text/javascript">
-	 //$(document).read(function(){
-
-	        //$scope.news={content:""};
-	        $('.news-group').html('');
-	        ////// get ajax
-	        $.ajax({
-	            type:'GET',
-	            url:"http://yinkeangseng.byethost8.com"
-	            //url:"http://localhost:8030/cont3nt-service/get-news.php"
-	            }).done(function(data){
-	                var objs=eval(data);
-	                for(var i=0;i<objs.length;i++){
-	                  var data_info = objs[i].upload_date + "<br/>" +  objs[i].news_short_dec;
-	                  var data =  objs[i].news_dec;
-	                  var str = '<article><h4>' + objs[i].news_title  +'</h4><p class="header-info">' + data_info + '</p><p class="content">' + data +'</p></article>';
-	                  
-	                  $('.news-group').html($('.news-group').html() + str);
-	                }
-	                b=true;
-
-	                $("#wrapper").niceScroll({touchbehavior:true});
-	        });
-	        alert(0);
-			$("#wrapper").niceScroll({touchbehavior:true}); // First scrollable DIV
-// });
 	
-	        alert(1);
+
+   
+    
+    
+    $('.news-group').html('');
+   	$('#wrapper').perfectScrollbar();
+    $.ajax({
+        type:'GET',
+        url:"http://yinkeangseng.byethost8.com"
+        //url:"http://localhost:8030/cont3nt-service/get-news.php"
+        }).done(function(data){
+            var objs=eval(data);
+            for(var i=0;i<objs.length;i++){
+              var data_info = objs[i].upload_date + "<br/>" +  objs[i].news_short_dec;
+              var data =  objs[i].news_dec;
+              var str = '<article><h4>' + objs[i].news_title  +'</h4><p class="header-info">' + data_info + '</p><p class="content">' + data +'</p></article>';
+              
+              $('.news-group').html($('.news-group').html() + str);
+            }
+            $('#wrapper').perfectScrollbar("update");
+           
+
+           
+    });
+	
 </script>
