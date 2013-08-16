@@ -32,6 +32,53 @@ src: url("../font/lsansuni.ttf");
 	background-color: #f0f0f0;
 }
 
+.wrapperPri{
+	margin: auto 10%; 
+	margin-top:50px;
+	width: 80%;
+		
+}
+
+.h4Pri{
+	padding-left: 20px;
+}
+
+.ulPri{
+	padding-left: 28px;
+	font-family: 'Helvitica';
+	font-size:120%;
+}
+
+.divPri{	
+	font-family: 'Helvitica';
+	width:100%;
+	background-color:#fff;
+	color: #000;
+	text-align: left;
+	
+	moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.pPri{
+	font-size:120%;
+	padding: 20px;
+	padding-bottom: 0px;
+}
+
+.h1pri{
+	font-size:2.5em;
+	font-family: myFont;
+	width:100%;
+	color: #000;
+	text-align: center;
+}
+
+
+
+
 #wrapperfull{	
 	margin-bottom: 10px;
 	margin-left: 2%;
@@ -51,7 +98,7 @@ src: url("../font/lsansuni.ttf");
 #georgia{
 	margin-left:40px;font-family:'Georgia'
 }
-h1{
+.h1Normal{
 	font-size:2em;
 	font-family: myFont;
 	border-bottom-style:dotted;
@@ -82,7 +129,7 @@ h1{
 }
 
 
-p{
+.pBlog{
 	font-family: 'myFont1';
 	margin-top: 10px;
 	margin-bottom: 10px;
@@ -104,10 +151,42 @@ visibility: visible;width:100%;height:50%;
 	margin-bottom: 5px;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1280px) {
 
+	#wrapperfull{		
+		margin-left: 2%;
+		float: left;
+		width: 96%;
+	}
+	.h1Normal{
+	font-size:16px;
+	width:100%;
+	}
+	#banner{
+	width:96%; 
+	height: auto;
+	margin-bottom: 0%;
+	/*max-height:100%;*/	 
+	}
+	.video{
+		visibility: visible;
+		margin: auto 25%;
+		width:50%;	
+		height: 400px;		
+	}
+	.rightContent{	
+	visibility: hidden;
+	width: 0px;
+	height: 0px;
+	display: none;
+	}	
+}
+
+
+
+@media screen and (max-width: 1024px) {	
 	#wrapperfull {
-		width: 64%;
+		width: 62%;
 	}
 	#banner{
 	width:96%; 
@@ -120,8 +199,10 @@ visibility: visible;width:100%;height:50%;
 	margin: 10px;
 	margin-right: 20px;
 	width: 28%;
+	display: block;
+	visibility: visible;
 	}
-	h1{
+	.h1Normal{
 		font-size:170%;
 		width: 100%;
 	}
@@ -153,18 +234,16 @@ visibility: visible;width:100%;height:50%;
 
 	.rightContent{	
 	visibility: hidden;
-	width: 0px;
-	height: 0px;
 	display: none;
 	}	
 	#wrapperfull {
-		width: 100%;
+		width: 96%;
 	}
-	h1{
+	.h1Normal{
 	font-size:150%;
 	width:100%;
 	}
-	p{
+	.pBlog{
 		font-size: 17px;
 	}
 	.video{
@@ -175,10 +254,49 @@ visibility: visible;width:100%;height:50%;
 	#banner{
 	width:96%; 
 	/*max-height:100%;*/
+	padding-top: 20px;
 	height: auto; 	
 	}
+	.subImg{
+	margin-bottom: 5px;
+	width:100%;
+	}
 	.content{
-	float:left;width:96%;
+	float:left;width:100%;
+	}
+}
+
+@media screen and (max-width: 720px) {
+
+	.rightContent{	
+	visibility: hidden;
+	width: 0px;
+	height: 0px;
+	display: none;
+	}	
+	#wrapperfull {
+		width: 96%;
+	}
+	.h1Normal{
+	font-size:150%;
+	width:100%;
+	}
+	.pBlog{
+		font-size: 17px;
+	}
+	.video{
+		visibility: visible;		
+		width:100%;	
+		height: 30%;			
+	}
+	#banner{
+	width:96%; 
+	/*max-height:100%;*/
+	height: auto; 	
+	padding-top: 20px;
+	}
+	.content{
+	float:left;width:100%;
 	}
 	.subImg{
 	margin-bottom: 5px;
@@ -186,12 +304,12 @@ visibility: visible;width:100%;height:50%;
 	}
 }
 
-
-
 @media screen and (max-width: 640px) {
 	.video{
 		visibility: visible;
-		width:100%;				
+		width:50%;	
+		height: 40%;	
+		margin: auto 25%;		
 	}
 .content{
 	float:left;width:100%;
@@ -200,11 +318,11 @@ visibility: visible;width:100%;height:50%;
 		width: 96%;
 		height: auto;
 	}
-	h1{
+	.h1Normal{
 	font-size:21px;
 	width:100%;
 	}
-	p{
+	.pBlog{
 		font-size: 13px;
 	}
 }
@@ -216,30 +334,7 @@ visibility: visible;width:100%;height:50%;
 		float: left;
 		width: 96%;
 	}
-	h1{
-	font-size:16px;
-	width:100%;
-	}
-	#banner{
-	width:96%; 
-	height: auto;
-	margin-bottom: 0%;
-	/*max-height:100%;*/	 
-	}
-	.video{
-		visibility: visible;
-		width:100%;				
-	}
-}
-
-@media screen and (max-width: 1280px) {
-
-	#wrapperfull{		
-		margin-left: 2%;
-		float: left;
-		width: 96%;
-	}
-	h1{
+	.h1Normal{
 	font-size:16px;
 	width:100%;
 	}
@@ -252,12 +347,35 @@ visibility: visible;width:100%;height:50%;
 	.video{
 		visibility: visible;
 		width:100%;	
-		height: 600px;			
+		height: 50%;	
+		margin: auto 0%;		
 	}
-	.rightContent{	
-	visibility: hidden;
-	width: 0px;
-	height: 0px;
-	display: none;
-	}	
+}
+
+@media screen and (max-width: 320px) {
+
+	#wrapperfull{		
+		margin-left: 2%;
+		float: left;
+		width: 96%;
+	}
+	.h1Normal{
+	font-size:11px;
+	width:100%;
+	}
+	.pBlog{
+		font-size: 11px;
+	}
+	#banner{
+	width:96%; 
+	height: auto;
+	margin-bottom: 0%;
+	/*max-height:100%;*/	 
+	}
+	.video{
+		visibility: visible;
+		width:100%;	
+		height: 50%;	
+		margin: auto 0%;		
+	}
 }

@@ -271,3 +271,43 @@ $app.controller('mediaController', function ($scope, plus) {
 
   // defaulting the time on Angular's model variable.
  
+$app.controller('PrivacyController', function ($scope, plus) {
+   var b=false;
+     
+    $(document).ready(function(){
+        $("#wrapper").niceScroll({touchbehavior:true});
+        b=true;
+    });
+   if(!b)
+    $("#wrapper").niceScroll({touchbehavior:true});
+
+
+  $scope.auth={user:"",pass:""};
+    $scope.user={name:""};
+    $scope.login=function(){
+        var dat={};
+        dat['user']=$scope.auth.user;
+        dat['pass']=$scope.auth.pass;
+        $.ajax({
+          type:'POST',
+          data:dat,
+          
+          url:"http://yinkeangseng.byethost8.com/check-user.php"
+          //url:"http://localhost:8030/cont3nt-service/check-user.php"
+        }).done(function(data){
+
+              
+            var objs=eval(data);
+            if(objs.length>0){
+              if(objs[0].status=="fail"){
+                alert("Incorrect Username or password!");
+              }
+              else{
+                alert("Welcome: " + objs[0].username);
+              }
+              $(".popupBox").removeClass("show");
+              $(".popupBox").addClass("hide");
+            }
+        });
+      }
+});
