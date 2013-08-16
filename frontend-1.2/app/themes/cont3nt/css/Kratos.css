@@ -41,6 +41,9 @@
 .kratos h1,h2,h3,h4{
 	margin:0px;
 }
+.kratos a:hover{
+	text-decoration:none !important;
+}
 
 /*------------------- Page Freelencer ----------------------*/
 
@@ -143,6 +146,7 @@
 	border:4px solid white;
 }
 .media .message{
+	padding-top:10px;
 	border-top:1px dashed #CCCCCC; /*gray border*/
 	border-bottom:1px dashed #CCCCCC; /*gray border*/
 }
@@ -169,11 +173,27 @@
 .media .yellowBox{
 	background:#EDBE00;
 }
-.media .yellowBox .button{
+
+.media .button a{
+	background:#e8e8e8;
 	text-align:center;
-	color:#444444;
-	background:#808080;
+	color:gray;
 }
+.media .button:hover>a{
+	color:white;
+	background:#555555 !important;
+}
+
+.media .whitebox .banner{
+	border-top:1px solid #E8E8E8;
+}
+.media .whitebox h4{
+	color:gray;
+}
+.media .whitebox .banner img{
+	height:80px;
+}
+
 /*---------------------------- Media Page -------------------------*/
 
 

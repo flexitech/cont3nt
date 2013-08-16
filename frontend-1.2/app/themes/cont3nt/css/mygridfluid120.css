@@ -448,7 +448,17 @@ span.mobile-only
     .tablet-left{
     	float:left;
     }
-
+    .tablet-padd-lr0{
+    	padding-left:0px;
+    	padding-right:0px;
+    }
+    .whitebox .tablet-img-height-banner{
+    	height:150px !important;
+    }
+	.whitebox .tablet-grid-img{
+		padding-left:150px;
+		padding-right:150px;
+	}
 }
 @media screen and (max-width: 480px)
 {
@@ -538,6 +548,13 @@ span.mobile-only
 	.mobile-lr-0{
 		padding-left:0px !important;
 		padding-right: 0px !important;
+	}
+    .whitebox .mobile-img-height-banner{
+    	height:150px !important;
+    }
+	.whitebox .tablet-grid-img{
+		padding-left:0px;
+		padding-right:0	px;
 	}
 }
 /*-------------------------- end mobile query------------------------------
