@@ -8,11 +8,14 @@
 	/*
 	 * files refer to css and js files that your theme requires.
 	 * these paths are relative to the root of your theme directory
-	 "css" : ["css/bootstrap.min", "css/style","css/cont3nt","css/mygridfluid120","css/blog-style","css/perfect-scrollbar-0.4.3.min","css/kratos"],
+	 "css" : ["css/bootstrap.min", "css/style","css/cont3nt","css/mygridfluid120","css/blog-style",
+	 		"css/perfect-scrollbar-0.4.3.min","css/kratos"],
 	 */
 	"files" : {
-		"css" : ["css/bootstrap.min", "css/style","css/cont3nt","css/mygridfluid120","css/blog-style","css/perfect-scrollbar-0.4.3.min","css/kratos"],
-		"js" : ["js/theme_controllers","js/jquery.nicescroll","js/perfect-scrollbar-0.4.3.with-mousewheel.min","js/iscroll/iscroll-lite"]
+		"css" : ["css/bootstrap.min", "css/style","css/cont3nt","css/mygridfluid120","css/blog-style",
+				"css/perfect-scrollbar-0.4.3.min","css/bxslider/jquery.bxslider","css/kratos"],
+		"js"  : ["js/theme_controllers","js/jquery.nicescroll","js/perfect-scrollbar-0.4.3.with-mousewheel.min",
+				"js/iscroll/iscroll-lite","js/bxslider/jquery.bxslider.min"]
 	},
 
 	/*

@@ -53,7 +53,7 @@
 	color:gray;
 }
 .freelencer{
-	background-color:white;
+	/*background-color:white;*/
 }
 .freelencer .title{
 	border-bottom:1px dashed rgb(204, 204, 204);
@@ -233,5 +233,30 @@
 }
 
 
+/*---------------------------------- Customize Bx-Slider -----------------------*/
+.bx-wrapper .bx-pager{
+	height:55px;
+	/*background:url(bxslider/images/big_box_bottom_bg.png) center 100% no-repeat;*/
+    background:url("bxslider/images/big_box_bottom_bg.png") top;
+    background-repeat:no-repeat 0 0;
+    background-size:100%;
+	padding-top:0px;
+}
+.bx-controls{
+	/*background:url("bxslider/images/big_box_bottom_bg.png") top;
+    background-repeat:no-repeat 0 0;
+    background-size:100%;*/
+}
+.bx-wrapper .bx-pager, .bx-wrapper .bx-controls-auto{
+	position:relative;
+	bottom:0px;
+}
+.bx-wrapper{
+	margin-bottom:0px;
+}
+.bx-wrapper .bx-pager-item{
+	padding-top:15px;
+}
+/*---------------------------------- End Customize Bx-Slider -----------------------*/
 
 /*------------------- End Page Freelencer ----------------------*/

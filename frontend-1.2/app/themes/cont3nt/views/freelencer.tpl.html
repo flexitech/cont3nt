@@ -1,3 +1,17 @@
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+// 		BxSlider
+		$('.bxslider').bxSlider({
+			//mode: 'fade',
+		  	// captions: true
+		  	auto: true,
+		  	// speed: 3000,
+  			// autoControls: true
+		});
+	});
+</script>
 <div class="kratos tablet-padd-lr-10">
 	<div class="grid-120" style="margin-top:10px">&nbsp;</div>
 	<div class="grid-120 padd-lr0 freelencer table-mobile">
@@ -15,9 +29,13 @@
 		<!---------------------------------- Image Show Row 2 ------------------------------------>
 		<div class="grid-120 imgShow padd-lr0">
 			<div class="grid-120 imgContainer marg-top-20 padd-lr0">
-				<img ng-src="{{ app.paths.theme('img/cont3nt/freelencer/promobanner121.jpg') }}" alt="promobanner"/>
-				<img ng-src="{{ app.paths.theme('img/cont3nt/freelencer/big_box_bottom_bg.png') }}" alt=""/>
-			</div>
+				<ul class="bxslider marg-0">	
+					<li><img ng-src="{{ app.paths.theme('img/cont3nt/freelencer/promobanner121.jpg') }}" alt=""/></li>
+					<li><img ng-src="{{ app.paths.theme('img/cont3nt/freelencer/promobanner14.jpg') }}" alt=""/></li>
+					<li><img ng-src="{{ app.paths.theme('img/cont3nt/freelencer/promobanner41.jpg') }}" alt=""/></li>
+				</ul>
+				<!-- <img ng-src="{{ app.paths.theme('img/cont3nt/freelencer/promobanner121.jpg') }}" alt="promobanner"/>
+				<img ng-src="{{ app.paths.theme('img/cont3nt/freelencer/big_box_bottom_bg.png') }}" alt=""/> -->			</div>
 		</div>
 		<!---------------------------------- Sign Up Row 3 ------------------------------------>
 		<div class="grid-120  cusBox1 padd-20 padd-lr15 marg-top-10">
