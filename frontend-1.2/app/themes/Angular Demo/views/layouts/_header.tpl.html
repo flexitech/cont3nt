@@ -1,0 +1,51 @@
+<div class="navbar-inner">
+	<div class="container-fluid">
+		<img class="brand logo" src="app/themes/cont3nt/img/cont3nt/logo.png" alt="cont3nt logo"/>
+	    <!-- <a class="brand left" clicker>{{ app.name || 'Plus.io' }}</a> -->
+	    <!-- <ul class="nav right">
+	      <li><button class="btn" hm-tap="$navigate.go('/pages/about', 'modal')"><img src="app/themes/cont3nt/img/ico_help.png"/></button></li>
+	      <li><button class="btn" >Login</button></li>
+	    </ul> -->
+	    <div class="nav-top right" style="text-align:right">
+	    	
+	    		<button class="right btn " id="button-login"   >Login</button>
+	    		<!-- <button class="btn btn-danger grid-60" id="button-login"   >{{user.name || 'Anonymous'}}</button> -->
+	    
+	    </div>
+		<div class="clear"></div>
+	</div>
+	<div class="clear"></div>
+</div>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#button-login").click(function(){
+			if ($(".popupBox").hasClass("show")){
+				$(".popupBox").removeClass("show");
+				$(".popupBox").addClass("hide");
+			}
+			else{
+				$(".popupBox").removeClass("hide");
+				$(".popupBox").addClass("show");
+			}
+
+		});
+	});
+	
+</script>
+<div class="popupBox hide">
+	<div class="main">
+		
+		<form class="grid-120">
+			<h4>Breaking News In Realtime. Join Us!</h4>
+			<div class="login">
+
+				<input type="text" class="grid-120" ng-model="auth.user" placeholder="Username"/>
+				<input type="text" class="grid-120" ng-model="auth.pass" placeholder="Password"/>
+			</div>
+			<button class="btn" ng-click="login(auth)">Login</button>
+		</form>
+		<div class="clear"></div>
+    </div>
+</div>
+<div class="clear"></div>
+<ng-include src="app.paths.element('plus.ui')"></ng-include>

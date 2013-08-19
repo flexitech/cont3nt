@@ -1,0 +1,34 @@
+{
+	/*
+	 * Theme name, must be identical to the directory name
+	 */
+	"title" : "Cont3nt AngkorOne",
+	"author" : "nps",
+
+	/*
+	 * files refer to css and js files that your theme requires.
+	 * these paths are relative to the root of your theme directory
+	 "css" : ["css/bootstrap.min", "css/style","css/cont3nt","css/mygridfluid120","css/blog-style",
+	 		"css/perfect-scrollbar-0.4.3.min","css/kratos"],
+	 */
+	"files" : {
+		"css" : ["css/bootstrap.min", "css/style","css/cont3nt","css/mygridfluid120",
+				"css/perfect-scrollbar-0.4.3.min","css/bxslider/jquery.bxslider","css/kratos"],
+		"js"  : ["js/theme_controllers","js/test/test_controller","js/jquery.nicescroll","js/perfect-scrollbar-0.4.3.with-mousewheel.min",
+				"js/iscroll/iscroll-lite","js/bxslider/jquery.bxslider.min"]
+	},
+
+	/*
+	 * Routes determine the uri's in your application and here you can map those to layouts, templates and controllers
+	 * on the path and template are required, the rest are optional.
+	 * Because how the paths and routing work, you need run plus.io Frontend on a local server such as xampp (http://www.apachefriends.org/en/xampp.html) or mamp (http://www.mamp.info/en/index.html)
+	 */
+	"routes" : [
+		{"path":"/map",	"layout":"layouts/main",		"template":"home", "title":"","class":"home"},
+
+		{"path":"/home",	"layout":"layouts/main",		"template":"home",	"controller":"HomeController", "title":"","class":"news"},
+		{"path":"/test",	"layout":"layouts/main",		"template":"angularTest",	"controller":"HomeController", "title":"","class":"media"},
+				
+		{ "otherwise" : "/home" }
+	]
+}

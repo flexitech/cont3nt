@@ -1,0 +1,104 @@
+<div class="kratos">
+<div class="grid-120 marg-top-20" style="margin-bottom:100px;">
+	<div class="grid-70 mobile-grid"> 
+		<h3>Loading from <span class="color-yellow">Server</span></h3>
+		<div class="grid-120 news-group padd-lr0">
+			<!-- {{news.content || ":)"}} -->
+		 	<!-- <article>
+				<p class="header-info">
+					Friend of Cont3nt.com, Shauna Dillavou, the founder and executive director at CommunityRED, wrote this important blog post about the dangers journalists face in conflict zones, especially Egypt following the death two journalists today and roughly 150 civilian deaths today.
+				</p>
+				<p class="content">
+					Friend of Cont3nt.com, Shauna Dillavou, the founder and executive director at CommunityRED, wrote this important blog post about the dangers journalists face in conflict zones, especially Egypt following the death two journalists today and roughly 150 civilian deaths today.
+				</p>
+			</article> 
+			<article>
+				<p class="header-info">
+					Friend of Cont3nt.com, Shauna Dillavou, the founder and executive director at CommunityRED, wrote this important blog post about the dangers journalists face in conflict zones, especially Egypt following the death two journalists today and roughly 150 civilian deaths today.
+				</p>
+				<p class="content">
+					Friend of Cont3nt.com, Shauna Dillavou, the founder and executive director at CommunityRED, wrote this important blog post about the dangers journalists face in conflict zones, especially Egypt following the death two journalists today and roughly 150 civilian deaths today.
+				</p>
+			</article> 
+			<article>
+				<p class="header-info">
+					Friend of Cont3nt.com, Shauna Dillavou, the founder and executive director at CommunityRED, wrote this important blog post about the dangers journalists face in conflict zones, especially Egypt following the death two journalists today and roughly 150 civilian deaths today.
+				</p>
+				<p class="content">
+					Friend of Cont3nt.com, Shauna Dillavou, the founder and executive director at CommunityRED, wrote this important blog post about the dangers journalists face in conflict zones, especially Egypt following the death two journalists today and roughly 150 civilian deaths today.
+				</p>
+			</article> 
+			<article>
+				<p class="header-info">
+					Friend of Cont3nt.com, Shauna Dillavou, the founder and executive director at CommunityRED, wrote this important blog post about the dangers journalists face in conflict zones, especially Egypt following the death two journalists today and roughly 150 civilian deaths today.
+				</p>
+				<p class="content">
+					Friend of Cont3nt.com, Shauna Dillavou, the founder and executive director at CommunityRED, wrote this important blog post about the dangers journalists face in conflict zones, especially Egypt following the death two journalists today and roughly 150 civilian deaths today.
+				</p>
+			</article>  -->
+		</div>
+	</div>
+	<div class="grid-50 not-mobile">
+		<h3 class="color-yellow">Recent Accolades (Sample)</h3>
+		<ul class="color-dark-silver accolade">
+
+			<li>Distilled Intelligence '12</li>
+			<li>Top 5 Knight News Challenge '12</li>
+			<li>NVTC Entrepreneur Spotlight '12</li>
+			<li>FI Best Startups of the Year (July '12)</li>
+			<li>Founder Showcase '12</li>
+			<li>Selected to Join AOL's Fishbowl Labs (July '12)</li>
+			<li>Graduates of Founder Institute</li>
+			<li>Graduates of Mindshare</li>
+			<li>Winners Startup America Pitch Competition '12</li>
+			<li>First Place in TechBuzz Startup Competition '12</li>
+			<li>"Best of Buzz" at MAVA Capital Connection '12</li>
+		</ul>
+	</div>
+	<div class="clear"></div>
+</div>
+</div>
+<script type="text/javascript">
+	
+
+   
+    
+    $(document).ready(function(){
+
+
+	    $('.news-group').html('');
+	   //	$('#wrapper').perfectScrollbar();
+	   $("#wrapper").niceScroll({touchbehavior:true}); 
+	    $.ajax({
+	        type:'GET',
+	        //url:"http://absautomotive.com.kh/admin/login",
+	        url:"http://yinkeangseng.byethost8.com"
+	        //url:"http://localhost:8030/cont3nt-service/get-news.php"
+	        }).done(function(data){
+	        	
+	        	try{
+	            	var objs=eval(data);
+	           
+		            
+		            var strAll="";
+		            for(var i=0;i<objs.length;i++){
+		              var data_info = objs[i].upload_date + "<br/>" +  objs[i].news_short_dec;
+		              var data =  objs[i].news_dec;
+		              var str = '<article><h4>' + objs[i].news_title  +'</h4><p class="header-info">' + data_info + '</p><p class="content">' + data +'</p></article>';
+		              strAll+=str;
+		              
+		            }
+		            //alert(strAll);
+		            $('.news-group').html(strAll);
+		            //$('#wrapper').perfectScrollbar("update");
+		            //$("#wrapper").niceScroll({touchbehavior:true}); 
+		            $("#wrapper").getNiceScroll().resize();
+	            }
+	            catch(e){
+	            	alert(e);
+	            }
+
+	           
+	    });
+	});
+</script>

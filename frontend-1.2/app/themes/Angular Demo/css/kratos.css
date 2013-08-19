@@ -1,0 +1,15 @@
+/*-------------------------------- main setting --------------------------------*/
+.kratos {
+	max-width:960px;
+	margin:0px auto;
+}
+/*-------------------------------- end main setting --------------------------------*/
+
+
+
+/*-------------------------------- Angular Test setting --------------------------------*/
+.kratos .content{
+	background-color:white;
+	box-shadow:3px gray;
+}
+/*------------------------------- End Angular Test setting --------------------------------*/

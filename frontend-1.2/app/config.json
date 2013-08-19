@@ -6,7 +6,9 @@
 	/*
 	 * Specify the name of the desired theme
 	 */
-	"theme" : "cont3nt",
+	//"theme" : "cont3nt",
+	"theme" : "Angular Demo",
+	// "theme" : "web007",
 
 	/*
 	 * plugins add to the functionality of Plus.io Frontend

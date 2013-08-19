@@ -1,0 +1,560 @@
+﻿
+	**** mygrid.css file *****
+	Created: 01.jun.13
+	Updated: 01.jun.13
+	Last Updated by:
+	BizkGroup
+*/
+.grid-main
+{
+	margin-left: auto;
+    margin-right: auto;
+	max-width:960px;
+	 /* <IE7> */
+    /**width: expression(Math.floor(0.7 * (this.parentNode.offsetWidth - parseFloat(this.parentNode.currentStyle.paddingLeft) - parseFloat(this.parentNode.currentStyle.paddingRight))) + "px");*/
+    /* </IE7> */
+}
+
+.grid-main:before, .clearfix:before,
+  .grid-main:after,
+  .clearfix:after {
+    content: ".";
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    font-size: 0;
+    line-height: 0;
+    width: 0;
+    height: 0;
+  }
+.grid-height-140
+{
+    height:200px;
+    overflow:hidden;
+}
+.list-header
+{
+    height:auto;
+}
+
+/*----------------------------- Grid Setting---------------------------*/
+
+.grid-10, .grid-20, .grid-30, .grid-40, .grid-50, .grid-60, .grid-70, .grid-80, .grid-90, .grid-100,.grid-105,.grid-110,.grid-115,.grid-120,
+.grid-15, .grid-25, .grid-35, .grid-45, .grid-55, .grid-65, .grid-75, .grid-85, .grid-95, .grid-5
+{
+
+	 -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    box-sizing : border-box;
+	padding-left:10px;
+	padding-right:10px;
+	float:left;
+}
+.grid-5
+{
+    width:4.1666%;
+     
+} 
+.grid-10
+{
+    width:8.3333%;
+     
+} 
+.grid-15
+{
+    width:12.5%;
+     
+}        
+.grid-20
+{
+    width:16.6666%;
+     
+}
+.grid-25
+{
+    width:20.8333%;
+     
+}
+.grid-30
+{
+    width:25%;
+     
+}
+.grid-35
+{
+    width:29.1666%;
+     
+}
+.grid-40
+{
+    width:33.3333%;
+     
+}
+.grid-45
+{
+    width:37.5%;
+     
+}
+.grid-50
+{
+    width:41.66666%;
+     
+}
+.grid-55
+{
+    width:45.8333%;
+     
+}
+.grid-60
+{
+    width:50%;
+     
+}
+.grid-65
+{
+    width:54.1666%;
+     
+}
+.grid-70
+{
+    width:58.3333%;
+     
+}
+.grid-75
+{
+    width:62.5%;
+     
+}
+.grid-80
+{
+    width:66.6666%;
+     
+}
+.grid-85
+{
+    width:70.8333%;
+     
+}
+.grid-90
+{
+    width:75%;
+     
+}
+.grid-95
+{
+    width:79.1666%;
+     
+}
+.grid-100
+{
+    width:83.3333%;
+     
+}
+.grid-105
+{
+    width:87.5%;
+     
+}
+.grid-110
+{
+    width:91.6666%;
+     
+}
+.grid-115
+{
+    width:95.8333%;
+     
+}
+.grid-120
+{
+    width:100%;
+     
+}
+/*----------------------------- End Grid Setting---------------------------*/
+
+/*------------------------------padding setting -----------------------*/
+.padd-tb5{
+	padding-top:5px;
+	padding-bottom:5px;
+}
+.padd-tb10{
+	padding-top:10px;
+	padding-bottom:10px;
+}
+.padd-tb20{
+	padding-top:20px;
+	padding-bottom:20px;
+}
+ .padd-top-0
+{
+    
+    padding-top:0px;
+}
+ .padd-top-5
+{
+    
+    padding-top:5px;
+}
+.padd-top-10{
+	padding-top:10px;
+}
+.padd-top-20{
+	padding-top:20px;
+}
+.padd-bottom-5
+{
+    
+    padding-bottom:5px;
+}
+.padd-left-5
+{
+    
+    padding-left:5px;
+}
+.padd-left-10
+{   
+    padding-left:10px;
+}
+
+.padd-left-20
+{   
+    padding-left:20px;
+}
+.padd-right-5
+{
+    
+    padding-right:5px;
+}
+.padd-right-10
+{
+    
+    padding-right:10px;
+}
+.padd-right-20
+{
+    
+    padding-right:20px;
+}
+.padd-5
+{
+    padding:5px;
+}
+.padd-10
+{
+    padding:10px;
+}
+.padd-20
+{
+    padding:20px;
+}
+
+.padd-0
+{
+    padding:0px;
+}
+.padd-lr5{
+	padding-left:5px;
+	padding-right:5px;
+}
+.padd-lr0
+{
+    padding-left:0px;
+    padding-right:0px;
+}
+.padd-lr20
+{
+    padding-left:20px;
+    padding-right:20px;
+}
+.padd-lr15
+{
+    padding-left:15px;
+    padding-right:15px;
+}
+.padd-l0{
+    padding-left:0px;
+}
+.padd-r0{
+    padding-right:0px;
+}
+.padd-rlt3{
+    padding: 3px 0 3px 3px;
+}
+
+/*------------------------------ End Padding Setting ----------------------------*/
+
+
+/*---------------------------------Margin Setting------------------------------*/
+.marg-0{
+	margin:0px;
+}
+ .marg-top-5
+{
+    
+    margin-top:5px;
+}
+.marg-lr20{
+	margin-left:20px;
+	margin-right:20px;
+}
+.marg-lr10{
+	margin-left:10px;
+	margin-right:10px;
+}
+.marg-bottom-5
+{
+    
+    margin-bottom:5px;
+}
+.marg-left-5
+{
+    
+    margin-left:5px;
+}
+.marg-right-5
+{
+    
+    margin-right:5px;
+}
+.marg-5
+{
+    margin:5px;
+}
+.marg-lr0
+{
+    
+	margin-right:0px;
+}
+.marg-top-10
+{
+    
+    margin-top:10px;
+}
+.marg-left-0{
+	margin-left:0px !important;
+} 
+.marg-top-20{
+	margin-top:20px;
+}
+
+.marg-top-30{
+	margin-top:30px;
+}
+
+.marg-bottom-10
+{
+    
+    margin-bottom:10px;
+}
+.marg-left-10
+{
+    
+    margin-left:10px;
+}
+.marg-right-10
+{
+    
+    margin-right:10px;
+}
+.marg-10
+{
+    margin:10px;
+}
+.marg-tb20
+{
+    margin-top:20px;
+    margin-bottom:20px;
+}
+.padd-l-5{
+	padding-left:5px;
+}
+.padd-r-5{
+	padding-right:5px;
+}
+/*-------------------------End Margin Setting---------------------------*/
+
+
+
+/*--------------------------mobile query------------------------------*/
+.mobile-only
+{
+	display:none;
+}
+span.mobile-only
+	{
+		display:none;
+	}
+
+@media screen and (max-width: 768px)
+{
+    
+    .mobile-seperator
+    {
+        clear:both;
+    }
+    .tablet-grid{
+        width:100%;
+               
+    }
+    .tablet-60{
+    	width:50%;
+		
+		padding-right:0px;
+		padding-left:0px;
+    } 
+    .tablet-90{
+    	width:75%;
+		
+		padding-right:0px;
+		padding-left:0px;
+    } 
+    .tablet-95{
+    	width:79.1666%;
+		
+		padding-right:0px;
+		padding-left:0px;
+    } 
+    .tablet-100{
+    	width:83.3333%;
+		
+		padding-right:0px;
+		padding-left:0px;
+    } 
+    .tablet-120{
+    	width:100%;
+		
+		padding-right:0px;
+		padding-left:0px;
+    }
+	.not-tablet
+	{
+		display:none;
+	}
+	.tablet-only
+	{
+		display:block;
+	}
+	span.tablet-only
+	{
+		display:inline;
+	}
+    .tablet-padd-lr-10{
+    	padding-left:10px;
+    	padding-right:10px;
+    }
+    .tablet-right{
+    	float:right;
+    }
+    .tablet-left{
+    	float:left;
+    }
+    .tablet-padd-lr0{
+    	padding-left:0px;
+    	padding-right:0px;
+    }
+    .whitebox .tablet-img-height-banner{
+    	height:150px !important;
+    }
+	.whitebox .tablet-grid-img{
+		padding-left:150px;
+		padding-right:150px;
+	}
+}
+@media screen and (max-width: 480px)
+{
+
+    .mobile-seperator
+    {
+        clear:both;
+		
+    }
+    .mobile-grid{
+        width:100%;
+		
+		padding-right:0px;
+		padding-left:0px;
+		margin-left:0px;
+		margin-right:0px;
+    }
+    .mobile-60{
+        width:50%;
+		
+		padding-right:0px;
+		padding-left:0px;
+    }
+	.mobile-grid-padd{
+        width:100%;
+		padding-right:10px;
+		padding-left:10px;
+               
+    }
+	.mobile-grid-center{
+        width:100%;
+        margin:0px auto;
+    }
+	.mobile-grid-center-text-center{
+        width:100%;
+        margin:0px auto;
+        text-align: center;
+    }
+    .mobile-lr-10{
+		padding-right:10px;
+		padding-left:10px;
+    }
+    .mobile-l-0{
+    	padding-left:0px;
+    }
+    .mobile-r-0{
+    	padding-right:0px;
+    }
+	.not-mobile{
+        display:none;
+               
+    }
+	.mobile-only
+	{
+		display:block;
+	}
+	span.mobile-only
+	{
+		display:inline;
+	}
+	
+	.mobile-center
+	{
+		text-align:center;
+		margin:0px auto;
+		width:120px;
+	
+	}
+	.mobile-marg-top-10{
+		margin-top:10px;
+	}
+	.mainbody .product_table .product_column .product_image img{
+		width:100%;
+	}
+	.button{
+		padding:10px 10px !important;
+	}
+	.freelencer .title h1{
+		font-size:20px;
+	}
+	.freelencer .title h4{
+		font-size:14px;
+	}
+	.mobile-100px{
+		width:100px;
+	}
+	.mobile-lr-0{
+		padding-left:0px !important;
+		padding-right: 0px !important;
+	}
+    .whitebox .mobile-img-height-banner{
+    	height:150px !important;
+    }
+	.whitebox .tablet-grid-img{
+		padding-left:0px;
+		padding-right:0px;
+	}
+}
+/*-------------------------- end mobile query------------------------------
