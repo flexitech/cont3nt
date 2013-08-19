@@ -5,21 +5,21 @@
 		
 	});
 	
-	$app.controller('usingDirective',function($scope,plus){
+	$app.controller('usingDirective',function($scope){
 		$scope.title="This is the Angular Tesing Directive";
 		$scope.des="directive allow you to create vocabulary word of html by costomize your attribute , class , tag and comment";
 		
-		angular.module('myDiective',[]).directive('usingDirective',function(){
+		angular.module('myDirective',[]).directive('zippy',function(){
 			
 			return {
 				
 				restrict:'C',
-				replace:'true',
-				transclude:'true',
-				scope:{title:'@zippy-title'},
-				template:	'<div>' +
-								'<div class="title"> {{title}} </div>' + 
-								'<div class="body" ng-transclude> </div>' +
+				replace:true,
+				transclude:true,
+				scope:{ title:'@zippyTitle' },
+				template:	'<div>' +		
+								'<div class="title span12"> {{title}} </div>' + 
+								'<div class="body span12" ng-transclude> </div>' +
 							'</div>',
 				link:function(scope,element,attrs){
 					//title element
