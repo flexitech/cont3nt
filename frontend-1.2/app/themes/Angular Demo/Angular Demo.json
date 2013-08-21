@@ -16,11 +16,7 @@
 				"css/perfect-scrollbar-0.4.3.min","css/bxslider/jquery.bxslider","css/kratos","css/blueimp-uploader/jquery.fileupload-ui"],
 		"js"  : ["js/theme_controllers","js/test/test_controller","js/jquery.nicescroll","js/perfect-scrollbar-0.4.3.with-mousewheel.min",
 				"js/iscroll/iscroll-lite","js/bxslider/jquery.bxslider.min","js/blueimp-uploader/vendor/jquery.ui.widget",
-				"js/blueimp-uploader/jquery.iframe-transport","js/blueimp-uploader/jquery.fileupload",
-				"js/blueimp-uploader/jquery.fileupload-process","js/blueimp-uploader/jquery.fileupload-image",
-				"js/blueimp-uploader/jquery.fileupload-audio","js/blueimp-uploader/jquery.fileupload-video",
-				"js/blueimp-uploader/jquery.fileupload-validate","js/blueimp-uploader/jquery.fileupload-angular",
-				"js/chunkuploader"
+				"js/chunkuploader","js/jquery.form.min"
 				]
 	},
 

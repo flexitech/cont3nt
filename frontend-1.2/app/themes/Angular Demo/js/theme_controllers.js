@@ -142,9 +142,143 @@ $app.controller('HomeController', function ($scope, plus) {
 
 
 });
+$app.factory('uploadManager', function ($rootScope) {
+    var _files = [];
+    return {
+        add: function (file) {
+		alert(file);
+            _files.push(file);
+            $rootScope.$broadcast('fileAdded', file.name);
+        },
+        clear: function () {
+            _files = [];
+        },
+        files: function () {
+            var fileNames = [];
+            $.each(_files, function (index, file) {
+                fileNames.push(file.files[0].name);
+            });
+            return fileNames;
+        },
+        upload: function () {
+		
+	
+            $.each(_files, function (index, file) {
+                file.submit();
+            });
+            this.clear();
+        },
+        setProgress: function (percentage) {
+            $rootScope.$broadcast('uploadProgress', percentage);
+        }
+    };
+});
+$app.directive('upload', ['uploadManager', function factory(uploadManager) {
+    return {
+        restrict: 'A',
+        link: function (scope, element, attrs) {
+            $(element).fileupload({
+                dataType: 'text',
+                add: function (e, data) {
+                    uploadManager.add(data);
+                },
+                progressall: function (e, data) {
+                    var progress = parseInt(data.loaded / data.total * 100, 10);
+                    uploadManager.setProgress(progress);
+                },
+                done: function (e, data) {
+                    uploadManager.setProgress(0);
+                }
+            });
+        }
+    };
+}]);
+$app.directive('uploader',[function(){
+	return{
+		restrict:'E',
+		scope:{
+			action:'@'
+		},
+		controller:['$scope',function($scope){
+			$scope.progress=0;
+			$scope.avatar = "";
+			$scope.fileNameChanged = function(el)
+			{
+				var $form = $(el).parents('form');
+				if ($(el).val()==''){
+					return false;
+				}
+				$form.attr('action',$scope.action);
+				$scope.$apply(function(){
+					$scope.progress = 0;
+				});
+				$form.ajaxSubmit({
+					type:'POST',
+					uploadProgress:function(event,position,total,percentage){
+						$scope.$apply(function(){
+						
+							$scope.progress= percentage;
+						});
+					},
+					error:function(event,statusText,responseText,form){
+						//remove the action attribute from the form
+						$form.removeAttr('action');
+						//*** error occur
+						alert("There is an error occur!" + responseText);
+					},
+					success:function(responseText,statusText,xhr,form){
+					alert(responseText);
+						var ar = $(el).val().split('\\'),filename = ar[ar.length-1];
+						//remove teh action attribute from the form
+						$form.removeAttr('action');
+						$scope.$apply(function(){
+							$scope.avatar=filename;
+						});
+						
+					}
+				});
+			}
+		}],
+		link:function(scope,elem,attrs,ctrl){
+			/*elem.find('.fileinput-button').click(function(){
+			
+				elem.find('.fileinput-button input[type=file]').click();
+			});*/
+		}
+		,
+		replace:false,
+		templateUrl:'app/themes/Angular Demo/views/uploader.tpl.html'
+		
+	};
+}
+]);
+$app.controller('TestController', function ($scope, $rootScope, uploadManager) {
+	/*$scope.queue = [];
+    $scope.percentage = 0;
+	$scope.submit_upload = function () {
+		uploadManager.upload();
+		$scope.queue = [];
+	};
 
-$app.controller('TestController', function ($scope,$http) {
-	$app.config([
+	$rootScope.$on('fileAdded', function (e, call) {
+	console.log(call);
+		$scope.queue.push(call);
+		$scope.$apply();
+	});
+
+	$rootScope.$on('uploadProgress', function (e, call) {
+		$scope.percentage = call;
+		$scope.$apply();
+	});
+	$scope.fileNameChanged=function(element){
+	
+		if (element.files.length>=1){
+		
+			var file = element.files[0];
+			uploadManager.add(file);
+		}
+	}*/
+	/*$app.config([
             '$httpProvider', 'fileUploadProvider',
             function ($httpProvider, fileUploadProvider) {
                 delete $httpProvider.defaults.headers.common['X-Requested-With'];
@@ -204,8 +338,8 @@ $app.controller('TestController', function ($scope,$http) {
 		//alert($(".progress").width() * per);
 		$scope.uploader.width=$(".progress").width() * per;
 		$scope.$apply();
-		/*$(".ng-model-per").html(Math.round(per*100));*/
+		//$(".ng-model-per").html(Math.round(per*100));
 		
-	}
+	}*/
 });
 
