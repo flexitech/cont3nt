@@ -2,7 +2,8 @@
 	"name" : "Cont3nt Demo Panhna",
 	"server_url" : "https://flawless-outlet-307.appspot.com/",
 	"server_secret" : "520cb12d57cf497297d3",
-
+	"client_redirect" : "http://localhost:3035/agora/",
+	"environment" : "development",
 	/*
 	 * Specify the name of the desired theme
 	 */
