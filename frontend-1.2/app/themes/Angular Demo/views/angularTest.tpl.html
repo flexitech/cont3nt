@@ -31,18 +31,45 @@
 
 
 
-<div id="fb-root"></div>
+        <div id="fb-root"></div>
 <script>
+var accessToken="Not Yet Take";
   window.fbAsyncInit = function() {
   FB.init({
-   // appId      : '226068904210479', // App ID
-    
-    appId      : '517978181614187', // App ID
+    appId      : '226068904210479', // App ID
     channelUrl : 'http://absautomotive.com.kh/index/product/index', // Channel File
     status     : true, // check login status
     cookie     : true, // enable cookies to allow the server to access the session
     xfbml      : true  // parse XFBML
   });
+
+	// Function to handle the response
+var handleResponse = function(response) {
+   alert ('You liked the URL: ' + response);
+};
+
+
+FB.ui(
+  {
+    method: 'feed',
+    name: 'Facebook Dialogs',
+    link: 'https://developers.facebook.com/docs/reference/dialogs/',
+    picture: 'http://fbrell.com/f8.jpg',
+    caption: 'Reference Documentation',
+    description: 'Dialogs provide a simple, consistent interface for applications to interface with users.'
+  },
+  function(response) {
+  	alert('panhna');
+    if (response && response.post_id) {
+      alert('Post was published.');
+    } else {
+      alert('Post was not published.');
+    }
+  }
+);
+
+// At some point, you no longer want to be notified, and unsubscribe
+FB.Event.unsubscribe('edge.create', handleResponse);
 
   // Here we subscribe to the auth.authResponseChange JavaScript event. This event is fired
   // for any authentication related change, such as login, logout or session refresh. This means that
@@ -54,7 +81,9 @@
       // The response object is returned with a status field that lets the app know the current
       // login status of the person. In this case, we're handling the situation where they 
       // have logged in to the app.
+      accessToken = response.authResponse.accessToken;
       testAPI();
+      
     } else if (response.status === 'not_authorized') {
       // In this case, the person is logged into Facebook, but not into the app, so we call
       // FB.login() to prompt them to do so. 
@@ -73,6 +102,34 @@
       FB.login();
     }
   });
+  
+  	
+	  // FB.getLoginStatus(function(response) {
+// 	  	
+	  	// alert("Access TOken : " + accessToken);
+		  // if (response.status === 'connected') {
+		    // // the user is logged in and has authenticated your
+		    // // app, and response.authResponse supplies
+		    // // the user's ID, a valid access token, a signed
+		    // // request, and the time the access token 
+		    // // and signed request each expire
+		    // var uid = response.authResponse.userID;
+		    // accessToken = response.authResponse.accessToken;
+		    // alert("Access TOken : " + accessToken);
+		    // testAPI();
+		  // } else if (response.status === 'not_authorized') {
+		    // // the user is logged in to Facebook, 
+		    // // but has not authenticated your app
+		    // FB.login();
+		    // testAPI();
+		    	// //alert("Access TOken : " + accessToken);
+		  // } else {
+		    // // the user isn't logged in to Facebook.
+		  // }
+	 // });
+	 
+	 
+  
   };
 
   // Load the SDK asynchronously
@@ -89,7 +146,7 @@
   function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
-      console.log('Good to see you, ' + response.name + '.');
+      console.log('Good to see you, ' + response.name + ' : ' + response.id + ' : ' + accessToken);
     });
   }
 </script>
@@ -100,7 +157,6 @@
 
   Learn more about options for the login button plugin:
   /docs/reference/plugins/login/ -->
-
-<fb:login-button show-faces="true" width="200" max-rows="1"></fb:login-button>
+        <fb:login-button show-faces="true" width="200" max-rows="1"></fb:login-button>
 
 
