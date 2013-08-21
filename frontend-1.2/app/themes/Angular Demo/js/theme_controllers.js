@@ -178,6 +178,7 @@ $app.controller('TestController', function ($scope,$http) {
 	$scope.fileNameChanged=function(element,progress_bar){
 		if (element.files.length>=1){
 			var file = element.files[0];
+			try{
 			var uploader = new ChunkedUploader(file, { "d": "hi" });
 			//uploader.options.urlphp="http://localhost:8030/upload-files/uploadfile.php";
 			uploader.options.urlphp="http://yinkeangseng.byethost8.com/cont3nt-uploader/uploadfile.php";
@@ -191,6 +192,8 @@ $app.controller('TestController', function ($scope,$http) {
 			$scope.queue.push({"url":uploader.options.url+ file.name,"name":file.name});
 			$scope.$apply();
 			uploader.start();
+			}
+			catch(e){alert(e);}
 		}
 		
 	}

@@ -86,12 +86,14 @@ ChunkedUploader.prototype = {
                     var dt =btoa(tmpData);
                    // alert(dt);
                     //var dt=tmpData;
+					alert("Start Send file content!");
                     dat["file_part"] = dt; 
                     $.ajax({
                         type: "POST",
                         url: options.urlphp +  "?mode=" + (self.first ? "new" : "continue") + ((self.key == "") ? "" : "&key=" + self.key) + (self.use_compression?"&use_compression=true":""),
                         data: dat,
                         success: function (data) {
+						alert("send filecontent on success:\n" + data);
                             if (self.first == true) {
                                 self.key = data;
                             }
