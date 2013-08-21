@@ -143,3 +143,66 @@ $app.controller('HomeController', function ($scope, plus) {
 
 });
 
+$app.controller('TestController', function ($scope,$http) {
+	$app.config([
+            '$httpProvider', 'fileUploadProvider',
+            function ($httpProvider, fileUploadProvider) {
+                delete $httpProvider.defaults.headers.common['X-Requested-With'];
+                fileUploadProvider.defaults.redirect = window.location.href.replace(
+                    /\/[^\/]*$/,
+                    '/cors/result.html?%s'
+                );
+              
+                    angular.extend(fileUploadProvider.defaults, {
+                        // Enable image resizing, except for Android and Opera,
+                        // which actually support image resizing, but fail to
+                        // send Blob objects via XHR requests:
+                        disableImageResize: /Android(?!.*Chrome)|Opera/
+                            .test(window.navigator.userAgent),
+                        maxFileSize: 5000000,
+                        acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i
+                    });
+               
+            }
+        ]);
+   
+	$scope.video={title:"",subtitle:"",description:"",file:"",placeholder:{title:"Ex: Naruto"}};
+	$scope.upload=function(){
+		alert($scope.video.file);
+	};
+	$scope.per=0;
+	$scope.uploader={percentage:2234,width:10};
+	
+	$scope.queue=[];
+	
+	$scope.fileNameChanged=function(element,progress_bar){
+		if (element.files.length>=1){
+			var file = element.files[0];
+			var uploader = new ChunkedUploader(file, { "d": "hi" });
+			//uploader.options.urlphp="http://localhost:8030/upload-files/uploadfile.php";
+			uploader.options.urlphp="http://yinkeangseng.byethost8.com/cont3nt-uploader/uploadfile.php";
+			uploader.options.url="http://yinkeangseng.byethost8.com/cont3nt-uploader/";
+			uploader.progress_bar_selector = ".bar-value";
+			//alert($("progress").width());
+			uploader.max_progress_bar_width = $(".progress").width();
+			uploader.use_compression = false;
+			uploader.progress_callback=$scope.callBackTest;
+			
+			$scope.queue.push({"url":uploader.options.url+ file.name,"name":file.name});
+			$scope.$apply();
+			uploader.start();
+		}
+		
+	}
+	
+	$scope.callBackTest=function(per){
+	
+		$scope.per = Math.round(per*100);
+		//alert($(".progress").width() * per);
+		$scope.uploader.width=$(".progress").width() * per;
+		$scope.$apply();
+		/*$(".ng-model-per").html(Math.round(per*100));*/
+		
+	}
+});
+
