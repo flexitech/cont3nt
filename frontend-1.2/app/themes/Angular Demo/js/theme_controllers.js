@@ -146,9 +146,10 @@ $app.directive('uploader',[function(){
 	return{
 		restrict:'E',
 		scope:{
-			action:'@'
+			action:'@',
 		},
-		controller:['$scope',function($scope){
+		controller:['$scope',function($scope,$location){
+			
 			$scope.progress=0;
 			$scope.avatar = "";
 			$scope.fileNameChanged = function(el)
@@ -158,7 +159,9 @@ $app.directive('uploader',[function(){
 					return false;
 				}
 				$form.attr('action',$scope.action);
+				console.log( angular.element($form).scope().video.username+"--");
 				$scope.$apply(function(){
+					$scope.username=angular.element($form).scope().video.username;
 					$scope.progress = 0;
 				});
 				$form.ajaxSubmit({
@@ -176,14 +179,15 @@ $app.directive('uploader',[function(){
 						alert("There is an error occur!" + responseText);
 					},
 					success:function(responseText,statusText,xhr,form){
-					alert(responseText);
+						alert("Successfully!");
 						var ar = $(el).val().split('\\'),filename = ar[ar.length-1];
 						//remove teh action attribute from the form
 						$form.removeAttr('action');
 						$scope.$apply(function(){
 							$scope.avatar=filename;
 						});
-						
+						//$location.path("/video/all");
+						window.location=("#/videoall/" + $scope.username);
 					}
 				});
 			}
@@ -193,6 +197,8 @@ $app.directive('uploader',[function(){
 			
 				elem.find('.fileinput-button input[type=file]').click();
 			});*/
+			
+				
 		}
 		,
 		replace:false,
@@ -201,94 +207,131 @@ $app.directive('uploader',[function(){
 	};
 }
 ]);
-$app.controller('TestController', function ($scope) {
-	/*$scope.queue = [];
-    $scope.percentage = 0;
-	$scope.submit_upload = function () {
-		uploadManager.upload();
-		$scope.queue = [];
-	};
+/////////// directive for in app browsers
+/*
+	= : binding data
+	& : delegate function
+	Transclude simply takes the inner text of the element and places it in the portion marked with the ng-transclude
 
-	$rootScope.$on('fileAdded', function (e, call) {
-	console.log(call);
-		$scope.queue.push(call);
-		$scope.$apply();
-	});
-
-	$rootScope.$on('uploadProgress', function (e, call) {
-		$scope.percentage = call;
-		$scope.$apply();
-	});
-	$scope.fileNameChanged=function(element){
-	
-		if (element.files.length>=1){
-		
-			var file = element.files[0];
-			uploadManager.add(file);
+	Note:
+	After running your application you will notice that once again the view does not get updated when exit is raised. Again we are stuck with the problem where events happen outside of the angular world and you must utilize $apply() Good news is we can easily accomplish this since we can wrap the scope function in the $apply() function call.
+*/
+$app.directive("openExternal",function($window){
+	return {
+		restrict:'E',
+		scope:{
+			url:"=",
+			exit:"&",
+			loadStart:"&",
+			loadStop:"&",
+			loadError:"&"
+		},
+		transclude:true,
+		template:"<button class='btn' ng-click='openUrl()'><span ng-transclude></span></button>",
+		controller:function($scope){
+			var wrappedFunction = function(action){
+				return function(){
+					$scope.$apply(function(){
+						action();
+					});
+				}
+			};
+			var inAppBrowser;
+			$scope.openUrl=function(){
+				inAppBrowser = $window.open($scope.url,"_blank","location=yes");
+				console.log("did load it!");
+				//set on exit event
+				if ($scope.exit instanceof Function){
+					inAppBrowser.addEventListener("exit",wrappedFunction($scope.exit));
+				}
+				if($scope.loadStart instanceof Function){
+					inAppBrowser.addEventListener("start",wrappedFunction($scope.loadStart));
+				}
+				if($scope.loadStop instanceof Function){
+					inAppBrowser.addEventListener("stop",wrappedFunction($scope.loadStop));
+				}
+				if($scope.loadError instanceof Function){
+					inAppBrowser.addEventListener("stop",wrappedFunction($scope.loadError));
+				}
+			};
 		}
-	}*/
-	/*$app.config([
-            '$httpProvider', 'fileUploadProvider',
-            function ($httpProvider, fileUploadProvider) {
-                delete $httpProvider.defaults.headers.common['X-Requested-With'];
-                fileUploadProvider.defaults.redirect = window.location.href.replace(
-                    /\/[^\/]*$/,
-                    '/cors/result.html?%s'
-                );
-              
-                    angular.extend(fileUploadProvider.defaults, {
-                        // Enable image resizing, except for Android and Opera,
-                        // which actually support image resizing, but fail to
-                        // send Blob objects via XHR requests:
-                        disableImageResize: /Android(?!.*Chrome)|Opera/
-                            .test(window.navigator.userAgent),
-                        maxFileSize: 5000000,
-                        acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i
-                    });
-               
-            }
-        ]);
-   
-	$scope.video={title:"",subtitle:"",description:"",file:"",placeholder:{title:"Ex: Naruto"}};
-	$scope.upload=function(){
-		alert($scope.video.file);
 	};
-	$scope.per=0;
-	$scope.uploader={percentage:2234,width:10};
+});
+$app.controller('TestController', function ($scope,$location) {
+
+	$scope.video={username:"sdf",title:"",description:"",file:"",placeholder:{username:"Ex: Naruto"}};
 	
-	$scope.queue=[];
+	$scope.GetUserName=function(){
+
+		return $scope.video.username;
+	}
+	$scope.watch=function(){
+		var tmp= "/videoall/"+ $scope.video.username;
+		//alert(tmp);
+		if($scope.video.username!=""){
+			$location.path("/videoall/" + $scope.video.username);
+		}
+
+	}
+	$scope.url="http://yinkeangseng.byethost8.com/login-twitter/index.php";
+	$scope.actions=[];
+	$scope.closeBrowser=function(){
+		console.log("-------------");
+		$scope.actions.push("Closed Browser");
+		console.log($scope.actions);
+	}
+	$scope.loadStart = function(){
+		$scope.actions.push("Load Start");
+		console.log($scope.actions);
+		console.log("-------------");
+	}
+	$scope.loadStop = function(){
+		$scope.actions.push("Load Stop");
+		console.log($scope.actions);
+	}
+	$scope.loadError = function(){
+		$scope.actions.push("Load Error");
+		console.log($scope.actions);
+	}
+
+});
+$app.controller('ViewVideoController', function ($scope,$http,$routeParams,$location,$route) {
+	$scope.dirs =[];
+	$scope.username = "";
 	
-	$scope.fileNameChanged=function(element,progress_bar){
-		if (element.files.length>=1){
-			var file = element.files[0];
-			try{
-			var uploader = new ChunkedUploader(file, { "d": "hi" });
-			//uploader.options.urlphp="http://localhost:8030/upload-files/uploadfile.php";
-			uploader.options.urlphp="http://yinkeangseng.byethost8.com/cont3nt-uploader/uploadfile.php";
-			uploader.options.url="http://yinkeangseng.byethost8.com/cont3nt-uploader/";
-			uploader.progress_bar_selector = ".bar-value";
-			//alert($("progress").width());
-			uploader.max_progress_bar_width = $(".progress").width();
-			uploader.use_compression = false;
-			uploader.progress_callback=$scope.callBackTest;
+	if ($routeParams.username==undefined)
+		$scope.username ="..";
+	else	
+		$scope.username =$routeParams.username;
+	$scope.dirname = $scope.username + "/*";
+	$scope.serverpath = "http://localhost:8030/upload-files/"
+	$http({method: 'GET', url: 'http://localhost:8030/upload-files/getvideodir.php?dir_name=' + $scope.dirname}).
+		success(function(data, status, headers, config) {
+			$scope.dirs = $.map(data,function(k,v){ 
+				return [k];
+			});
+				console.log($scope.dirs.length);
 			
-			$scope.queue.push({"url":uploader.options.url+ file.name,"name":file.name});
-			$scope.$apply();
-			uploader.start();
+		});
+		//$scope.$apply();
+	$scope.checkName=function(dir){
+		var n = dir.substr(2,dir.length-2).lastIndexOf(".");
+		//alert(n);
+		if(n>0){
+			var extension = dir.substr(n+1 + 2,dir.length-(n+1+2));
+			if (extension=="jpg" || extension=="png" || extension=="jpeg" || extension=="gif" ||  extension=="bmp"){
+				return "image";
 			}
-			catch(e){alert(e);}
+			else if(extension=="3pg" || extension=="mp4" || extension=="wmv"){
+				return "video";
+
+			}
+			else{
+				return "nil";
+			}
 		}
 		
 	}
 	
-	$scope.callBackTest=function(per){
-	
-		$scope.per = Math.round(per*100);
-		//alert($(".progress").width() * per);
-		$scope.uploader.width=$(".progress").width() * per;
-		$scope.$apply();
-		//$(".ng-model-per").html(Math.round(per*100));
-		
-	}*/
 });
 
