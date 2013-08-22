@@ -308,8 +308,10 @@ $app.controller('ViewVideoController', function ($scope,$http,$routeParams,$loca
 	else	
 		$scope.username =$routeParams.username;
 	$scope.dirname = $scope.username + "/*";
-	$scope.serverpath = "http://localhost:8030/upload-files/"
-	$http({method: 'GET', url: 'http://localhost:8030/upload-files/getvideodir.php?dir_name=' + $scope.dirname}).
+	//http://yinkeangseng.byethost8.com/
+	//http://localhost:8030/upload-files/getvideodir.php?dir_name=
+	$scope.serverpath = "http://yinkeangseng.byethost8.com/cont3nt-uploader/";
+	$http({method: 'GET', url: 'http://yinkeangseng.byethost8.com/cont3nt-uploader/getvideodir.php?dir_name=' + $scope.dirname}).
 		success(function(data, status, headers, config) {
 			$scope.dirs = $.map(data,function(k,v){ 
 				return [k];
