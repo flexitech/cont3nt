@@ -232,26 +232,30 @@ $app.directive("openExternal",function($window){
 			var wrappedFunction = function(action){
 				return function(){
 					$scope.$apply(function(){
+						console.log("hey why??");
 						action();
 					});
 				}
 			};
 			var inAppBrowser;
+			function load(){alert(0);}
 			$scope.openUrl=function(){
-				inAppBrowser = $window.open($scope.url,"_blank","location=yes");
-				console.log("did load it!");
+				inAppBrowser = $window.open($scope.url,"_blank","location=yes");console.log(inAppBrowser);
+				//inAppBrowser.addEventListener("click",function(){alert(1);});
+
 				//set on exit event
 				if ($scope.exit instanceof Function){
+					
 					inAppBrowser.addEventListener("exit",wrappedFunction($scope.exit));
 				}
 				if($scope.loadStart instanceof Function){
-					inAppBrowser.addEventListener("start",wrappedFunction($scope.loadStart));
+					inAppBrowser.addEventListener("loadstart",wrappedFunction($scope.loadStart));
 				}
 				if($scope.loadStop instanceof Function){
-					inAppBrowser.addEventListener("stop",wrappedFunction($scope.loadStop));
+					inAppBrowser.addEventListener("loadstop",wrappedFunction($scope.loadStop));
 				}
 				if($scope.loadError instanceof Function){
-					inAppBrowser.addEventListener("stop",wrappedFunction($scope.loadError));
+					inAppBrowser.addEventListener("loaderror",wrappedFunction($scope.loadError));
 				}
 			};
 		}

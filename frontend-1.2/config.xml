@@ -15,7 +15,7 @@
     <author href="http://angkorone.com" email="info@angkorone.com">
         AngkorOne
     </author>
-
+	<plugin name="InAppBrowser" value="org.apache.cordova.InAppBrowser" />
     <!--
         Enable individual API permissions by defining each here.
         The 'device' permission is required for the 'deviceready' event.
