@@ -22,16 +22,9 @@
 				</div>
 				
 				<hr/>
+				
 				<div class="row">
-					<div class="span6">
-						<div class="fb-like" data-send="true" data-width="450" data-show-faces="true"></div>
-					</div>
-					<div class="span6">
-						
-					</div>
-				</div>
-				<!-- <div class="row">
-				    <div ng-controller="Ctrl">
+				    <!-- <div ng-controller="Ctrl">
 				    	<div class="span6">
 					      	<button ng-click="changeLanguage('en')" translate="BUTTON_LANG_EN">English</button>
 					      	<button ng-click="changeLanguage('de')" translate="BUTTON_LANG_DE">German</button>
@@ -40,8 +33,11 @@
 					      	<h1 translate="TITLE">dfds</h2>
 					      	<p translate="FOO">dsfsdf</p>
 				      	</div>
+				    </div> -->
+				    <div class="span6">
+				    	Hi My Seng Panhna
 				    </div>
-				</div> -->
+				</div>
 				
 				
 				
@@ -53,6 +49,19 @@
 		
 	</div>
 </div>
+
+
+	<!-- <script src="http://rawgithub.com/SlexAxton/messageformat.js/master/messageformat.js"></script>
+    <script src="http://rawgithub.com/SlexAxton/messageformat.js/master/locale/de.js"></script>
+    <script src="http://code.angularjs.org/1.1.5/angular.min.js"></script>
+    <script src="http://rawgithub.com/angular/bower-angular-cookies/master/angular-cookies.min.js"></script>
+    <script src="http://rawgithub.com/PascalPrecht/bower-angular-translate/master/angular-translate.min.js"></script>
+    <script src="http://rawgithub.com/PascalPrecht/bower-angular-translate-interpolation-messageformat/master/angular-translate-interpolation-messageformat.min.js"></script>
+    <script src="http://rawgithub.com/PascalPrecht/bower-angular-translate-storage-cookie/master/angular-translate-storage-cookie.min.js"></script>
+    <script src="http://rawgithub.com/PascalPrecht/bower-angular-translate-storage-local/master/angular-translate-storage-local.min.js"></script>
+    <script src="http://rawgithub.com/PascalPrecht/bower-angular-translate-loader-static-files/master/angular-translate-loader-static-files.min.js"></script>
+    <script src="http://rawgithub.com/PascalPrecht/bower-angular-translate-handler-log/master/angular-translate-handler-log.min.js"></script>
+    <script src="script.js"></script> -->
 
         <div id="fb-root"></div>
 <script>
@@ -71,29 +80,28 @@ var handleResponse = function(response) {
    alert ('You liked the URL: ' + response);
 };
 
-// -------------------------------------------------- Load Dialog Box Feed --------------------------------
-// FB.ui(
-  // {
-    // method: 'feed',
-    // name: 'Facebook Dialogs',
-    // link: 'https://developers.facebook.com/docs/reference/dialogs/',
-    // picture: 'http://fbrell.com/f8.jpg',
-    // caption: 'Reference Documentation',
-    // description: 'Dialogs provide a simple, consistent interface for applications to interface with users.'
-  // },
-  // function(response) {
-  	// // alert('panhna');
-    // if (response && response.post_id) {
-      // // alert('Post was published.');
-    // } else {
-      // // alert('Post was not published.');
-    // }
-  // }
-// );
 
+FB.ui(
+  {
+    method: 'feed',
+    name: 'Facebook Dialogs',
+    link: 'https://developers.facebook.com/docs/reference/dialogs/',
+    picture: 'http://fbrell.com/f8.jpg',
+    caption: 'Reference Documentation',
+    description: 'Dialogs provide a simple, consistent interface for applications to interface with users.'
+  },
+  function(response) {
+  	// alert('panhna');
+    if (response && response.post_id) {
+      // alert('Post was published.');
+    } else {
+      // alert('Post was not published.');
+    }
+  }
+);
 
 // At some point, you no longer want to be notified, and unsubscribe
-FB.Event.unsubscribe('auth.authResponseChange', handleResponse);
+FB.Event.unsubscribe('edge.create', handleResponse);
 
   // Here we subscribe to the auth.authResponseChange JavaScript event. This event is fired
   // for any authentication related change, such as login, logout or session refresh. This means that
@@ -105,14 +113,8 @@ FB.Event.unsubscribe('auth.authResponseChange', handleResponse);
       // The response object is returned with a status field that lets the app know the current
       // login status of the person. In this case, we're handling the situation where they 
       // have logged in to the app.
-       
       accessToken = response.authResponse.accessToken;
       testAPI();
-      
-      FB.api('/me', function(response) {
-      	
-      		alert('Good to see you, ' + response.name + ' : ' + response.id + ' : ' + accessToken + ' : ' + response.user_likes);
-      });
       
     } else if (response.status === 'not_authorized') {
       // In this case, the person is logged into Facebook, but not into the app, so we call
@@ -133,6 +135,7 @@ FB.Event.unsubscribe('auth.authResponseChange', handleResponse);
     }
   });
   
+  	
 	  // FB.getLoginStatus(function(response) {
 // 	  	
 	  	// alert("Access TOken : " + accessToken);
