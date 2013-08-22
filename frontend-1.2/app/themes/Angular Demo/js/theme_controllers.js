@@ -280,6 +280,7 @@ $app.controller('TestController', function ($scope,$location) {
 	$scope.url="http://yinkeangseng.byethost8.com/login-twitter/index.php";
 	$scope.actions=[];
 	$scope.closeBrowser=function(){
+		alert("hello sir!");
 		console.log("-------------");
 		$scope.actions.push("Closed Browser");
 		console.log($scope.actions);
