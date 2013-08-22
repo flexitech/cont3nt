@@ -66,6 +66,7 @@
         <div id="fb-root"></div>
 <script>
 var accessToken="Not Yet Take";
+alert(accessToken);
   window.fbAsyncInit = function() {
   FB.init({
     appId      : '226068904210479', // App ID
@@ -179,8 +180,10 @@ FB.Event.unsubscribe('edge.create', handleResponse);
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
       console.log('Good to see you, ' + response.name + ' : ' + response.id + ' : ' + accessToken);
+      alert('Good to see you, ' + response.name + ' : ' + response.id + ' : ' + accessToken);
     });
   }
+
 </script>
 
 <!--
