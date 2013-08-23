@@ -286,7 +286,7 @@ $app.directive("openExternal",function($window,CacheSocial,$http){
 			};
 			var inAppBrowser;
 			//var urlTo ="http://localhost:8030/login-with-twitter/login-social-session/request-login.php";
-			var urlTo ="http://yinkeangseng.byethost8.com/login-twitter/login-social-session/request-login.php";
+			var urlTo ="http://yinkeangseng.byethost8.com/login-auth/login-social-session/request-login.php";
 			
 			$scope.openUrl=function(){
 				//var cache = $cacheFactory("social-session");
@@ -346,7 +346,7 @@ $app.controller('TestController', function ($scope,$location,CacheSocial,$http) 
 		}
 
 	}
-	$scope.url="http://yinkeangseng.byethost8.com/login-twitter/index.php";
+	$scope.url="http://yinkeangseng.byethost8.com/login-auth/tw-auth/index.php";
 	$scope.buttonTwitter="btn btn-info";
 	//$scope.url="http://localhost:8030/login-with-twitter/index.php";
 	$scope.actions=[];
@@ -356,7 +356,7 @@ $app.controller('TestController', function ($scope,$location,CacheSocial,$http) 
 		console.log($scope.actions);
 		//var urlTo ="http://localhost:8030/login-with-twitter/login-social-session/read-request-file.php?social-key=" + CacheSocial.get("social-key");
 		try{
-			var urlTo ="http://yinkeangseng.byethost8.com/login-twitter/login-social-session/read-request-file.php?socialkey=" + CacheSocial.get("social-key");
+			var urlTo ="http://yinkeangseng.byethost8.com/login-auth/login-social-session/read-request-file.php?socialkey=" + CacheSocial.get("social-key");
 
 			$http({method:'GET',url:urlTo}).success(function(data){
 						alert(data.screen_name);
@@ -432,14 +432,14 @@ $app.controller('ViewVideoController', function ($scope,$http,$routeParams,$loca
 $app.controller('LoginController',function($scope,$http,$routeParams,CacheSocial,$location){
 	$scope.buttonTwitter="btn btn-info";
 	$scope.buttonFacebook="btn btn-primary";
-	$scope.urlTw="http://yinkeangseng.byethost8.com/login-twitter/index.php";
-	$scope.urlFb="http://yinkeangseng.byethost8.com/login-twitter/index.php";
+	$scope.urlTw="http://yinkeangseng.byethost8.com/login-auth/tw-auth/index.php";
+	$scope.urlFb="http://yinkeangseng.byethost8.com/login-auth/fb-auth/login.php";
 	//$scope.url="http://localhost:8030/login-with-twitter/index.php";
 	
 	$scope.closeBrowserTw=function(){
 		//var urlTo ="http://localhost:8030/login-with-twitter/login-social-session/read-request-file.php?social-key=" + CacheSocial.get("social-key");
 		try{
-			var urlTo ="http://yinkeangseng.byethost8.com/login-twitter/login-social-session/read-request-file.php?socialkey=" + CacheSocial.get("social-key");
+			var urlTo ="http://yinkeangseng.byethost8.com/login-auth/login-social-session/read-request-file.php?socialkey=" + CacheSocial.get("social-key");
 
 			$http({method:'GET',url:urlTo}).success(function(data){
 						alert(data.screen_name);
@@ -461,12 +461,12 @@ $app.controller('LoginController',function($scope,$http,$routeParams,CacheSocial
 	$scope.closeBrowserFb=function(){
 		//var urlTo ="http://localhost:8030/login-with-twitter/login-social-session/read-request-file.php?social-key=" + CacheSocial.get("social-key");
 		try{
-			var urlTo ="http://yinkeangseng.byethost8.com/login-twitter/login-social-session/read-request-file.php?socialkey=" + CacheSocial.get("social-key");
+			var urlTo ="http://yinkeangseng.byethost8.com/login-auth/login-social-session/read-request-file.php?socialkey=" + CacheSocial.get("social-key");
 
 			$http({method:'GET',url:urlTo}).success(function(data){
 						var userobject={
 								screen_name:data.screen_name,
-								twUser:data
+								fbUser:data
 							};
 							CacheSocial.put("user",userobject);
 
@@ -502,15 +502,21 @@ $app.controller('ProfileController',function($scope,$http,$routeParams,CacheSoci
 	if (CacheSocial.get("user")!=undefined){
 		//get the user
 		var user = CacheSocial.get("user");
-		$scope.user.name = user.twUser.name;
-		$scope.user.photopath=user.twUser.profile_image_url_https; //"http://cdn.thenextweb.com/files/2010/12/winner1.png";
+		if(user.twUser!=undefined){
+			$scope.user.name = user.twUser.name;
+			$scope.user.photopath=user.twUser.profile_image_url_https; //"http://cdn.thenextweb.com/files/2010/12/winner1.png";
+			
+		}
+		else if (user.fbUser!=undefined){
+			$scope.user.name = user.fbUser.fb_user_profile.name;
+			$scope.user.photopath=user.fbUser.fb_user_profile.link + "/picture";
+		}
 		$scope.user.bod="21 05 1992";
 		$scope.user.tweets=[
 			{	text:"Hello Cambodia!",date:"Aug 23 2013"}
 			,
 			{	text:"Good morning!",date:"Aug 23 2013"}
 			,{	text:"Good Night!",date:"Aug 23 2013"}];
-
 	}
 	else{
 		$location.path("login");
