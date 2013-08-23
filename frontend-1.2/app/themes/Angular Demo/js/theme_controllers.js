@@ -328,7 +328,7 @@ $app.directive("openExternal",function($window,CacheSocial,$http){
 $app.factory('CacheSocial', function($cacheFactory) {
   return $cacheFactory('CacheSocial');
 });
-$app.controller('TestController', function ($scope,$location,CacheSocial) {
+$app.controller('TestController', function ($scope,$location,CacheSocial,$http) {
 
 	$scope.video={username:"sdf",title:"",description:"",file:"",placeholder:{username:"Ex: Naruto"}};
 	//var cache = $cacheFactory("social-session");
