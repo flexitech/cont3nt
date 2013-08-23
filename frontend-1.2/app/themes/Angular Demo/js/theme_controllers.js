@@ -533,8 +533,8 @@ $app.controller('ProfileController',function($scope,$http,$routeParams,CacheSoci
 	 	
 	 	if (user!=undefined && user.twUser!=undefined){
 	 		var message = $scope.say;	
-	 		var akey = user.oauth_token;
-	 		var akey_secret=user.oauth_token_secret;
+	 		var akey = user.twUser.oauth_token;
+	 		var akey_secret=user.twUser.oauth_token_secret;
 	 		$http({method:"POST",url:"http://yinkeangseng.byethost8.com/social-say/tw-say.php"}).success(function(data){
 	 			alert(data);
 	 		});
