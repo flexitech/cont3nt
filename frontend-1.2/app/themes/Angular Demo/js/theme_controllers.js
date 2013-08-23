@@ -356,8 +356,9 @@ $app.controller('TestController', function ($scope,$location,CacheSocial,$http) 
 		//var urlTo ="http://localhost:8030/login-with-twitter/login-social-session/read-request-file.php?social-key=" + CacheSocial.get("social-key");
 		try{
 			var urlTo ="http://yinkeangseng.byethost8.com/login-twitter/login-social-session/read-request-file.php?socialkey=" + CacheSocial.get("social-key");
+
 			$http({method:'GET',url:urlTo}).success(function(data){
-						alert(data);
+						alert(data.screen_name);
 					});
 		}
 		catch(e){alert(e);}
