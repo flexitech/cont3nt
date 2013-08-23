@@ -293,30 +293,34 @@ $app.directive("openExternal",function($window,CacheSocial,$http){
 				//alert(CacheSocial.get("key"));
 
 				//request open url
+				
 				$http({method:'GET',url:urlTo}).success(function(data){
 					if(data!=undefined)
-						CacheSocial.put("social-key",data);
+					{	CacheSocial.put("social-key",data);
+						inAppBrowser = $window.open($scope.url + "?social-key=" + data,"_blank","location=yes");console.log(inAppBrowser);
+						//inAppBrowser.addEventListener("click",function(){alert(1);});
+						
+							$scope.dataString="hello";
+						//set on exit event
+						if ($scope.exit instanceof Function){
+							
+							inAppBrowser.addEventListener("exit",wrappedFunction($scope.exit));
+						}
+						if($scope.loadStart instanceof Function){
+							inAppBrowser.addEventListener("loadstart",wrappedFunction($scope.loadStart));
+						}
+						if($scope.loadStop instanceof Function){
+							inAppBrowser.addEventListener("loadstop",wrappedFunction($scope.loadStop));
+						}
+						if($scope.loadError instanceof Function){
+							inAppBrowser.addEventListener("loaderror",wrappedFunction($scope.loadError));
+						}
+					}
+
 				});
 
 
-				inAppBrowser = $window.open($scope.url + "?social-key=" + data,"_blank","location=yes");console.log(inAppBrowser);
-				//inAppBrowser.addEventListener("click",function(){alert(1);});
 				
-					$scope.dataString="hello";
-				//set on exit event
-				if ($scope.exit instanceof Function){
-					
-					inAppBrowser.addEventListener("exit",wrappedFunction($scope.exit));
-				}
-				if($scope.loadStart instanceof Function){
-					inAppBrowser.addEventListener("loadstart",wrappedFunction($scope.loadStart));
-				}
-				if($scope.loadStop instanceof Function){
-					inAppBrowser.addEventListener("loadstop",wrappedFunction($scope.loadStop));
-				}
-				if($scope.loadError instanceof Function){
-					inAppBrowser.addEventListener("loaderror",wrappedFunction($scope.loadError));
-				}
 			};
 		}
 	};
