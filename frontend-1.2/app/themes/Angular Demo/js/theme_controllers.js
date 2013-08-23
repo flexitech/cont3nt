@@ -442,15 +442,15 @@ $app.controller('LoginController',function($scope,$http,$routeParams,CacheSocial
 			var urlTo ="http://yinkeangseng.byethost8.com/login-auth/login-social-session/read-request-file.php?socialkey=" + CacheSocial.get("social-key");
 
 			$http({method:'GET',url:urlTo}).success(function(data){
-						alert(data.screen_name);
+						//alert(data.screen_name);
 						try{
 							var userobject={
-									screen_name:data.screen_name,
+									screen_name:data.user_profile.screen_name,
 									twUser:data
 								};
 								CacheSocial.put("user",userobject);
 
-							$location.path("profile/" + data.screen_name);
+							$location.path("profile/" + data.user_profile.screen_name);
 						}
 						catch(e){alert(e);}
 					});
@@ -465,12 +465,12 @@ $app.controller('LoginController',function($scope,$http,$routeParams,CacheSocial
 
 			$http({method:'GET',url:urlTo}).success(function(data){
 						var userobject={
-								screen_name:data.screen_name,
+								screen_name:data.fb_user_profile.username,
 								fbUser:data
 							};
 							CacheSocial.put("user",userobject);
 
-						$location.path("profile/" + data.screen_name);
+						$location.path("profile/" + data.fb_user_profile.username);
 					});
 		}
 		catch(e){alert(e);}
