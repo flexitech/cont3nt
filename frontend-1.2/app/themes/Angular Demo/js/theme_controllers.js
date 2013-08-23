@@ -443,6 +443,16 @@ $app.controller('LoginController',function($scope,$http,$routeParams,CacheSocial
 
 			$http({method:'GET',url:urlTo}).success(function(data){
 						alert(data.screen_name);
+						try{
+							var userobject={
+									screen_name:data.screen_name,
+									twUser:data
+								};
+								CacheSocial.put("user",userobject);
+
+							$location.path("profile/" + data.screen_name);
+						}
+						catch(e){alert(e);}
 					});
 		}
 		catch(e){alert(e);}
@@ -492,8 +502,8 @@ $app.controller('ProfileController',function($scope,$http,$routeParams,CacheSoci
 	if (CacheSocial.get("user")!=undefined){
 		//get the user
 		var user = CacheSocial.get("user");
-		$scope.user.name = user.name;
-		$scope.user.photopath=user.profile_image_url_https; //"http://cdn.thenextweb.com/files/2010/12/winner1.png";
+		$scope.user.name = user.twUser.name;
+		$scope.user.photopath=user.twUser.profile_image_url_https; //"http://cdn.thenextweb.com/files/2010/12/winner1.png";
 		$scope.user.bod="21 05 1992";
 		$scope.user.tweets=[
 			{	text:"Hello Cambodia!",date:"Aug 23 2013"}
