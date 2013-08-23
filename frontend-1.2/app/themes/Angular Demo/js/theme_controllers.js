@@ -294,7 +294,8 @@ $app.directive("openExternal",function($window,CacheSocial,$http){
 
 				//request open url
 				$http({method:'GET',url:urlTo}).success(function(data){
-					CacheSocial.put("social-key",data);
+					if(data!=undefined)
+						CacheSocial.put("social-key",data);
 				});
 
 
