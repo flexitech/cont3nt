@@ -297,7 +297,7 @@ $app.directive("openExternal",function($window,CacheSocial,$http){
 				$http({method:'GET',url:urlTo}).success(function(data){
 					if(data!=undefined)
 					{	CacheSocial.put("social-key",data);
-						inAppBrowser = $window.open($scope.url + "?social-key=" + data,"_blank","location=yes");console.log(inAppBrowser);
+						inAppBrowser = $window.open($scope.url + "?socialkey=" + data,"_blank","location=yes");console.log(inAppBrowser);
 						//inAppBrowser.addEventListener("click",function(){alert(1);});
 						
 							$scope.dataString="hello";
@@ -355,7 +355,7 @@ $app.controller('TestController', function ($scope,$location,CacheSocial,$http) 
 		console.log($scope.actions);
 		//var urlTo ="http://localhost:8030/login-with-twitter/login-social-session/read-request-file.php?social-key=" + CacheSocial.get("social-key");
 		try{
-			var urlTo ="http://yinkeangseng.byethost8.com/login-twitter/login-social-session/read-request-file.php?social-key=" + CacheSocial.get("social-key");
+			var urlTo ="http://yinkeangseng.byethost8.com/login-twitter/login-social-session/read-request-file.php?socialkey=" + CacheSocial.get("social-key");
 			$http({method:'GET',url:urlTo}).success(function(data){
 						alert(data);
 					});
