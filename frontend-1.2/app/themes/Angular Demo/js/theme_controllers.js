@@ -354,11 +354,13 @@ $app.controller('TestController', function ($scope,$location,CacheSocial) {
 		$scope.actions.push("Closed Browser");
 		console.log($scope.actions);
 		//var urlTo ="http://localhost:8030/login-with-twitter/login-social-session/read-request-file.php?social-key=" + CacheSocial.get("social-key");
-		var urlTo ="http://yinkeangseng.byethost8.com/login-twitter/login-social-session/read-request-file.php?social-key=" + CacheSocial.get("social-key");
-		$http({method:'GET',url:urlTo}).success(function(data){
-					alert(data);
-				});
-		
+		try{
+			var urlTo ="http://yinkeangseng.byethost8.com/login-twitter/login-social-session/read-request-file.php?social-key=" + CacheSocial.get("social-key");
+			$http({method:'GET',url:urlTo}).success(function(data){
+						alert(data);
+					});
+		}
+		catch(e){alert(e);}
 		alert("hello sir!");
 	}
 	$scope.loadStart = function(){
