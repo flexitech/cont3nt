@@ -509,7 +509,11 @@ $app.controller('ProfileController',function($scope,$http,$routeParams,CacheSoci
 		}
 		else if (user.fbUser!=undefined){
 			$scope.user.name = user.fbUser.fb_user_profile.name;
-			$scope.user.photopath=user.fbUser.fb_user_profile.link + "/picture";
+			$scope.user.photopath="https://graph.facebook.com/" + user.fbUser.fb_user_profile.username + "/picture";
+		}
+		else{
+			$scope.user.name = user.screen_name;
+			$scope.user.photopath="http://cdn.thenextweb.com/files/2010/12/winner1.png";
 		}
 		$scope.user.bod="21 05 1992";
 		$scope.user.tweets=[
