@@ -126,6 +126,21 @@ header .navbar-inner .brand{
 
 
 }
+.login {
+	margin:0px auto;
+	
+	float:none !important;
+}
+.login .main{
+	
+	/*left:-50%;*/
+	background-color:white;
+	padding:15px;
+	border-radius:10px;
+	box-shadow: 0px 1px 10px black;
+	
+
+}
 @media all and (max-width: 480px) and (min-width: 0px) {
 	.popupBox{
 	

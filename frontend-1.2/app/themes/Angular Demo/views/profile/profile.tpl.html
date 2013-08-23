@@ -1,0 +1,33 @@
+<div class="kratos" style="margin-bottom:80px;">
+	<br/>
+	<div class="grid-120">
+		<div class="grid-40 mobile-grid">
+			<h1>{{user.name}}</h1>
+			<img ng-src="{{user.photopath}}" style="width:100%;height:auto;max-width:120px" />
+			<br/>
+			<b>Birth Date: {{user.bod}}</b>
+		</div>
+		<div class="grid-80 mobile-grid">
+			<h1>{{user.name}}'s recent activities:</h1>
+			<table class="table table-striped">
+				<tr ng-repeat="tweet in user.tweets">
+					<td>{{tweet.date}}</td>
+					<td>{{tweet.text}}</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	
+			<div class="clear"></div>
+</div>
+<script type="text/javascript">
+	
+
+   
+    
+    $(document).ready(function(){
+
+
+	   $("#wrapper").niceScroll({touchbehavior:true}); 
+	 });
+</script>

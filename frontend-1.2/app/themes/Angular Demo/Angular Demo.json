@@ -33,7 +33,31 @@
 		{"path":"/video",	"layout":"layouts/main",		"template":"addvideo",	"controller":"TestController", "title":"","class":"media"},
 		{"path":"/videoall",	"layout":"layouts/main",		"template":"viewallvideo",	"controller":"ViewVideoController", "title":"","class":"hide"},
 		{"path":"/videoall/:username",	"layout":"layouts/main",		"template":"viewallvideo",	"controller":"ViewVideoController", "title":"","class":"hide"},
-		{"path":"/video/:path",	"layout":"layouts/main",		"template":"viewallvideo",	"controller":"ViewVideoController", "title":"","class":"media"},
+		{"path":"/video/:path",	"layout":"layouts/main",		"template":"viewallvideo",	"controller":"ViewVideoController", "title":"","class":"hide"},
+		{
+			"path":"/login",
+			"layout":"layouts/main",
+			"template":"login",
+			"controller":"LoginController",
+			"title":"",
+			"class":"hide"
+		},
+		{
+			"path":"/profile/:user",
+			"layout":"layouts/main",
+			"template":"profile/profile",
+			"controller":"ProfileController",
+			"title":"",
+			"class":"blog"
+		},
+		{
+			"path":"/profile",
+			"layout":"layouts/main",
+			"template":"profile/profile404",
+			"controller":"ProfileController",
+			"title":"",
+			"class":"hide"
+		},
 		{ "otherwise" : "/home" }
 	]
 }

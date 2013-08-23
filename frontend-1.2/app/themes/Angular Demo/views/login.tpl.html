@@ -1,0 +1,33 @@
+<div class="kratos" style="margin-bottom:80px;">
+	<br/>
+	<div class="login grid-60 mobile-grid">
+		<div class="main">
+			
+			<form class="grid-120">
+				<h4>Breaking News In Realtime. Join Us!</h4>
+				<div class="login">
+
+					<input type="text" class="grid-120" ng-model="auth.user" placeholder="Username"/>
+					<input type="password" class="grid-120" ng-model="auth.pass" placeholder="Password"/>
+				</div>
+
+				<div class="clear"></div>
+				<br/>
+				<button class="btn" ng-click="login(auth)">Login</button>
+				<div class="tablet-only not-mobile">
+					<br/>
+				</div>
+				<open-external button-class="buttonTwitter" url="urlTw" exit="closeBrowserTw()" load-start="loadStartTw()" load-stop="loadStopTw()" load-error="loadError()" >
+					Login with Twitter
+				</open-external>
+				<div class="tablet-only not-mobile">
+					<br/>
+				</div>
+				<open-external button-class="buttonFacebook" url="urlFb" exit="closeBrowserFb()" load-start="loadStartFb()" load-stop="loadStopFb()" load-error="loadError()" >
+					Login with Fb
+				</open-external>
+			</form>
+			<div class="clear"></div>
+	    </div>
+	</div>
+</div>
