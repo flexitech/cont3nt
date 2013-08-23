@@ -6,6 +6,11 @@
 			<img ng-src="{{user.photopath}}" style="width:100%;height:auto;max-width:120px" />
 			<br/>
 			<b>Birth Date: {{user.bod}}</b>
+			<br/>
+			<input type="text" ng-model="say"/>
+			<br/>
+			<a class="btn btn-info" ng-click="tw_say()">Tweet</a> 
+			<a class="btn btn-primary" ng-click="fb_say()">Post</a>
 		</div>
 		<div class="grid-80 mobile-grid">
 			<h1>{{user.name}}'s recent activities:</h1>

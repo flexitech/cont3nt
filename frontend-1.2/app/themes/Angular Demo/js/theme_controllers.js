@@ -499,12 +499,13 @@ $app.controller('LoginController',function($scope,$http,$routeParams,CacheSocial
 $app.controller('ProfileController',function($scope,$http,$routeParams,CacheSocial,$location){
 
 	$scope.user={name:"",photopath:"",bod:"",tweets:[]};
+	var user=null;
 	if (CacheSocial.get("user")!=undefined){
 		//get the user
 		var user = CacheSocial.get("user");
 		if(user.twUser!=undefined){
-			$scope.user.name = user.twUser.name;
-			$scope.user.photopath=user.twUser.profile_image_url_https; //"http://cdn.thenextweb.com/files/2010/12/winner1.png";
+			$scope.user.name = user.twUser.user_profile.name;
+			$scope.user.photopath=user.twUser.user_profile.profile_image_url_https; //"http://cdn.thenextweb.com/files/2010/12/winner1.png";
 			
 		}
 		else if (user.fbUser!=undefined){
@@ -526,4 +527,23 @@ $app.controller('ProfileController',function($scope,$http,$routeParams,CacheSoci
 		$location.path("login");
 	}
 	 $("#wrapper").niceScroll({touchbehavior:true}); 
+	 $scope.say ="";
+
+	 $scope.tw_say=function(){
+	 	
+	 	if (user!=undefined && user.twUser!=undefined){
+	 		var message = $scope.say;	
+	 		var akey = user.oauth_token;
+	 		var akey_secret.user.oauth_token_secret;
+	 		$http({method:"POST",url:"http://yinkeangseng.byethost8.com/social-say/tw-say.php"}).success(function(data){
+	 			alert(data);
+	 		});
+	 	}
+	 	else{
+	 		alert("User has not sign up with his twitter yet!");
+	 	}
+	 }
+	 $scope.fb_say=function(){
+	 	alert("User has not sign up with his facebook yet or this functionality is not completed!");
+	 }
 });
