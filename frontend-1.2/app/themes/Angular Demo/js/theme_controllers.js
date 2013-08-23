@@ -350,10 +350,16 @@ $app.controller('TestController', function ($scope,$location,CacheSocial) {
 	//$scope.url="http://localhost:8030/login-with-twitter/index.php";
 	$scope.actions=[];
 	$scope.closeBrowser=function(){
-		alert("hello sir!");
 		console.log("-------------");
 		$scope.actions.push("Closed Browser");
 		console.log($scope.actions);
+		//var urlTo ="http://localhost:8030/login-with-twitter/login-social-session/read-request-file.php?social-key=" + CacheSocial.get("social-key");
+		var urlTo ="http://yinkeangseng.byethost8.com/login-twitter/login-social-session/read-request-file.php?social-key=" + CacheSocial.get("social-key");
+		$http({method:'GET',url:urlTo}).success(function(data){
+					alert(data);
+				});
+		
+		alert("hello sir!");
 	}
 	$scope.loadStart = function(){
 		$scope.actions.push("Load Start");
@@ -363,11 +369,6 @@ $app.controller('TestController', function ($scope,$location,CacheSocial) {
 	$scope.loadStop = function(){
 		$scope.actions.push("Load Stop");
 		console.log($scope.actions);
-		//var urlTo ="http://localhost:8030/login-with-twitter/login-social-session/read-request-file.php?social-key=" + CacheSocial.get("social-key");
-		var urlTo ="http://yinkeangseng.byethost8.com/login-twitter/login-social-session/read-request-file.php?social-key=" + CacheSocial.get("social-key");
-		$http({method:'GET',url:urlTo}).success(function(data){
-					alert(data);
-				});
 	}
 	$scope.loadError = function(){
 		$scope.actions.push("Load Error");
