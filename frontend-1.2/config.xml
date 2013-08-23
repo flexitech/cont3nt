@@ -16,6 +16,9 @@
         AngkorOne
     </author>
 	<plugin name="InAppBrowser" value="org.apache.cordova.InAppBrowser" />
+    <plugin name="File" value="org.apache.cordova.FileUtils" />
+<plugin name="FileTransfer" value="org.apache.cordova.FileTransfer" />
+
     <!--
         Enable individual API permissions by defining each here.
         The 'device' permission is required for the 'deviceready' event.

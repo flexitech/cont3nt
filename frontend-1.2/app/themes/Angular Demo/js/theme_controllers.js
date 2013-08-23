@@ -216,15 +216,63 @@ $app.directive('uploader',[function(){
 	Note:
 	After running your application you will notice that once again the view does not get updated when exit is raised. Again we are stuck with the problem where events happen outside of the angular world and you must utilize $apply() Good news is we can easily accomplish this since we can wrap the scope function in the $apply() function call.
 */
-$app.directive("openExternal",function($window){
+$app.factory('dataService', function($rootScope, $http,$window) {
+    var dataService = {};
+
+    dataService.data = {};
+
+    //Gets the list of nuclear weapons
+    dataService.getNukes = function() {
+        $http.get('data/nukes.json')
+            .success(function(data) {
+                dataService.data.nukes = data;
+            });
+
+        return dataService.data;
+    };
+    dataService.set=function(key,value){
+    	dataService.data[key]=value;
+    	//var str = dataService.data.serializeArray();
+    	$window.requestFileSystem  = $window.requestFileSystem || $window.webkitRequestFileSystem;
+    	//later for chrome.first for firefox
+    	//console.log(window);
+    	$window.requestFileSystem($window.PERSISTENT,0,gotFS,fail);
+    };
+
+    function gotFileWriter(writer){
+    	alert("got gotFileWriter");
+    	writer.write(JSON.stringify(dataService.data));
+    }
+    function gotFileEntry(fileEntry){
+    	alert("got fileEntry");
+    	fileEntry.createWriter(gotFileWriter,fail);
+
+    }
+    function gotFS(fileSystem){
+    	alert("got fs");
+    	fileSystem.root.getFile("data/nukes.json",{create:true,exclusive:false},gotFileEntry,fail);
+    	
+    }
+    function fail(error){
+    	console.log(error);
+    	console.log("error:" + error);
+    	alert("got error");
+    }
+    return dataService;
+});
+$app.directive("openExternal",function($window,dataService){
 	return {
 		restrict:'E',
 		scope:{
 			url:"=",
+			dataString:"@",
 			exit:"&",
 			loadStart:"&",
 			loadStop:"&",
 			loadError:"&"
+		},
+		link:function(scope,elem,attr){
+			scope.data = dataService;
 		},
 		transclude:true,
 		template:"<button class='btn' ng-click='openUrl()'><span ng-transclude></span></button>",
@@ -242,7 +290,8 @@ $app.directive("openExternal",function($window){
 			$scope.openUrl=function(){
 				inAppBrowser = $window.open($scope.url,"_blank","location=yes");console.log(inAppBrowser);
 				//inAppBrowser.addEventListener("click",function(){alert(1);});
-
+				
+					$scope.dataString="hello";
 				//set on exit event
 				if ($scope.exit instanceof Function){
 					
@@ -261,10 +310,11 @@ $app.directive("openExternal",function($window){
 		}
 	};
 });
-$app.controller('TestController', function ($scope,$location) {
+$app.controller('TestController', function ($scope,$location,dataService) {
 
 	$scope.video={username:"sdf",title:"",description:"",file:"",placeholder:{username:"Ex: Naruto"}};
-	
+	$scope.dataString=dataService.dataString;
+	dataService.set("heyu","it is me!");
 	$scope.GetUserName=function(){
 
 		return $scope.video.username;
