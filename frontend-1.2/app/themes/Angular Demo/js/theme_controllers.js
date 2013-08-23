@@ -216,7 +216,7 @@ $app.directive('uploader',[function(){
 	Note:
 	After running your application you will notice that once again the view does not get updated when exit is raised. Again we are stuck with the problem where events happen outside of the angular world and you must utilize $apply() Good news is we can easily accomplish this since we can wrap the scope function in the $apply() function call.
 */
-$app.factory('dataService', function($rootScope, $http,$window) {
+/*$app.factory('dataService', function($rootScope, $http,$window) {
     var dataService = {};
 
     dataService.data = {};
@@ -259,8 +259,8 @@ $app.factory('dataService', function($rootScope, $http,$window) {
     	alert("got error");
     }
     return dataService;
-});
-$app.directive("openExternal",function($window,dataService){
+});*/
+$app.directive("openExternal",function($window,CacheSocial,$http){
 	return {
 		restrict:'E',
 		scope:{
@@ -272,7 +272,6 @@ $app.directive("openExternal",function($window,dataService){
 			loadError:"&"
 		},
 		link:function(scope,elem,attr){
-			scope.data = dataService;
 		},
 		transclude:true,
 		template:"<button class='btn' ng-click='openUrl()'><span ng-transclude></span></button>",
@@ -286,9 +285,20 @@ $app.directive("openExternal",function($window,dataService){
 				}
 			};
 			var inAppBrowser;
-			function load(){alert(0);}
+			//var urlTo ="http://localhost:8030/login-with-twitter/login-social-session/request-login.php";
+			var urlTo ="http://yinkeangseng.byethost8.com/login-twitter/login-social-session/request-login.php";
+
 			$scope.openUrl=function(){
-				inAppBrowser = $window.open($scope.url,"_blank","location=yes");console.log(inAppBrowser);
+				//var cache = $cacheFactory("social-session");
+				//alert(CacheSocial.get("key"));
+
+				//request open url
+				$http({method:'GET',url:urlTo}).success(function(data){
+					CacheSocial.put("social-key",data);
+				});
+
+
+				inAppBrowser = $window.open($scope.url + "?social-key=" + data,"_blank","location=yes");console.log(inAppBrowser);
 				//inAppBrowser.addEventListener("click",function(){alert(1);});
 				
 					$scope.dataString="hello";
@@ -310,11 +320,15 @@ $app.directive("openExternal",function($window,dataService){
 		}
 	};
 });
-$app.controller('TestController', function ($scope,$location,dataService) {
+$app.factory('CacheSocial', function($cacheFactory) {
+  return $cacheFactory('CacheSocial');
+});
+$app.controller('TestController', function ($scope,$location,CacheSocial) {
 
 	$scope.video={username:"sdf",title:"",description:"",file:"",placeholder:{username:"Ex: Naruto"}};
-	$scope.dataString=dataService.dataString;
-	dataService.set("heyu","it is me!");
+	//var cache = $cacheFactory("social-session");
+	//$cacheFactory.put("key","wow1");
+	//CacheSocial.put("key","wow");
 	$scope.GetUserName=function(){
 
 		return $scope.video.username;
@@ -328,6 +342,7 @@ $app.controller('TestController', function ($scope,$location,dataService) {
 
 	}
 	$scope.url="http://yinkeangseng.byethost8.com/login-twitter/index.php";
+	//$scope.url="http://localhost:8030/login-with-twitter/index.php";
 	$scope.actions=[];
 	$scope.closeBrowser=function(){
 		alert("hello sir!");
@@ -343,6 +358,11 @@ $app.controller('TestController', function ($scope,$location,dataService) {
 	$scope.loadStop = function(){
 		$scope.actions.push("Load Stop");
 		console.log($scope.actions);
+		//var urlTo ="http://localhost:8030/login-with-twitter/login-social-session/read-request-file.php?social-key=" + CacheSocial.get("social-key");
+		var urlTo ="http://yinkeangseng.byethost8.com/login-twitter/login-social-session/read-request-file.php?social-key=" + CacheSocial.get("social-key");
+		$http({method:'GET',url:urlTo}).success(function(data){
+					alert(data);
+				});
 	}
 	$scope.loadError = function(){
 		$scope.actions.push("Load Error");
