@@ -538,7 +538,7 @@ $app.controller('ProfileController',function($scope,$http,$routeParams,CacheSoci
 	 		var dat={};
 	 		dat["akey"]=akey;
 	 		dat["akey_secret"]=akey_secret;
-	 		$http({method:"POST",url:"http://yinkeangseng.byethost8.com/social-say/tw-say.php"},data:dat).success(function(data){
+	 		$http({method:"POST",url:"http://yinkeangseng.byethost8.com/social-say/tw-say.php",data:dat}).success(function(data){
 	 			alert(data);
 	 		});
 	 	}
