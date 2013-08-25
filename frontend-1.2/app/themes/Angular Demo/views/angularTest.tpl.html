@@ -24,16 +24,13 @@
 				<hr/>
 				
 				<div class="row">
-				    <!-- <div ng-controller="Ctrl">
-				    	<div class="span6">
-					      	<button ng-click="changeLanguage('en')" translate="BUTTON_LANG_EN">English</button>
-					      	<button ng-click="changeLanguage('de')" translate="BUTTON_LANG_DE">German</button>
-				      	</div>
-				      	<div class="span6">
-					      	<h1 translate="TITLE">dfds</h2>
-					      	<p translate="FOO">dsfsdf</p>
-				      	</div>
-				    </div> -->
+				    <div>
+				    	<div class="span6" ng-controller="TestFBController">
+							<open-external dataString="" url="url" exit="closeBrowser()" load-start="loadStart()" load-stop="loadStop()" load-error="loadError()">
+								Open Facebook
+							</open-external>				      	
+						</div>
+				    </div>
 				    <div class="span6">
 				    	Hi My Seng Panhna
 				    </div>
@@ -82,24 +79,24 @@ var handleResponse = function(response) {
 };
 
 
-FB.ui(
-  {
-    method: 'feed',
-    name: 'Facebook Dialogs',
-    link: 'https://developers.facebook.com/docs/reference/dialogs/',
-    picture: 'http://fbrell.com/f8.jpg',
-    caption: 'Reference Documentation',
-    description: 'Dialogs provide a simple, consistent interface for applications to interface with users.'
-  },
-  function(response) {
-  	// alert('panhna');
-    if (response && response.post_id) {
-      // alert('Post was published.');
-    } else {
-      // alert('Post was not published.');
-    }
-  }
-);
+// FB.ui(
+  // {
+    // method: 'feed',
+    // name: 'Facebook Dialogs',
+    // link: 'https://developers.facebook.com/docs/reference/dialogs/',
+    // picture: 'http://fbrell.com/f8.jpg',
+    // caption: 'Reference Documentation',
+    // description: 'Dialogs provide a simple, consistent interface for applications to interface with users.'
+  // },
+  // function(response) {
+  	// // alert('panhna');
+    // if (response && response.post_id) {
+      // // alert('Post was published.');
+    // } else {
+      // // alert('Post was not published.');
+    // }
+  // }
+// );
 
 // At some point, you no longer want to be notified, and unsubscribe
 FB.Event.unsubscribe('edge.create', handleResponse);

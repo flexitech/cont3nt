@@ -380,6 +380,36 @@ $app.controller('TestController', function ($scope,$location,CacheSocial,$http) 
 	}
 
 });
+
+
+$app.controller('TestFBController', function ($scope,$location,CacheSocial,$http) {
+
+	
+	$scope.url="http://yinkeangseng.byethost8.com/login-twitter/index.php";
+	//$scope.url="http://localhost:8030/login-with-twitter/index.php";
+
+	$scope.closeBrowser=function(){
+		try{
+			var urlTo ="http://yinkeangseng.byethost8.com/login-twitter/login-social-session/read-request-file.php?socialkey=" + CacheSocial.get("social-key");
+
+			$http({method:'GET',url:urlTo}).success(function(data){
+						alert(data.screen_name);
+					});
+		}
+		catch(e){alert(e);}
+
+	}
+	$scope.loadStart = function(){
+	}
+	$scope.loadStop = function(){
+	}
+	$scope.loadError = function(){
+
+	}
+
+});
+
+
 $app.controller('ViewVideoController', function ($scope,$http,$routeParams,$location,$route) {
 	$scope.dirs =[];
 	$scope.username = "";
@@ -555,3 +585,5 @@ $app.controller('ProfileController',function($scope,$http,$routeParams,CacheSoci
 	 	alert("User has not sign up with his facebook yet or this functionality is not completed!");
 	 }
 });
+
+

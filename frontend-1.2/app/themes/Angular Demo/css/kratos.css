@@ -1,15 +1,42 @@
 /*-------------------------------- main setting --------------------------------*/
 .kratos {
-	max-width:960px;
+	max-width:1200px;
 	margin:0px auto;
+}
+.kratos h1,h2,h3,h4{
+	margin-top:0px;
+	margin-bottom:0px;
 }
 /*-------------------------------- end main setting --------------------------------*/
 
+/*-------------------------------- globle setting --------------------------------*/
+
+		/*--------------------------- Shadow --------------------------*/
+.shadowMain{
+	-webkit-box-shadow:0px 3px 10px 0px rgba(0,0,0,0.25);
+	-moz-box-shadow:0px 3px 10px 0px rgba(0,0,0,0.25);
+	box-shadow:0px 3px 10px 0px rgba(0,0,0,0.25);
+}
+
+		/*-------------------------- Radiu---------------------------*/
+.raduiMain{
+	-webkit-border-radius:10px;
+	-moz-border-radius:10px;
+	border-radius:10px;
+}
 
 
-/*-------------------------------- Angular Test setting --------------------------------*/
+
+.textCenter{
+	text-align:center;
+}
+
+/*-------------------------------- end globle setting --------------------------------*/
+
+
+/*-------------------------------- Angular Test setting ------------------------------*/
 .kratos .content{
-	background-color:white;
+	/*background-color:white;*/
 	box-shadow:3px gray;
 }
 
@@ -31,4 +58,48 @@
 .zippy > .body {
   padding: .1em .3em;
 }
+
 /*------------------------------- End Angular Test setting --------------------------------*/
+
+
+
+/*-------------------------------- edit Story setting --------------------------------*/
+
+.editStory .box{
+	background-color:#eee;
+}
+.kratos .btUpload{
+	color:white;
+	background-image:linear-gradient(to bottom, #4b9acc,#3281b1);
+	text-align:center;
+	-webkit-border-radius:6px;
+	-moz-border-radius:6px;
+	border-radius:6px;
+}
+.kratos .mybtUpload a:hover >.btUpload{
+	color:red;
+	box-shadow:inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*-------------------------------- end edit Story setting --------------------------------*/

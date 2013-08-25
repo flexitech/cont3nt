@@ -16,7 +16,7 @@
 				"css/perfect-scrollbar-0.4.3.min","css/bxslider/jquery.bxslider","css/kratos","css/blueimp-uploader/jquery.fileupload-ui"],
 		"js"  : ["js/theme_controllers","js/test/test_controller","js/jquery.nicescroll","js/perfect-scrollbar-0.4.3.with-mousewheel.min",
 				"js/iscroll/iscroll-lite","js/bxslider/jquery.bxslider.min","js/blueimp-uploader/vendor/jquery.ui.widget",
-				"js/chunkuploader","js/jquery.form.min","js/json2"
+				"js/chunkuploader","js/jquery.form.min","js/json2","js/firebase","js/angularFire"
 				]
 	},
 
@@ -30,6 +30,8 @@
 
 		{"path":"/home",	"layout":"layouts/main",		"template":"home",	"controller":"HomeController", "title":"","class":"news"},
 		{"path":"/test",	"layout":"layouts/main",		"template":"angularTest",	"controller":"HomeController", "title":"","class":"media"},
+		{"path":"/edit",	"layout":"layouts/main",		"template":"editStory",	"controller":"HomeController", "title":"","class":"press"},
+		{"path":"/firebase",	"layout":"layouts/main",		"template":"firebase", "title":"","class":"settings"},
 		{"path":"/video",	"layout":"layouts/main",		"template":"addvideo",	"controller":"TestController", "title":"","class":"media"},
 		{"path":"/videoall",	"layout":"layouts/main",		"template":"viewallvideo",	"controller":"ViewVideoController", "title":"","class":"hide"},
 		{"path":"/videoall/:username",	"layout":"layouts/main",		"template":"viewallvideo",	"controller":"ViewVideoController", "title":"","class":"hide"},
