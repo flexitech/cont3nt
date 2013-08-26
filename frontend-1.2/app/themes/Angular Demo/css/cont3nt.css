@@ -147,7 +147,7 @@ header .navbar-inner .brand{
 	width:90%;
 }
 	}
-form .login input{margin:0px; color:#333;}
+form .login input{margin:0px; color:#333;border:1px solid rgb(200,200,200);}
 form .login input:first-child{
 	border-top-left-radius: 15px;
 	border-top-right-radius: 15px;

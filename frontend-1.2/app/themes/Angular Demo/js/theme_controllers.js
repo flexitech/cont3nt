@@ -491,13 +491,14 @@ $app.controller('ProfileController',function($scope,$http,$routeParams,CacheSoci
 });
 
 
-$app.controller('testController', function($scope){  
+$app.controller('TestController', function($scope){  
+ 	alert(0);
  	document.addEventListener("deviceready", onDeviceReady, false);
-
+ 	onDeviceReady();
     // PhoneGap is ready
     //
     function onDeviceReady() {
-     //window.requestFileSystem  = window.requestFileSystem || window.webkitRequestFileSystem;
+     	window.requestFileSystem  = window.requestFileSystem || window.webkitRequestFileSystem;
         window.requestFileSystem(window.PERSISTENT, 0, gotFS, fail);              
     }
 
