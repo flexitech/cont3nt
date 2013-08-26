@@ -5,6 +5,48 @@
  * 2) geolocation: The geo location service will get and return the user's current location
  * 3) $http: This is angular service to  post and get data from external sources
  */
+
+ /*
+ angular.module(['ajoslin.mobile-navigate']).
+ config(function($routeProvider) {
+  $routeProvider.when("/home", {
+    templateUrl: "home",
+    transition:"slide"
+  }).when("/video", {
+    templateUrl: "addvideo",
+    transition: "modal" //this is overwritten by the go() in home.html
+  }).otherwise({
+    redirectTo: "/"
+  });
+})
+ .run(function($route,$http,$templateCache){
+ 	angular.forEach($route.routes,function(r){
+ 		if (r.templateUrl){
+ 			$http.get(r.templateUrl,{cache:$templateCache});
+ 		}
+ 	});
+ })
+ .controller('MainCtrl',function($scope,$navigate){
+	$scope.$navigate = $navigate;
+ })
+ .directive('ngTap', function() {
+  var isTouchDevice = !!("ontouchstart" in window);
+  return function(scope, elm, attrs) {
+    if (isTouchDevice) {
+      var tapping = false;
+      elm.bind('touchstart', function() { tapping = true; });
+      elm.bind('touchmove', function() { tapping = false; });
+      elm.bind('touchend', function() { 
+        tapping && scope.$apply(attrs.ngTap);
+      });
+    } else {
+      elm.bind('click', function() {
+        scope.$apply(attrs.ngTap);
+      });
+    }
+  };
+});
+*/
 $app.controller('mapController', function($scope, geolocation, $http){
 
   //set Map defaults
@@ -102,7 +144,14 @@ $app.controller('mapController', function($scope, geolocation, $http){
   };
 
 });
- 
+
+$app.controller('LayoutController', function ($scope,$navigate) {
+	$scope.login=function(){
+		$navigate.go("/login","slide");
+	}
+	
+
+}); 
 $app.controller('HomeController', function ($scope, plus) {
   
     var b=false;
@@ -209,8 +258,9 @@ $app.directive('uploader',[function(){
 ]);
 /////////// directive for in app browsers
 /*
-	= : binding data
+	= : bi-directional binding data
 	& : delegate function
+	@ : binding data
 	Transclude simply takes the inner text of the element and places it in the portion marked with the ng-transclude
 
 	Note:
@@ -380,36 +430,6 @@ $app.controller('TestController', function ($scope,$location,CacheSocial,$http) 
 	}
 
 });
-
-
-$app.controller('TestFBController', function ($scope,$location,CacheSocial,$http) {
-
-	
-	$scope.url="http://yinkeangseng.byethost8.com/login-twitter/index.php";
-	//$scope.url="http://localhost:8030/login-with-twitter/index.php";
-
-	$scope.closeBrowser=function(){
-		try{
-			var urlTo ="http://yinkeangseng.byethost8.com/login-twitter/login-social-session/read-request-file.php?socialkey=" + CacheSocial.get("social-key");
-
-			$http({method:'GET',url:urlTo}).success(function(data){
-						alert(data.screen_name);
-					});
-		}
-		catch(e){alert(e);}
-
-	}
-	$scope.loadStart = function(){
-	}
-	$scope.loadStop = function(){
-	}
-	$scope.loadError = function(){
-
-	}
-
-});
-
-
 $app.controller('ViewVideoController', function ($scope,$http,$routeParams,$location,$route) {
 	$scope.dirs =[];
 	$scope.username = "";
@@ -587,3 +607,40 @@ $app.controller('ProfileController',function($scope,$http,$routeParams,CacheSoci
 });
 
 
+$app.controller('testController', function($scope){  
+ 	document.addEventListener("deviceready", onDeviceReady, false);
+
+    // PhoneGap is ready
+    //
+    function onDeviceReady() {
+     //window.requestFileSystem  = window.requestFileSystem || window.webkitRequestFileSystem;
+        window.requestFileSystem(window.PERSISTENT, 0, gotFS, fail);              
+    }
+
+    function gotFS(fileSystem) {
+     
+        fileSystem.root.getFile("readme.txt", {create: true}, gotFileEntry, fail);
+        alert("gotFS");
+    }
+
+    function gotFileEntry(fileEntry) {
+        fileEntry.createWriter(gotFileWriter, fail);
+        alert("gotFileEntry");
+    }
+
+    function gotFileWriter(writer) {
+        writer.onwrite = function(evt) {
+            alert("write success");
+        };
+
+        writer.write("some sample text");
+        writer.abort();
+        alert("gotFileWriter");
+        // contents of file now 'some different text'
+    }
+
+    function fail(error) {
+        alert("error : "+error.code);
+    }
+
+});
