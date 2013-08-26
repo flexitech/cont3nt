@@ -36,8 +36,7 @@
 
 		{"path":"/home",	"layout":"layouts/main",		"template":"home",	"controller":"HomeController", "title":"",
 			"transition":"slide","class":"news"},
-		{"path":"/test",	"layout":"layouts/main",		"template":"angularTest",	"controller":"HomeController", "title":"","class":"media",
-			"transition":"slide"},
+	
 		{"path":"/video",	"layout":"layouts/main",		"template":"addvideo",	"controller":"TestController", "title":"","class":"media",
 			"transition":"slide"},
 		{"path":"/videoall",	"layout":"layouts/main",		"template":"viewallvideo",	"controller":"ViewVideoController", "title":"","class":"hide",

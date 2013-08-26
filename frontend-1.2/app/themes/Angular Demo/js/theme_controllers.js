@@ -6,47 +6,6 @@
  * 3) $http: This is angular service to  post and get data from external sources
  */
 
- /*
- angular.module(['ajoslin.mobile-navigate']).
- config(function($routeProvider) {
-  $routeProvider.when("/home", {
-    templateUrl: "home",
-    transition:"slide"
-  }).when("/video", {
-    templateUrl: "addvideo",
-    transition: "modal" //this is overwritten by the go() in home.html
-  }).otherwise({
-    redirectTo: "/"
-  });
-})
- .run(function($route,$http,$templateCache){
- 	angular.forEach($route.routes,function(r){
- 		if (r.templateUrl){
- 			$http.get(r.templateUrl,{cache:$templateCache});
- 		}
- 	});
- })
- .controller('MainCtrl',function($scope,$navigate){
-	$scope.$navigate = $navigate;
- })
- .directive('ngTap', function() {
-  var isTouchDevice = !!("ontouchstart" in window);
-  return function(scope, elm, attrs) {
-    if (isTouchDevice) {
-      var tapping = false;
-      elm.bind('touchstart', function() { tapping = true; });
-      elm.bind('touchmove', function() { tapping = false; });
-      elm.bind('touchend', function() { 
-        tapping && scope.$apply(attrs.ngTap);
-      });
-    } else {
-      elm.bind('click', function() {
-        scope.$apply(attrs.ngTap);
-      });
-    }
-  };
-});
-*/
 $app.controller('mapController', function($scope, geolocation, $http){
 
   //set Map defaults
@@ -147,50 +106,18 @@ $app.controller('mapController', function($scope, geolocation, $http){
 
 $app.controller('LayoutController', function ($scope,$navigate) {
 	$scope.login=function(){
-		$navigate.go("/login","slide");
+		$navigate.go("/login","modal");
 	}
 	
 
 }); 
 $app.controller('HomeController', function ($scope, plus) {
   
-    var b=false;
-    
-   
-
-
-
-    $scope.auth={user:"",pass:""};
-    $scope.user={name:""};
-    $scope.login=function(){
-        var dat={};
-        dat['user']=$scope.auth.user;
-        dat['pass']=$scope.auth.pass;
-        $.ajax({
-          type:'POST',
-          data:dat,
-          
-          url:"http://yinkeangseng.byethost8.com/check-user.php"
-          //url:"http://localhost:8030/cont3nt-service/check-user.php"
-        }).done(function(data){
-
-              
-            var objs=eval(data);
-            if(objs.length>0){
-              if(objs[0].status=="fail"){
-                alert("Incorrect Username or password!");
-              }
-              else{
-                alert("Welcome: " + objs[0].username);
-              }
-              $(".popupBox").removeClass("show");
-              $(".popupBox").addClass("hide");
-            }
-        });
-      }
+  
 
 
 });
+
 $app.directive('uploader',[function(){
 	return{
 		restrict:'E',
@@ -266,50 +193,7 @@ $app.directive('uploader',[function(){
 	Note:
 	After running your application you will notice that once again the view does not get updated when exit is raised. Again we are stuck with the problem where events happen outside of the angular world and you must utilize $apply() Good news is we can easily accomplish this since we can wrap the scope function in the $apply() function call.
 */
-/*$app.factory('dataService', function($rootScope, $http,$window) {
-    var dataService = {};
 
-    dataService.data = {};
-
-    //Gets the list of nuclear weapons
-    dataService.getNukes = function() {
-        $http.get('data/nukes.json')
-            .success(function(data) {
-                dataService.data.nukes = data;
-            });
-
-        return dataService.data;
-    };
-    dataService.set=function(key,value){
-    	dataService.data[key]=value;
-    	//var str = dataService.data.serializeArray();
-    	$window.requestFileSystem  = $window.requestFileSystem || $window.webkitRequestFileSystem;
-    	//later for chrome.first for firefox
-    	//console.log(window);
-    	$window.requestFileSystem($window.PERSISTENT,0,gotFS,fail);
-    };
-
-    function gotFileWriter(writer){
-    	alert("got gotFileWriter");
-    	writer.write(JSON.stringify(dataService.data));
-    }
-    function gotFileEntry(fileEntry){
-    	alert("got fileEntry");
-    	fileEntry.createWriter(gotFileWriter,fail);
-
-    }
-    function gotFS(fileSystem){
-    	alert("got fs");
-    	fileSystem.root.getFile("data/nukes.json",{create:true,exclusive:false},gotFileEntry,fail);
-    	
-    }
-    function fail(error){
-    	console.log(error);
-    	console.log("error:" + error);
-    	alert("got error");
-    }
-    return dataService;
-});*/
 $app.directive("openExternal",function($window,CacheSocial,$http){
 	return {
 		restrict:'E',

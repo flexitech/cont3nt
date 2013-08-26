@@ -1,4 +1,7 @@
-
+.m-top-15{
+	vertical-align: middle;
+	margin-top: 8px;
+}
 html, body{
 	height: 100%;
 	background: #444;
@@ -47,11 +50,11 @@ header .navbar-inner .nav{
 	overflow: auto !important;
 	display: block !important;
 	top: 50px !important;
-	bottom: 40px !important;
+	bottom: 0px !important;
 	left:0;
 	right:0;
 	}
-header .navbar-inner img{ margin-top: 5px;}
+header .navbar-inner img{ margin-top: 15px;margin-left:5px 	;}
 header .navbar-inner{
 	background-color: rgb(251, 251, 251);
 	height: 60px;

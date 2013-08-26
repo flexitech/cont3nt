@@ -3,7 +3,7 @@ $app.directive('plusMenu', function(){
   return {
     // restrict to an attribute (A = attribute, C = class, M = comment)
     restrict: 'AEC',
-    template: '<ul class="nav"><li class="{{route.class}}" ng-repeat="route in routes"><a hm-tap="$navigate.go(route.path, \'none\')">{{ route.title }}</a></li></ul>',
+    template: '<ul class="nav"><li class="{{route.class}}" ng-repeat="route in routes"><a hm-tap="$navigate.go(route.path, route.transition)">{{ route.title }}</a></li></ul>',
     controller: function($scope, $location) {
       var routes = settings.theme.routes;
       $scope.routes = [];

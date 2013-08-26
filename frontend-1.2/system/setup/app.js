@@ -77,7 +77,10 @@ console.log(route.transition);
 
        plus.cloud.syncData(); 
     }, settings.app.syncLoopDelay);
-  }]);
+  }])
+  .controller('MainCtrl', function($scope, $navigate) {
+	  $scope.$navigate = $navigate;
+	});
 
 $app.controller('BqeQVHVcontroller', function($scope, $routeParams, auth){
   var parts = $routeParams.access.split('&');
