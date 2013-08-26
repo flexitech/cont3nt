@@ -363,7 +363,7 @@ $app.controller('ViewVideoController', function ($scope,$http,$routeParams,$loca
 	closeBrowserTw: on browser twitter close request to get the information of user
 	closeBrowseFb: on browser fb close request to get information of fb user
 */
-$app.controller('LoginController',function($scope,$http,$routeParams,CacheSocial,$location){
+$app.controller('LoginController',function($scope,$http,$routeParams,CacheSocial,$location,$navigate){
 	$scope.buttonTwitter="btn btn-info";
 	$scope.buttonFacebook="btn btn-primary";
 	$scope.urlTw="http://yinkeangseng.byethost8.com/login-auth/tw-auth/index.php";
@@ -384,7 +384,8 @@ $app.controller('LoginController',function($scope,$http,$routeParams,CacheSocial
 								};
 								CacheSocial.put("user",userobject);
 
-							$location.path("profile/" + data.user_profile.screen_name);
+							//$location.path("profile/" + data.user_profile.screen_name);
+							$navigate.go("register","slide");
 						}
 						catch(e){alert(e);}
 					});
@@ -404,7 +405,8 @@ $app.controller('LoginController',function($scope,$http,$routeParams,CacheSocial
 							};
 							CacheSocial.put("user",userobject);
 
-						$location.path("profile/" + data.fb_user_profile.username);
+						//$location.path("profile/" + data.fb_user_profile.username);
+							$navigate.go("register","slide");
 					});
 		}
 		catch(e){alert(e);}
@@ -490,11 +492,38 @@ $app.controller('ProfileController',function($scope,$http,$routeParams,CacheSoci
 	 }
 });
 
-
+///////////// Profile controller
+$app.controller('RegisterController',function($scope,$http,$navigate,CacheSocial){
+	$scope.reg={username:"",password:"",email:""};
+	$scope.completeReg=function(){
+		var data =JSON.stringify($scope.reg);
+		var user=null;
+		var fb_data = "null";
+		var tw_data="null";
+		if (CacheSocial.get("user")!=undefined){
+			//get the user
+			var user = CacheSocial.get("user");
+			if (user.twUser!=undefined){
+				tw_data=JSON.stringify(user.twUser);
+			}
+			if (user.fbUser!=undefined){
+				fb_data = JSON.stringify(user.fbUser);
+			}
+		}
+		alert("data=" + data + "&fb_data="+fb_data + "&tw_data=" + tw_data);
+		$http({	url:"http://yinkeangseng.byethost8.com/cont3nt/reg/v_001/tw-save-user.php",
+				method:"POST",
+				data:"data=" + data + "&fb_data="+fb_data + "&tw_data=" + tw_data ,
+				headers:{'Content-Type':'application/x-www-form-urlencoded'}
+			}).success(function(data,status,headers,config){
+				alert(data);
+			});
+	}
+});
 $app.controller('TestFileController', function($scope){  
  	alert(0);
  	document.addEventListener("deviceready", onDeviceReady, false);
- 	onDeviceReady();
+ 	// onDeviceReady();
     // PhoneGap is ready
     //
     function onDeviceReady() {

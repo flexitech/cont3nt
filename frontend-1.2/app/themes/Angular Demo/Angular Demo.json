@@ -72,6 +72,16 @@
 			"class":"hide",
 			"transition":"slide"
 		},
+
+		{
+			"path":"/register",
+			"layout":"layouts/main",
+			"template":"profile/register",
+			"controller":"RegisterController",
+			"title":"",
+			"class":"hide",
+			"transition":"slide"
+		},
 		{ "otherwise" : "/home" }
 	]
 }

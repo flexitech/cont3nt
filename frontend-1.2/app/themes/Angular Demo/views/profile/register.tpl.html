@@ -1,0 +1,36 @@
+<div class="kratos" style="margin-bottom:180px;">
+	<br/>
+	<div class=" grid-60 mobile-grid">
+		<div class="main">
+			<h3>Registration</h3>
+			<br/>
+			<form class="grid-120" class="form-horizontal" role="form">
+				<div class="form-group row">
+					<label class="col-lg-3 control-label" for="inputUsername">User Name</label>
+					<div class="col-lg-9">
+						<input type="text" class="form-control" id="inputUsername" ng-model="reg.username" placeholder="User Name"/>
+					</div>
+				</div>	
+				<div class="form-group row">
+					<label class="col-lg-3 control-label" for="inputPassword">Password</label>
+					<div class="col-lg-9">
+						<input type="password" class="form-control" id="inputPassword" ng-model="reg.password" placeholder="Password"/>
+					</div>
+				</div>
+				<div class="form-group row">
+					<label class="col-lg-3 control-label" for="inputEmail">Email</label>
+					<div class="col-lg-9">
+						<input type="text" class="form-control" id="inputEmail" ng-model="reg.email" placeholder="Email"/>
+					</div>
+				</div>
+				<div class="form-group row">
+					<label class="col-lg-3 control-label" for="inputEmail">&nbsp;</label>
+					<div class="col-lg-9">
+						<button class="btn btn-default" type="button" ng-click="completeReg(reg)">Complete Registration</button>
+					</div>
+				</div>
+			</form>
+			<div class="clear"></div>
+	    </div>
+	</div>
+</div>

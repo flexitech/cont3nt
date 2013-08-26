@@ -43,6 +43,10 @@ header .navbar-inner .nav{
 	
 }
 */
+.control-label{
+	height:34px;
+	padding:6px 12px;
+}
 #wrapper{
 	background-color: rgb(244,244,244);
 	position: absolute; 
