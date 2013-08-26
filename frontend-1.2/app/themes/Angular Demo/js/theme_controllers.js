@@ -499,7 +499,7 @@ $app.controller('TestFileController', function($scope){
     //
     function onDeviceReady() {
      	window.requestFileSystem  = window.requestFileSystem || window.webkitRequestFileSystem;
-        window.requestFileSystem(window.PERSISTENT, 0, gotFS, fail);              
+        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);              
     }
 
     function gotFS(fileSystem) {
