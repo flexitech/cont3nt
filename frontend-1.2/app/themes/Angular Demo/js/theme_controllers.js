@@ -491,7 +491,7 @@ $app.controller('ProfileController',function($scope,$http,$routeParams,CacheSoci
 });
 
 
-$app.controller('TestController', function($scope){  
+$app.controller('TestFileController', function($scope){  
  	alert(0);
  	document.addEventListener("deviceready", onDeviceReady, false);
  	onDeviceReady();
