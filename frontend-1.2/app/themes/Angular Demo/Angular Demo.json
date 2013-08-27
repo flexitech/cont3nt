@@ -37,7 +37,7 @@
 		{"path":"/home",	"layout":"layouts/main",		"template":"home",	"controller":"HomeController", "title":"",
 			"transition":"slide","class":"news"},
 	
-		{"path":"/video",	"layout":"layouts/main",		"template":"addvideo",	"controller":"TestController", "title":"","class":"media",
+		{"path":"/video",	"layout":"layouts/main",		"template":"addvideo",	"controller":"TestController", "title":"","class":"hide",
 			"transition":"slide"},
 		{"path":"/videoall",	"layout":"layouts/main",		"template":"viewallvideo",	"controller":"ViewVideoController", "title":"","class":"hide",
 			"transition":"slide"},
@@ -69,7 +69,7 @@
 			"template":"profile/profileall",
 			"controller":"ProfileController",
 			"title":"",
-			"class":"hide",
+			"class":"media",
 			"transition":"slide"
 		},
 
