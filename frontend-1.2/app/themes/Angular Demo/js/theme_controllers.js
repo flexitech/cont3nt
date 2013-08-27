@@ -380,7 +380,14 @@ $app.controller('LoginController',function($scope,$http,$routeParams,CacheSocial
 						try{
 							var userobject={
 									screen_name:data.user_profile.screen_name,
-									twUser:data
+									twUser:{
+										tw_user_id:data.user_profile.id,
+										tw_user_full_name:data.user_profile.name;
+										tw_oauth_token:data.oauth_token,
+										tw_oauth_token_secret:data.oauth_token_secret,
+										tw_screen_name:data.user_profile.screen_name,
+										tw_status:"Working fine!"
+									}
 								};
 								CacheSocial.put("user",userobject);
 
@@ -401,7 +408,14 @@ $app.controller('LoginController',function($scope,$http,$routeParams,CacheSocial
 			$http({method:'GET',url:urlTo}).success(function(data){
 						var userobject={
 								screen_name:data.fb_user_profile.username,
-								fbUser:data
+								fbUser:{
+									fb_user_id:data.fb_user_id,
+									fb_code:data.fb_code,
+									fb_token:data.fb_token,
+									fb_screen_name:data.fb_user_profile.username,
+									fb_name:data.fb_user_profile.name,
+									fb_link:data.fb_user_profile.link
+								}
 							};
 							CacheSocial.put("user",userobject);
 
