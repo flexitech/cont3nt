@@ -14,19 +14,19 @@
 
 				<div class="clear"></div>
 				<br/>
-				<button class="btn" ng-click="login(auth)">Login</button>
-				<div class="tablet-only not-mobile">
-					<br/>
+				<div class="grid-30">
+					<button class="btn grid-120 padd-lr0" ng-click="login(auth)">Login</button>
 				</div>
-				<open-external button-class="buttonTwitter" url="urlTw" exit="closeBrowserTw()" load-start="loadStartTw()" load-stop="loadStopTw()" load-error="loadError()" >
-					Login with Twitter
-				</open-external>
-				<div class="tablet-only not-mobile">
-					<br/>
+				<div class="grid-50">
+					<open-external button-class="buttonTwitter" url="urlTw" exit="closeBrowserTw()" load-start="loadStartTw()" load-stop="loadStopTw()" load-error="loadError()" >
+						Login with Twitter
+					</open-external>
 				</div>
-				<open-external button-class="buttonFacebook" url="urlFb" exit="closeBrowserFb()" load-start="loadStartFb()" load-stop="loadStopFb()" load-error="loadError()" >
-					Login with Fb
-				</open-external>
+				<div class="grid-40">
+					<open-external button-class="buttonFacebook" url="urlFb" exit="closeBrowserFb()" load-start="loadStartFb()" load-stop="loadStopFb()" load-error="loadError()" >
+						Login with Fb
+					</open-external>
+				</div>
 			</form>
 			<div class="clear"></div>
 	    </div>

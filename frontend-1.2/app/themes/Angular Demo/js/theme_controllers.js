@@ -364,8 +364,8 @@ $app.controller('ViewVideoController', function ($scope,$http,$routeParams,$loca
 	closeBrowseFb: on browser fb close request to get information of fb user
 */
 $app.controller('LoginController',function($scope,$http,$routeParams,CacheSocial,$location,$navigate){
-	$scope.buttonTwitter="btn btn-info";
-	$scope.buttonFacebook="btn btn-primary";
+	$scope.buttonTwitter="btn btn-info grid-120 padd-lr0";
+	$scope.buttonFacebook="btn btn-primary grid-120 padd-lr0";
 	$scope.urlTw="http://yinkeangseng.byethost8.com/login-auth/tw-auth/index.php";
 	$scope.urlFb="http://yinkeangseng.byethost8.com/login-auth/fb-auth/login.php";
 	//$scope.url="http://localhost:8030/login-with-twitter/index.php";
@@ -530,8 +530,32 @@ $app.controller('RegisterController',function($scope,$http,$navigate,CacheSocial
 				data:"data=" + data + "&fb_data="+fb_data + "&tw_data=" + tw_data ,
 				headers:{'Content-Type':'application/x-www-form-urlencoded'}
 			}).success(function(data,status,headers,config){
-				alert(data);
+				if (data!="Error#1" && data!="Error#2"){
+					CacheSocial.put("user_account",data);	
+					GetUserProfileTw();
+				}
+				else{
+					alert("Error");
+				}
+				
+
+
 			});
+	}
+	function GetUserProfileTw(){
+		var user_account = CacheSocial.get("user_account");
+		if (user_account!=undefined && user_account.tw_user_account!=undefined){
+			$http({	url:"http://yinkeangseng.byethost8.com/social-say/tw-user-profile.php?username=cont3nt",
+					method: "POST",
+					data:"akey=" + user_account.tw_user_account.oauth_token + "&akey_secret=" + user_account.tw_oauth_token_secret,
+
+				}).success(function(data){
+					alert("After get user profile:\n" + data);
+				});
+		}
+		else{
+			alert("User Account is undefined!");
+		}
 	}
 });
 $app.controller('TestFileController', function($scope){  
