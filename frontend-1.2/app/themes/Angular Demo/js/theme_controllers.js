@@ -440,13 +440,23 @@ $app.controller('LoginController',function($scope,$http,$routeParams,CacheSocial
 	}
 	$scope.auth={user:"",pass:""};
 	$scope.login=function(){
-		var userobject={
-			screen_name:$scope.auth.user,
-			secret:$scope.auth.pass
-		};
-		CacheSocial.put("user",userobject);
+		$http({
+			method:"POST",
+			data:"user=" + $scope.auth.user + "&pass=" + $scope.auth.pass,
+			headers:{'Content-Type':'application/x-www-form-urlencoded'},
+			url:"http://yinkeangseng.byethost8.com/cont3nt/reg/v_001/check-login.php"
+		}).success(function(data){
+			alert(data);
+			if (data!="ERROR#1" && data!="ERROR#2" && data=="OK"){
+				$location.path("profile/" + $scope.auth.user);
+			}
+			else{
+				alert("Invalid username or password?\nIf you are not a member, please sign up using below!");
+			}
+		});
+		
 
-		$location.path("profile/" + userobject.screen_name);
+		
 	}
 	// updateScroller();
 });
