@@ -101,7 +101,7 @@ $app.controller('mapController', function($scope, geolocation, $http){
       });
      
   };
-  // updateScroller();
+  updateScroller();
 
 });
 
@@ -314,7 +314,7 @@ $app.controller('TestController', function ($scope,$location,CacheSocial,$http) 
 		$scope.actions.push("Load Error");
 		console.log($scope.actions);
 	}
-	// updateScroller();
+	updateScroller();
 
 });
 $app.controller('ViewVideoController', function ($scope,$http,$routeParams,$location,$route) {
@@ -356,7 +356,7 @@ $app.controller('ViewVideoController', function ($scope,$http,$routeParams,$loca
 		}
 		
 	}
-//	 updateScroller();
+	 updateScroller();
 	
 });
 
@@ -458,7 +458,7 @@ $app.controller('LoginController',function($scope,$http,$routeParams,CacheSocial
 
 		
 	}
-	// updateScroller();
+	updateScroller();
 });
 
 
@@ -528,7 +528,7 @@ $app.controller('ProfileController',function($scope,$http,$routeParams,CacheSoci
 			//alert(data.length);
 			$scope.user.tweets=data;
 			//update scrolllist
-			//updateScroller();
+			updateScroller();
 		});
 	}
 	function GetUserProfileTw(user_account){
@@ -589,7 +589,7 @@ $app.controller('ProfileController',function($scope,$http,$routeParams,CacheSoci
 	 $scope.fb_say=function(){
 	 	alert("User has not sign up with his facebook yet or this functionality is not completed!");
 	 }
-	 //updateScroller();
+	 updateScroller();
 	/* setTimeout(function () {
 				myScroll = new iScroll('wrap-wrapper');
 				alert(myScroll);
@@ -674,17 +674,17 @@ $app.controller('TestFileController', function($scope){
     }
 
 });
-/*
+
 var iscroller =null;
-function updateScroller(time){
+function updateScroller(){
 	if (iscroller==null){
 		 setTimeout(function () {
 				iscroller = new iScroll('wrap-wrapper');
 				//alert(iscroller);
-			}, time);
+			}, 1000);
 	}
 	else{
 		iscroller.refresh();
-		//alert("refresh");
+		
 	}
-}*/
+}
