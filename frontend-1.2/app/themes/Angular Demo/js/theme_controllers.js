@@ -531,6 +531,7 @@ $app.controller('RegisterController',function($scope,$http,$navigate,CacheSocial
 				headers:{'Content-Type':'application/x-www-form-urlencoded'}
 			}).success(function(data,status,headers,config){
 				if (data!="Error#1" && data!="Error#2"){
+					alert(data);
 					CacheSocial.put("user_account",data);	
 					GetUserProfileTw();
 				}
