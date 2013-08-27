@@ -58,8 +58,9 @@ head.js(
 	"system/vendor/btford/angular-phonegap-geolocation.0.0.1.js",
 	"system/vendor/btford/angular-phonegap-accelerometer.0.0.1.js",
 	"system/vendor/btford/angular-phonegap-notification.0.0.1.js",
-	"system/vendor/localstoragedb/localstoragedb.js",
-	{vendor : "system/vendor/wzr1337/scrollable-4.2.5.min.js" }, //labeling the last of each section so that we can run functions at certain times of the loading process
+	//"system/vendor/localstoragedb/localstoragedb.js",
+	//"system/vendor/wzr1337/scrollable-4.2.5.min.js",
+	{vendor : "system/vendor/localstoragedb/localstoragedb.js" }, //labeling the last of each section so that we can run functions at certain times of the loading process
 	"system/scripts/services/plus-google-signon.js",
 	// "system/scripts/services/plus-geolocation.js",
 	"system/scripts/services/plus-api.js",
@@ -82,7 +83,7 @@ head.ready('angular', function(){
 		'ajoslin.mobile-navigate',
 		'mgcrea.overflowScroll',
 		'ngRetina',
-		'angular-momentum-scroll',
+		//'angular-momentum-scroll',
 		'angular-gestures',
 		'btford.phonegap.ready',
 		'btford.phonegap.geolocation',

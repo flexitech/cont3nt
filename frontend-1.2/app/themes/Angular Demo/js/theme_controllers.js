@@ -480,12 +480,15 @@ $app.controller('ProfileController',function($scope,$http,$routeParams,CacheSoci
 		GetAllUserProfiles("");
 	}
 	///#region profile all
+	$scope.scroller={height:400,mystyle:{height:"400px"}};
 	$scope.search={username:""};
 	$scope.viewprofile=function(username){
 		$navigate.go("profile/" + username ,"slide");
 	}
 	$scope.search=function(username){
 		GetAllUserProfiles(username);
+		$scope.scroller.height = 800;
+		$scope.scroller.mystyle = {height:"800px"};
 	}
 	function GetAllUserProfiles(username){
 		$http({	url:"http://yinkeangseng.byethost8.com/cont3nt/reg/v_001/get-profile.php?user=" + username,
