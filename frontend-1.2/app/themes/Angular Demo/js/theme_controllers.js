@@ -115,7 +115,7 @@ $app.controller('LayoutController', function ($scope,$navigate) {
 $app.controller('HomeController', function ($scope, plus) {
   
   
-
+	updateScroller();
 
 });
 
@@ -326,7 +326,7 @@ $app.controller('ViewVideoController', function ($scope,$http,$routeParams,$loca
 	else	
 		$scope.username =$routeParams.username;
 	$scope.dirname = $scope.username + "/*";
-	//http://yinkeangseng.byethost8.com/
+	//http://yinkeangseng.byethost8c.om/
 	//http://localhost:8030/upload-files/getvideodir.php?dir_name=
 	$scope.serverpath = "http://yinkeangseng.byethost8.com/cont3nt-uploader/";
 	$http({method: 'GET', url: 'http://yinkeangseng.byethost8.com/cont3nt-uploader/getvideodir.php?dir_name=' + $scope.dirname}).
@@ -677,6 +677,10 @@ $app.controller('TestFileController', function($scope){
 
 var iscroller =null;
 function updateScroller(){
+	setTimeout(function () {
+				iscroller = new iScroll('wrap-wrapper');
+				//alert(iscroller);
+			}, 1000);/*
 	if (iscroller==null){
 		 setTimeout(function () {
 				iscroller = new iScroll('wrap-wrapper');
@@ -685,7 +689,6 @@ function updateScroller(){
 	}
 	else{
 		iscroller.refresh();
-		alert("refresh");
 		
-	}
+	}*/
 }
