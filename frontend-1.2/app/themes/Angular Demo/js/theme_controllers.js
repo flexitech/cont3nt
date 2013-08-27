@@ -685,6 +685,7 @@ function updateScroller(){
 	}
 	else{
 		iscroller.refresh();
+		alert("refresh");
 		
 	}
 }
