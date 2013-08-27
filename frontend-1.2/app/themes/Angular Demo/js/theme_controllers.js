@@ -101,6 +101,7 @@ $app.controller('mapController', function($scope, geolocation, $http){
       });
      
   };
+  // updateScroller();
 
 });
 
@@ -262,6 +263,7 @@ $app.directive("openExternal",function($window,CacheSocial,$http){
 $app.factory('CacheSocial', function($cacheFactory) {
   return $cacheFactory('CacheSocial');
 });
+
 $app.controller('TestController', function ($scope,$location,CacheSocial,$http) {
 
 	$scope.video={username:"sdf",title:"",description:"",file:"",placeholder:{username:"Ex: Naruto"}};
@@ -312,6 +314,7 @@ $app.controller('TestController', function ($scope,$location,CacheSocial,$http) 
 		$scope.actions.push("Load Error");
 		console.log($scope.actions);
 	}
+	// updateScroller();
 
 });
 $app.controller('ViewVideoController', function ($scope,$http,$routeParams,$location,$route) {
@@ -353,6 +356,7 @@ $app.controller('ViewVideoController', function ($scope,$http,$routeParams,$loca
 		}
 		
 	}
+//	 updateScroller();
 	
 });
 
@@ -444,6 +448,7 @@ $app.controller('LoginController',function($scope,$http,$routeParams,CacheSocial
 
 		$location.path("profile/" + userobject.screen_name);
 	}
+	// updateScroller();
 });
 
 
@@ -475,12 +480,12 @@ $app.controller('ProfileController',function($scope,$http,$routeParams,CacheSoci
 		});
 	}
 	else{
-		alert(0);
+	//	alert(0);
 		//all profile view
 		GetAllUserProfiles("");
 	}
 	///#region profile all
-	$scope.scroller={height:400,mystyle:{height:"400px"}};
+	$scope.scroller={height:400,mystyle:{height:"auto"}};
 	$scope.search={username:""};
 	$scope.viewprofile=function(username){
 		$navigate.go("profile/" + username ,"slide");
@@ -512,6 +517,8 @@ $app.controller('ProfileController',function($scope,$http,$routeParams,CacheSoci
 		}).success(function(data){
 			//alert(data.length);
 			$scope.user.tweets=data;
+			//update scrolllist
+			//updateScroller();
 		});
 	}
 	function GetUserProfileTw(user_account){
@@ -527,6 +534,7 @@ $app.controller('ProfileController',function($scope,$http,$routeParams,CacheSoci
 					
 					SetUserProfileToUI(data);
 					//stored data temp with name username_current_profile for caching data for faster read
+
 				});
 			GetUserTweet(user_account);
 			
@@ -548,7 +556,7 @@ $app.controller('ProfileController',function($scope,$http,$routeParams,CacheSoci
 		//alert("Set user profile complete!");
 	}
 	
-	 $("#wrapper").niceScroll({touchbehavior:true}); 
+	
 	 $scope.say ="Say";
 
 	 $scope.tw_say=function(say){
@@ -571,6 +579,12 @@ $app.controller('ProfileController',function($scope,$http,$routeParams,CacheSoci
 	 $scope.fb_say=function(){
 	 	alert("User has not sign up with his facebook yet or this functionality is not completed!");
 	 }
+	 //updateScroller();
+	/* setTimeout(function () {
+				myScroll = new iScroll('wrap-wrapper');
+				alert(myScroll);
+			}, 1000);*/
+	
 });
 
 ///////////// Profile controller
@@ -650,3 +664,17 @@ $app.controller('TestFileController', function($scope){
     }
 
 });
+/*
+var iscroller =null;
+function updateScroller(time){
+	if (iscroller==null){
+		 setTimeout(function () {
+				iscroller = new iScroll('wrap-wrapper');
+				//alert(iscroller);
+			}, time);
+	}
+	else{
+		iscroller.refresh();
+		//alert("refresh");
+	}
+}*/
