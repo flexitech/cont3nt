@@ -451,8 +451,8 @@ $app.controller('ProfileController',function($scope,$http,$routeParams,CacheSoci
 	$scope.user={name:"",photopath:"",bod:"",tweets:[]};
 	var user=null;
 	//if move to current user
-	if (CacheSocial.get("user_account")!=undefined && $routeParams.user!=undefined){
-		var user = CacheSocial.get("user_account");
+	if (/*CacheSocial.get("user_account")!=undefined &&*/ $routeParams.user!=undefined){
+		//var user = CacheSocial.get("user_account");
 	
 		//get user information from current user
 		//by cont3nt user name
@@ -462,7 +462,7 @@ $app.controller('ProfileController',function($scope,$http,$routeParams,CacheSoci
 			if (data!="Error#1" && data!="Error#2"){
 				//alert(data);
 				//CacheSocial.put("user_account",data);	
-				GetUserProfileTw(user_account);
+				GetUserProfileTw(data);
 			}
 			else{
 				alert("Error");
@@ -481,13 +481,14 @@ $app.controller('ProfileController',function($scope,$http,$routeParams,CacheSoci
 	*/
 	function GetUserProfileTw(user_account){
 		
-		if (user_account!=undefined && user_account.tw_user_account!=undefined){
+		if (user_account!=undefined && user_account.user_account.priority_social=="tw" && user_account.tw_user_account!=undefined){
+			alert("User Priority is twitter");
 			$http({	url:"http://yinkeangseng.byethost8.com/social-say/tw-user-profile.php?username=cont3nt",
 					method: "POST",
 					data:"akey=" + user_account.tw_user_account.oauth_token + "&akey_secret=" + user_account.tw_oauth_token_secret,
 
 				}).success(function(data){
-					//alert("After get user profile:\n" + data);
+					alert("After get user profile:\n" + data);
 					//CacheSocial.put("tmpCurrentUserProfile",data);
 					//stored temporarily
 					//go to profile place:
@@ -495,6 +496,9 @@ $app.controller('ProfileController',function($scope,$http,$routeParams,CacheSoci
 					SetUserProfileToUI(data);
 					//stored data temp with name username_current_profile for caching data for faster read
 				});
+		}
+		else if (user_account!=undefined && user_account.user_account.priority_social=="fb" && user_account.fb_user_account!=undefined){
+			alert("User Priority is facebook");
 		}
 		else{
 			alert("User Account is undefined!");
@@ -510,6 +514,7 @@ $app.controller('ProfileController',function($scope,$http,$routeParams,CacheSoci
 			,
 			{	text:"Good morning!",date:"Aug 23 2013"}
 			,{	text:"Good Night!",date:"Aug 23 2013"}];
+		alert("Set user profile complete!");
 	}
 	// if (CacheSocial.get("user")!=undefined){
 	// 	//get the user
