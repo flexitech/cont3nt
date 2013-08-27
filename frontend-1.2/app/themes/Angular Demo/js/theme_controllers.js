@@ -450,22 +450,60 @@ $app.controller('ProfileController',function($scope,$http,$routeParams,CacheSoci
 
 	$scope.user={name:"",photopath:"",bod:"",tweets:[]};
 	var user=null;
-	if (CacheSocial.get("user")!=undefined){
-		//get the user
-		var user = CacheSocial.get("user");
-		if(user.twUser!=undefined){
-			$scope.user.name = user.twUser.user_profile.name;
-			$scope.user.photopath=user.twUser.user_profile.profile_image_url_https; //"http://cdn.thenextweb.com/files/2010/12/winner1.png";
+	//if move to current user
+	if (CacheSocial.get("user_account")!=undefined && $routeParams.user!=undefined){
+		var user = CacheSocial.get("user_account");
+	
+		//get user information from current user
+		//by cont3nt user name
+		$http({	url:"http://yinkeangseng.byethost8.com/cont3nt/reg/v_001/cont3nt-get-user.php?user=" + $routeParams.user,
+			method:"GET"
+		}).success(function(data,status,headers,config){
+			if (data!="Error#1" && data!="Error#2"){
+				//alert(data);
+				//CacheSocial.put("user_account",data);	
+				GetUserProfileTw(user_account);
+			}
+			else{
+				alert("Error");
+				$location.path("login");
+			}
 			
-		}
-		else if (user.fbUser!=undefined){
-			$scope.user.name = user.fbUser.fb_user_profile.name;
-			$scope.user.photopath="https://graph.facebook.com/" + user.fbUser.fb_user_profile.username + "/picture";
+
+
+		});
+
+	
+
+	}
+	/* user_account{user_account,tw_user_account,fb_user_account} ,
+		tmpCurrentUserProfile: for display data
+	*/
+	function GetUserProfileTw(user_account){
+		
+		if (user_account!=undefined && user_account.tw_user_account!=undefined){
+			$http({	url:"http://yinkeangseng.byethost8.com/social-say/tw-user-profile.php?username=cont3nt",
+					method: "POST",
+					data:"akey=" + user_account.tw_user_account.oauth_token + "&akey_secret=" + user_account.tw_oauth_token_secret,
+
+				}).success(function(data){
+					//alert("After get user profile:\n" + data);
+					//CacheSocial.put("tmpCurrentUserProfile",data);
+					//stored temporarily
+					//go to profile place:
+					//$navigate.go("profile/" + user_account.user_account.username);
+					SetUserProfileToUI(data);
+					//stored data temp with name username_current_profile for caching data for faster read
+				});
 		}
 		else{
-			$scope.user.name = user.screen_name;
-			$scope.user.photopath="http://cdn.thenextweb.com/files/2010/12/winner1.png";
+			alert("User Account is undefined!");
+			$location.path("login");
 		}
+	}
+	function SetUserProfileToUI(tw_user){
+		$scope.user.name = tw_user.user_profile.name;
+		$scope.user.photopath=tw_user.user_profile.profile_image_url_https;
 		$scope.user.bod="21 05 1992";
 		$scope.user.tweets=[
 			{	text:"Hello Cambodia!",date:"Aug 23 2013"}
@@ -473,9 +511,32 @@ $app.controller('ProfileController',function($scope,$http,$routeParams,CacheSoci
 			{	text:"Good morning!",date:"Aug 23 2013"}
 			,{	text:"Good Night!",date:"Aug 23 2013"}];
 	}
-	else{
-		$location.path("login");
-	}
+	// if (CacheSocial.get("user")!=undefined){
+	// 	//get the user
+	// 	var user = CacheSocial.get("user");
+	// 	if(user.twUser!=undefined){
+	// 		$scope.user.name = user.twUser.user_profile.name;
+	// 		$scope.user.photopath=user.twUser.user_profile.profile_image_url_https; //"http://cdn.thenextweb.com/files/2010/12/winner1.png";
+			
+	// 	}
+	// 	else if (user.fbUser!=undefined){
+	// 		$scope.user.name = user.fbUser.fb_user_profile.name;
+	// 		$scope.user.photopath="https://graph.facebook.com/" + user.fbUser.fb_user_profile.username + "/picture";
+	// 	}
+	// 	else{
+	// 		$scope.user.name = user.screen_name;
+	// 		$scope.user.photopath="http://cdn.thenextweb.com/files/2010/12/winner1.png";
+	// 	}
+	// 	$scope.user.bod="21 05 1992";
+	// 	$scope.user.tweets=[
+	// 		{	text:"Hello Cambodia!",date:"Aug 23 2013"}
+	// 		,
+	// 		{	text:"Good morning!",date:"Aug 23 2013"}
+	// 		,{	text:"Good Night!",date:"Aug 23 2013"}];
+	// }
+	// else{
+	// 	$location.path("login");
+	// }
 	 $("#wrapper").niceScroll({touchbehavior:true}); 
 	 $scope.say ="Say";
 
@@ -485,15 +546,9 @@ $app.controller('ProfileController',function($scope,$http,$routeParams,CacheSoci
 	 		var message = $scope.say;	
 	 		var akey = user.twUser.oauth_token;
 	 		var akey_secret=user.twUser.oauth_token_secret;
-	 		/*var dat={};
-	 		dat["akey"]=akey;
-	 		dat["akey_secret"]=akey_secret;
-	 		dat["message"]=message;*/
-	 		// $http({method:"POST",url:"http://yinkeangseng.byethost8.com/social-say/tw-say.php",data:dat}).success(function(data){
-	 		// 	alert(data);
-	 		// });
-
-			$http({method:"GET",url:"http://yinkeangseng.byethost8.com/social-say/tw-say.php?akey="+akey +"&akey_secret="+akey_secret +"&message="+message}).success(function(data){
+	 
+			$http({
+				method:"GET",url:"http://yinkeangseng.byethost8.com/social-say/tw-say.php?akey="+akey +"&akey_secret="+akey_secret +"&message="+message}).success(function(data){
 	 			alert(data);
 	 		});
 	 	}
@@ -524,7 +579,7 @@ $app.controller('RegisterController',function($scope,$http,$navigate,CacheSocial
 				fb_data = JSON.stringify(user.fbUser);
 			}
 		}
-		alert("data=" + data + "&fb_data="+fb_data + "&tw_data=" + tw_data);
+		//alert("data=" + data + "&fb_data="+fb_data + "&tw_data=" + tw_data);
 		$http({	url:"http://yinkeangseng.byethost8.com/cont3nt/reg/v_001/tw-save-user.php",
 				method:"POST",
 				data:"data=" + data + "&fb_data="+fb_data + "&tw_data=" + tw_data ,
@@ -533,7 +588,7 @@ $app.controller('RegisterController',function($scope,$http,$navigate,CacheSocial
 				if (data!="Error#1" && data!="Error#2"){
 					alert(data);
 					CacheSocial.put("user_account",data);	
-					GetUserProfileTw();
+					//GetUserProfileTw();
 				}
 				else{
 					alert("Error");
@@ -543,21 +598,7 @@ $app.controller('RegisterController',function($scope,$http,$navigate,CacheSocial
 
 			});
 	}
-	function GetUserProfileTw(){
-		var user_account = CacheSocial.get("user_account");
-		if (user_account!=undefined && user_account.tw_user_account!=undefined){
-			$http({	url:"http://yinkeangseng.byethost8.com/social-say/tw-user-profile.php?username=cont3nt",
-					method: "POST",
-					data:"akey=" + user_account.tw_user_account.oauth_token + "&akey_secret=" + user_account.tw_oauth_token_secret,
-
-				}).success(function(data){
-					alert("After get user profile:\n" + data);
-				});
-		}
-		else{
-			alert("User Account is undefined!");
-		}
-	}
+	
 });
 $app.controller('TestFileController', function($scope){  
  	alert(0);
