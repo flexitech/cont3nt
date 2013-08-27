@@ -382,7 +382,7 @@ $app.controller('LoginController',function($scope,$http,$routeParams,CacheSocial
 									screen_name:data.user_profile.screen_name,
 									twUser:{
 										tw_user_id:data.user_profile.id,
-										tw_user_full_name:data.user_profile.name;
+										tw_user_full_name:data.user_profile.name,
 										tw_oauth_token:data.oauth_token,
 										tw_oauth_token_secret:data.oauth_token_secret,
 										tw_screen_name:data.user_profile.screen_name,
