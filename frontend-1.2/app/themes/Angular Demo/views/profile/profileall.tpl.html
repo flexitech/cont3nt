@@ -1,0 +1,34 @@
+<div class="kratos" style="margin-bottom:80px;">
+	<br/>
+	<h1>All Profiles</h1>
+	<form class="form-inline" role="form">
+		<div class="form-group">
+			<label class="sr-only" for="inputSearchProfile" >Search Profile:</label>
+			<input type="text" class="form-control" id="inputSearch Profile" placeholder="Ex: cont3nt" ng-model="search.username"/>
+		</div>
+		<div class="form-group">
+			<button type="button" class="btn btn-default form-control" style="margin-bottom:0px;" ng-click="search(search.username)">Search</button>
+		</div>
+	</form>
+	<hr/>
+	<br/>
+	<div class="profile-group">
+		<div class="col-xs-6 col-md-2" style="height:140px" ng-repeat="user in users">
+			<div class="profile-box"  style=" text-align:center">
+				<button class="btn" ng-click="viewprofile(user.username)">
+					<div class="row">
+						<div class="pic-profile col-md-12" style="height:100px;">
+							<img ng-src="{{user.pic_profile}}" src="https://si0.twimg.com/profile_images/2284174758/v65oai7fxn47qv9nectx.png" alt="" style=""/>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							{{user.username}}
+						</div>
+					</div>
+				</a>
+			</div>
+		</div>
+		
+	</div>
+</div>

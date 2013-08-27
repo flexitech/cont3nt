@@ -8,15 +8,16 @@
 			<b>Birth Date: {{user.bod}}</b>
 			<br/>
 			<input type="text" ng-model="say"/>
+			
 			<br/>
-			<a class="btn btn-info" ng-click="tw_say()">Tweet</a> 
-			<a class="btn btn-primary" ng-click="fb_say()">Post</a>
+			<a class="btn btn-info {{tw_say_class}}" ng-click="tw_say(say)">Tweet</a> 
+			<a class="btn btn-primary {{fb_say_class}}" ng-click="fb_say()">Post</a>
 		</div>
 		<div class="grid-80 mobile-grid">
 			<h1>{{user.name}}'s recent activities:</h1>
 			<table class="table table-striped">
 				<tr ng-repeat="tweet in user.tweets">
-					<td>{{tweet.date}}</td>
+					<td>{{tweet.created_at}}</td>
 					<td>{{tweet.text}}</td>
 				</tr>
 			</table>
