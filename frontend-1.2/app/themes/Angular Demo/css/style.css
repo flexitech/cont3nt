@@ -83,7 +83,13 @@ header .navbar-inner .nav{
 	float:left;background-color: rgb(244,244,244);
 	min-height:560px;
 	margin-bottom: 60px;
+	top:0px;
 	}
+@media screen and (max-height : 360px) {
+	#wrapper{
+		min-height: 300px;
+	}
+}
 header .navbar-inner img{ margin-top: 15px;margin-left:5px 	;}
 header .navbar-inner{
 	background-color: rgb(251, 251, 251);

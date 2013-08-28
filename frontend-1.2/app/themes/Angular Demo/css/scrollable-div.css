@@ -14,7 +14,14 @@
 		position: relative;
 	}
 }
-
+/*** for short landscape device ****/
+@media screen and (max-height : 360px) {
+	#profileall-wrap-wrapper{
+		
+		height:120px;
+		
+	}
+}
 
 /*#profileall-wrap-wrapper{
 	width:100%;
