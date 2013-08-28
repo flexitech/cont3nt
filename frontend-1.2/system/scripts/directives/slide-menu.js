@@ -66,9 +66,11 @@ $app.directive('slideMenu', function(){
     link:function(scope,elem,attrs,ctrl){
 		elem.find("#show-menu-button").click(function(){
 			elem.find(".navigation-vertical").addClass("nav-in");
+			elem.find("#show-menu-button").hide();
 		});
 		elem.find("#hide-menu-button").click(function(){
 			elem.find(".navigation-vertical").removeClass("nav-in");
+			elem.find("#show-menu-button").show();
 		});
 		console.log(elem.find('#panel-menu-wrapper')[0]);
 		var myScroll = new iScroll(elem.find('#panel-menu-wrapper')[0],{useObject:true});

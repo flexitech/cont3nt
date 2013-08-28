@@ -23,8 +23,11 @@
 }
 .nav-show-menu{
 	position:absolute;
-	top:60px;
+	bottom:0px;
 	left:0px;
+	font-size:1.3em;
+	z-index: 9999;
+	padding-left:10px;
 }
 .navigation-vertical a{
 	cursor: pointer;
