@@ -101,7 +101,6 @@ $app.controller('mapController', function($scope, geolocation, $http){
       });
      
   };
-  updateScroller();
 
 });
 
@@ -115,7 +114,6 @@ $app.controller('LayoutController', function ($scope,$navigate) {
 $app.controller('HomeController', function ($scope, plus) {
   
   
-	updateScroller();
 
 });
 
@@ -314,7 +312,6 @@ $app.controller('TestController', function ($scope,$location,CacheSocial,$http) 
 		$scope.actions.push("Load Error");
 		console.log($scope.actions);
 	}
-	updateScroller();
 
 });
 $app.controller('ViewVideoController', function ($scope,$http,$routeParams,$location,$route) {
@@ -356,7 +353,6 @@ $app.controller('ViewVideoController', function ($scope,$http,$routeParams,$loca
 		}
 		
 	}
-	 updateScroller();
 	
 });
 
@@ -458,7 +454,6 @@ $app.controller('LoginController',function($scope,$http,$routeParams,CacheSocial
 
 		
 	}
-	updateScroller();
 });
 
 
@@ -540,21 +535,3 @@ $app.controller('TestFileController', function($scope){
     }
 
 });
-
-var iscroller =null;
-function updateScroller(){
-	setTimeout(function () {
-				iscroller = new iScroll('wrap-wrapper');
-				//alert(iscroller);
-			}, 1000);/*
-	if (iscroller==null){
-		 setTimeout(function () {
-				iscroller = new iScroll('wrap-wrapper');
-				//alert(iscroller);
-			}, 1000);
-	}
-	else{
-		iscroller.refresh();
-		
-	}*/
-}

@@ -30,15 +30,15 @@
 	 * Because how the paths and routing work, you need run plus.io Frontend on a local server such as xampp (http://www.apachefriends.org/en/xampp.html) or mamp (http://www.mamp.info/en/index.html)
 	 */
 	"routes" : [
-		{"path":"/test",	"layout":"layouts/main",		"template":"test", "title":"","class":"home", "controller":"TestFileController",
+		{"path":"/test",	"layout":"layouts/main",		"template":"test", "title":"Test","class":"home", "controller":"TestFileController",
 			"transition":"slide"},
-		{"path":"/map",	"layout":"layouts/main",		"template":"home", "title":"","class":"home",
+		{"path":"/map",	"layout":"layouts/main",		"template":"home", "title":"Home","class":"home",
 			"transition":"slide"},
 
-		{"path":"/home",	"layout":"layouts/main",		"template":"home",	"controller":"HomeController", "title":"",
+		{"path":"/home",	"layout":"layouts/main",		"template":"home",	"controller":"HomeController", "title":"Home News",
 			"transition":"slide","class":"news"},
 	
-		{"path":"/video",	"layout":"layouts/main",		"template":"addvideo",	"controller":"TestController", "title":"","class":"hide",
+		{"path":"/video",	"layout":"layouts/main",		"template":"addvideo",	"controller":"TestController", "title":"View Video","class":"hide",
 			"transition":"slide"},
 		{"path":"/videoall",	"layout":"layouts/main",		"template":"viewallvideo",	"controller":"ViewVideoController", "title":"","class":"hide",
 			"transition":"slide"},
@@ -69,7 +69,7 @@
 			"layout":"layouts/main",
 			"template":"profile/profileall",
 			"controller":"ProfileController",
-			"title":"",
+			"title":"Profile's Users",
 			"class":"media",
 			"transition":"slide"
 		},

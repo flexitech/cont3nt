@@ -84,11 +84,18 @@ var m = Math,
 	iScroll = function (el, options) {
 		var that = this,
 			i;
+		if (options !=undefined && options.useObject!=undefined && options.useObject==true ){
+			that.wrapper = el;
+			that.wrapper.style.overflow = 'hidden';
+			that.scroller = that.wrapper.children[0];
+		}
+		else{
+			that.wrapper = typeof el == 'object' ? el : doc.getElementById(el);
+			that.wrapper.style.overflow = 'hidden';
+			that.scroller = that.wrapper.children[0];
 
-		that.wrapper = typeof el == 'object' ? el : doc.getElementById(el);
-		that.wrapper.style.overflow = 'hidden';
-		that.scroller = that.wrapper.children[0];
-
+		}
+		
 		// Default options
 		that.options = {
 			hScroll: true,

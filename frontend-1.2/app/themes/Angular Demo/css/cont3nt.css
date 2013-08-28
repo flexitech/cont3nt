@@ -128,6 +128,7 @@ header .navbar-inner .brand{
 }
 .login {
 	margin:0px auto;
+	margin-top: 20px;
 	
 	float:none !important;
 }

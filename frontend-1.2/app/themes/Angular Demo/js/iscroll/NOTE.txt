@@ -1,0 +1,1 @@
+edit iscroll.js: add option: use object, means can instantiate the scroll using object instead of id
