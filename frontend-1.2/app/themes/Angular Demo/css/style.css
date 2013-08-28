@@ -35,7 +35,18 @@ position:absolute;overflow-y:scroll;bottom:0px;left:0px;top:50px;width:100%;min-
 .navigation-vertical > .panel-body{
 	min-width:210px;
 }
-
+/************ view-port-page **********/
+.view-port-page{
+	margin-bottom:80px; position: relative;
+	width:100%;
+	height:100%;
+	top:0px;
+	bottom:50px;
+	float:left;background-color: rgb(244,244,244);
+	min-height:560px;
+	margin-bottom: 60px;
+	z-index:999;
+}
 
 .m-top-15{
 	vertical-align: middle;
