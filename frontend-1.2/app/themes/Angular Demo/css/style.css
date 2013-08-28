@@ -45,7 +45,8 @@ position:absolute;overflow-y:scroll;bottom:0px;left:0px;top:50px;width:100%;min-
 	height:100%;
 	top:0px;
 	bottom:50px;
-	float:left;background-color: rgb(244,244,244);
+	/*float:left;*/
+	background-color: rgb(244,244,244);
 	min-height:560px;
 	margin-bottom: 60px;
 	z-index:999;

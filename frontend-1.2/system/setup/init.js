@@ -51,6 +51,7 @@ head.js(
 	//"system/vendor/mgonto/restangular.js",
 	"system/vendor/angular-mobile-nav/mobile-nav.js",
 	//"system/vendor/angular-overflow-scroll/overflow-scroll.min.js",
+	//"system/vendor/angular-google-maps/angular-google-maps.js",
 	"system/vendor/angular-retina/angular-retina.js",
 	"system/vendor/wzr1337/gestures-0.1.0.min.js",
 	"system/vendor/getify/minify.json.js",
@@ -89,7 +90,8 @@ head.ready('angular', function(){
 		'btford.phonegap.ready',
 		'btford.phonegap.geolocation',
 		'btford.phonegap.accelerometer',
-		'btford.phonegap.notification'
+		'btford.phonegap.notification',
+		//'google-maps'
 	]);
 })
 

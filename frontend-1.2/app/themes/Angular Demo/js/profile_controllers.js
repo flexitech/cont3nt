@@ -105,6 +105,18 @@ $app.controller('ProfileUserController',function($scope,$http,$routeParams,Cache
 		}
 		else if (user_account!=undefined && user_account.user_account.priority_social=="fb" && user_account.fb_user_account!=undefined){
 			alert("User Priority is facebook");
+			$http({	url:"http://yinkeangseng.byethost8.com/login-auth/fb-auth/fb-user-profile.php",
+					method: "POST",
+					data:"username=" + user_account.fb_user_account.username + "&token=" + user_account.fb_user_account.fb_token, 
+					headers:{'Content-Type':'application/x-www-form-urlencoded'}
+
+				}).success(function(data){
+					alert(data);
+					SetUserProfileToUIFb(data);
+					//stored data temp with name username_current_profile for caching data for faster read
+
+				});
+			GetUserTweet(user_account);
 		}
 		else{
 			alert("User Account is undefined!");
@@ -119,6 +131,15 @@ $app.controller('ProfileUserController',function($scope,$http,$routeParams,Cache
 		
 		//alert("Set user profile complete!");
 	}
+	function SetUserProfileToUIFb(fb_user){
+		//alert(tw_user+ "-");
+		$scope.user.name = fb_user.name;
+		$scope.user.photopath=fb_user.picture.data.url;
+		$scope.user.bod="21 05 1992";
+		
+		//alert("Set user profile complete!");
+	}
+	
 	
 	
 	 $scope.say ="Say";
