@@ -13,7 +13,7 @@
 	 */
 	"files" : {
 		"css" : ["css/bootstrap.min", "css/style","css/cont3nt","css/mygridfluid120",
-				"css/perfect-scrollbar-0.4.3.min","css/bxslider/jquery.bxslider","css/kratos","css/blueimp-uploader/jquery.fileupload-ui"
+				"css/perfect-scrollbar-0.4.3.min","css/bxslider/jquery.bxslider","css/kratos","css/blueimp-uploader/jquery.fileupload-ui","css/scrollable-div"
 				],
 		"js"  : ["js/theme_controllers","js/test/test_controller","js/jquery.nicescroll","js/perfect-scrollbar-0.4.3.with-mousewheel.min",
 				"js/iscroll/iscroll-lite","js/bxslider/jquery.bxslider.min","js/blueimp-uploader/vendor/jquery.ui.widget",

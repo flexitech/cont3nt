@@ -1,0 +1,28 @@
+@media screen and (max-width : 1024px) {
+	#profileall-wrap-wrapper{
+		width:100%;
+		height:280px;
+		position: relative;
+	}
+/* Styles */
+}
+/* Smartphones (portrait and landscape) ----------- */
+@media screen and (max-width : 480px) {
+	#profileall-wrap-wrapper{
+		width:100%;
+		height:220px;
+		position: relative;
+	}
+}
+
+
+/*#profileall-wrap-wrapper{
+	width:100%;
+	height:280px;
+	position: relative;
+}*/
+.bottom-divisor{
+	clear:both;
+	height: 40px;
+	width:100%;
+}
