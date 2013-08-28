@@ -81,6 +81,32 @@ $app.controller('ProfileUserController',function($scope,$http,$routeParams,Cache
 			//alert(data.length);
 			$scope.user.tweets=data;
 			//update scrolllist
+			if ($scope.user.tweets.length<=0){
+				$scope.user.tweets.push({created_at:'NULL',text:'No Message!'});
+			}
+
+			
+		});
+	}
+	function GetUserPost(user_account){
+		//get user tweets
+		$http({
+			url:"http://yinkeangseng.byethost8.com/login-auth/fb-auth/fb-user-wall.php",
+			data:"username=" + user_account.fb_user_account.fb_screen_name + "&token=" + user_account.fb_user_account.fb_token,
+			method:"POST" ,
+			headers:{'Content-Type':'application/x-www-form-urlencoded'}
+		}).success(function(data){
+			//alert(data.length);
+			$scope.user.tweets = [];
+			angular.forEach(data.data,function(value,key){
+				$scope.user.tweets.push({created_at:value.updated_time,text:value.message});
+				//console.log($scope.user.tweets);
+			});
+			if ($scope.user.tweets.length<=0){
+				$scope.user.tweets.push({created_at:'NULL',text:'No Message!'});
+			}
+
+			//update scrolllist
 			
 			
 		});
@@ -104,19 +130,20 @@ $app.controller('ProfileUserController',function($scope,$http,$routeParams,Cache
 			
 		}
 		else if (user_account!=undefined && user_account.user_account.priority_social=="fb" && user_account.fb_user_account!=undefined){
-			alert("User Priority is facebook");
+			//alert("User Priority is facebook");
 			$http({	url:"http://yinkeangseng.byethost8.com/login-auth/fb-auth/fb-user-profile.php",
 					method: "POST",
-					data:"username=" + user_account.fb_user_account.username + "&token=" + user_account.fb_user_account.fb_token, 
+					data:"username=" + user_account.fb_user_account.fb_screen_name + "&token=" + user_account.fb_user_account.fb_token, 
 					headers:{'Content-Type':'application/x-www-form-urlencoded'}
 
 				}).success(function(data){
-					alert(data);
+					
+					//alert(data);
 					SetUserProfileToUIFb(data);
 					//stored data temp with name username_current_profile for caching data for faster read
 
 				});
-			GetUserTweet(user_account);
+			GetUserPost(user_account);
 		}
 		else{
 			alert("User Account is undefined!");

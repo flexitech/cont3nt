@@ -306,7 +306,7 @@ $app.controller('LoginController',function($scope,$http,$routeParams,CacheSocial
 								CacheSocial.put("user",userobject);
 
 							//$location.path("profile/" + data.user_profile.screen_name);
-							$navigate.go("register","slide");
+							$navigate.go("profile","slide");
 						}
 						catch(e){alert(e);}
 					});
@@ -335,7 +335,7 @@ $app.controller('LoginController',function($scope,$http,$routeParams,CacheSocial
 							CacheSocial.put("user",userobject);
 
 						//$location.path("profile/" + data.fb_user_profile.username);
-							$navigate.go("register","slide");
+							$navigate.go("profile","slide");
 					});
 		}
 		catch(e){alert(e);}
