@@ -1,35 +1,47 @@
-<div class="kratos" style="margin-bottom:80px;">
-	<br/>
-	<div class="grid-120">
-		<div class="grid-40 mobile-grid">
-			<h1>{{user.name}}</h1>
-			<img ng-src="{{user.photopath}}" style="width:100%;height:auto;max-width:120px" />
+<div id="profile-wrap-wrapper" style="position:absolute;overflow-y:scroll;bottom:0px;left:0px;top:0px;width:100%;" >
+	<div id="scroller" style="position:absolute;width:100%;">
+		<div class="kratos" style="margin-bottom:80px; position: relative;
+	width:100%;
+	height:100%;
+	bottom:0px;
+	float:left;background-color: rgb(244,244,244);
+	min-height:560px;
+	margin-bottom: 60px;
+	">
 			<br/>
-			<b>Birth Date: {{user.bod}}</b>
-			<br/>
-			<input type="text" ng-model="say"/>
+			<div class="grid-120">
+				<div class="grid-40 mobile-grid">
+					<h1>{{user.name}}</h1>
+					<img ng-src="{{user.photopath}}" style="width:100%;height:auto;max-width:120px" />
+					<br/>
+					<b>Birth Date: {{user.bod}}</b>
+					<br/>
+					<input type="text" ng-model="say"/>
+					
+					<br/>
+					<a class="btn btn-info {{tw_say_class}}" ng-click="tw_say(say)">Tweet</a> 
+					<a class="btn btn-primary {{fb_say_class}}" ng-click="fb_say()">Post</a>
+				</div>
+				<div class="grid-80 mobile-grid">
+					<h1>{{user.name}}'s recent activities:</h1>
+					<table class="table table-striped">
+						<tr ng-repeat="tweet in user.tweets">
+							<td>{{tweet.created_at}}</td>
+							<td>{{tweet.text}}</td>
+						</tr>
+					</table>
+				</div>
+			</div>
 			
-			<br/>
-			<a class="btn btn-info {{tw_say_class}}" ng-click="tw_say(say)">Tweet</a> 
-			<a class="btn btn-primary {{fb_say_class}}" ng-click="fb_say()">Post</a>
+					<div class="clear"></div>
 		</div>
-		<div class="grid-80 mobile-grid">
-			<h1>{{user.name}}'s recent activities:</h1>
-			<table class="table table-striped">
-				<tr ng-repeat="tweet in user.tweets">
-					<td>{{tweet.created_at}}</td>
-					<td>{{tweet.text}}</td>
-				</tr>
-			</table>
-		</div>
+		<script type="text/javascript">
+			
+			var myScroll = new iScroll('profile-wrap-wrapper');
+		    setInterval(function(){
+		    	myScroll.refresh()
+		    },1000);
+		 
+		</script>
 	</div>
-	
-			<div class="clear"></div>
 </div>
-<script type="text/javascript">
-	
-
-   
-    
- 
-</script>

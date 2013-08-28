@@ -15,7 +15,7 @@
 		"css" : ["css/bootstrap.min", "css/style","css/cont3nt","css/mygridfluid120",
 				"css/perfect-scrollbar-0.4.3.min","css/bxslider/jquery.bxslider","css/kratos","css/blueimp-uploader/jquery.fileupload-ui","css/scrollable-div"
 				],
-		"js"  : ["js/theme_controllers","js/test/test_controller","js/jquery.nicescroll","js/perfect-scrollbar-0.4.3.with-mousewheel.min",
+		"js"  : ["js/theme_controllers","js/profile_controllers","js/test/test_controller","js/jquery.nicescroll","js/perfect-scrollbar-0.4.3.with-mousewheel.min",
 				"js/iscroll/iscroll-lite","js/bxslider/jquery.bxslider.min","js/blueimp-uploader/vendor/jquery.ui.widget",
 				"js/chunkuploader","js/jquery.form.min","js/json2"
 				,"js/iscroll/iscroll"
@@ -59,7 +59,7 @@
 			"path":"/profile/:user",
 			"layout":"layouts/main",
 			"template":"profile/profile",
-			"controller":"ProfileController",
+			"controller":"ProfileUserController",
 			"title":"",
 			"class":"blog",
 			"transition":"slide"
