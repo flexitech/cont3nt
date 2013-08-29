@@ -23,7 +23,7 @@
 		{"path":"/home",	"layout":"layouts/main",		"template":"home",	"controller":"HomeController", "title":"Home News",
 			"transition":"slide","class":"news"},
 	
-		{"path":"/video",	"layout":"layouts/main",		"template":"addvideo",	"controller":"TestController", "title":"View Video","class":"hide",
+		{"path":"/video",	"layout":"layouts/main",		"template":"addvideo",	"controller":"TestController", "title":"View Video","class":"video",
 			"transition":"slide"},
 		{"path":"/videoall",	"layout":"layouts/main",		"template":"viewallvideo",	"controller":"ViewVideoController", "title":"","class":"hide",
 			"transition":"slide"},

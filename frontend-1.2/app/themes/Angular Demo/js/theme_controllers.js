@@ -175,9 +175,20 @@ $app.factory('CacheSocial', function($cacheFactory) {
   return $cacheFactory('CacheSocial');
 });
 
-$app.controller('TestController', function ($scope,$location,CacheSocial,$http) {
+$app.controller('TestController', function ($scope,$location,CacheSocial,$http,$navigate) {
+	$scope.video={username:"",title:"",description:"",file:"",placeholder:{username:"Ex: Naruto"}};
+	var user = CacheSocial.get("user");
+	console.log(user);
+	if (user!=undefined && user.user_account.username!=undefined){
+		$scope.video.username = user.user_account.username;
+	}
+	else{
+		
+		//$location.path("/login");
+		$navigate.go("login","modal"); return;
+	}
 
-	$scope.video={username:"sdf",title:"",description:"",file:"",placeholder:{username:"Ex: Naruto"}};
+	
 	//var cache = $cacheFactory("social-session");
 	//$cacheFactory.put("key","wow1");
 	//CacheSocial.put("key","wow");
@@ -229,6 +240,7 @@ $app.controller('TestController', function ($scope,$location,CacheSocial,$http) 
 });
 $app.controller('ViewVideoController', function ($scope,$http,$routeParams,$location,$route) {
 	$scope.dirs =[];
+	$scope.notHasDirs = true;
 	$scope.username = "";
 	
 	if ($routeParams.username==undefined)
@@ -239,12 +251,18 @@ $app.controller('ViewVideoController', function ($scope,$http,$routeParams,$loca
 	//http://yinkeangseng.byethost8c.om/
 	//http://localhost:8030/upload-files/getvideodir.php?dir_name=
 	$scope.serverpath = "http://yinkeangseng.byethost8.com/cont3nt-uploader/";
+	alert('http://yinkeangseng.byethost8.com/cont3nt-uploader/getvideodir.php?dir_name=' + $scope.dirname);
 	$http({method: 'GET', url: 'http://yinkeangseng.byethost8.com/cont3nt-uploader/getvideodir.php?dir_name=' + $scope.dirname}).
 		success(function(data, status, headers, config) {
-			$scope.dirs = $.map(data,function(k,v){ 
+
+			var dirs=[];
+			 dirs= $.map(data,function(k,v){ 
 				return [k];
 			});
-				console.log($scope.dirs.length);
+			if (dirs.length>0){
+				$scope.dirs=dirs;
+				$scope.notHasDirs = false;		
+			}
 			
 		});
 		//$scope.$apply();
@@ -358,6 +376,7 @@ $app.controller('LoginController',function($scope,$http,$routeParams,CacheSocial
 			alert(data);
 			if (data!="ERROR#1" && data!="ERROR#2" && data=="OK"){
 				$location.path("profile/" + $scope.auth.user);
+				CacheSocial.put("currentUserName",$scope.auth.user);
 			}
 			else{
 				alert("Invalid username or password?\nIf you are not a member, please sign up using below!");

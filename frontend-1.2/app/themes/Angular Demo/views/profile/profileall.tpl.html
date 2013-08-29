@@ -15,10 +15,12 @@
 			<hr/>
 			
 			<div class="profile-group">
+				<host-loading set-show-loading="setShowProfilesLoading(fnShow)" set-hide-loading="setHideProfilesLoading(fnHide)">
+				<div  style="min-height:120px;display:block;">
 				<!-- <div id="profileall-wrap-wrapper"  > --><!--   scrollable parameters="{{ {hScrollbar : true, snap: '.row'} }}"  -->
 					<!-- <div id="scroller" style="position:absolute;width:100%;"> -->
 						<!-- block -->
-						<div class="col-xs-6 col-sm-4 col-md-2" style="height:140px" ng-repeat="user in users">
+						<div class="col-xs-4 col-sm-2 col-md-2" style="height:140px" ng-repeat="user in users">
 							<div class="profile-box"  style=" text-align:center">
 								<button class="btn" ng-click="viewprofile(user.username)">
 									<div class="row">
@@ -37,8 +39,9 @@
 						<!--end block-->
 						
 				<!-- 	</div>
-				</div> -->
-				
+				</div> -->	
+				</div>
+				</host-loading>
 			</div>
 			<script>
 				var myScroll=null;

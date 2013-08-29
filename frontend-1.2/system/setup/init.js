@@ -74,6 +74,7 @@ head.js(
 	"system/scripts/directives/slide-menu.js",
 	"system/scripts/directives/plus-data.js",
 	"system/scripts/directives/plus-auth.js",
+	"system/scripts/directives/ajax-host-loading.js",
 	{system : "system/scripts/directives/plus-resize.js" }
 );
 

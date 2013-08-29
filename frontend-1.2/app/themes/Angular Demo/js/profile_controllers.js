@@ -1,6 +1,13 @@
 ///////////// Profile controller
 $app.controller('ProfileController',function($scope,$http,$routeParams,CacheSocial,$location){
-
+	$scope.setShowProfilesLoading=function(fnShow){
+		$scope.showProfilesLoading = fnShow;
+	}
+	$scope.setHideProfilesLoading=function(fnHide){
+		$scope.hideProfilesLoading = fnHide;
+	}
+	$scope.showProfilesLoading=function(){}
+	$scope.hideProfilesLoading=function(){}
 	
 	
 		   
@@ -16,16 +23,19 @@ $app.controller('ProfileController',function($scope,$http,$routeParams,CacheSoci
 		$navigate.go("profile/" + username ,"slide");
 	}
 	$scope.search=function(username){
+		$scope.showProfilesLoading();
 		GetAllUserProfiles(username);
 		$scope.scroller.height = 800;
 		$scope.scroller.mystyle = {height:"800px"};
 	}
 	function GetAllUserProfiles(username){
+		if(username==undefined)
+			username="";
 		$http({	url:"http://yinkeangseng.byethost8.com/cont3nt/reg/v_001/get-profile.php?user=" + username,
 			method:"GET"
 		}).success(function(data,status,headers,config){
 			//alert(data);
-			$scope.users = data;
+			$scope.users = data;$scope.hideProfilesLoading();
 			
 		});
 	}
@@ -36,13 +46,49 @@ $app.controller('ProfileController',function($scope,$http,$routeParams,CacheSoci
 
 
 ///////////// Profile controller
-$app.controller('ProfileUserController',function($scope,$http,$routeParams,CacheSocial,$location){
+$app.controller('ProfileUserController',function($scope,$http,$routeParams,CacheSocial,$location,$window){
+
+	//function accesss loaing
+	/*$scope.setShowBig=function(fnShow){
+		$scope.show = fnShow;
+	}
+	$scope.setHideBig=function(fnHide){
+		$scope.hide = fnHide;
+	}
+	$scope.show=function(){}
+	$scope.hide=function(){}*/
+
+	//function accesss loading
+	$scope.setShowStatusesLoading=function(fnShow){
+		$scope.showStatusLoading = fnShow;
+	}
+	$scope.setHideStatusesLoading=function(fnHide){
+		$scope.hideStatusLoading = fnHide;
+	}
+	$scope.showStatusLoading=function(){}
+	$scope.hideStatusLoading=function(){}
+
+	$scope.setShowProfileLoading=function(fnShow){
+		$scope.showProfileLoading = fnShow;
+	}
+	$scope.setHideProfileLoading=function(fnHide){
+		$scope.hideProfileLoading = fnHide;
+	}
+	$scope.showProfileLoading=function(){}
+	$scope.hideProfileLoading=function(){}
+
+	$scope.isOwnUser = false;
+
+	$scope.isOwnUser = (CacheSocial.get("currentUserName")!=undefined && CacheSocial.get("currentUserName")==$routeParams.user);
+
+
+
 	var myScroll=null;
 
 	$scope.user={name:"",photopath:"",bod:"",tweets:[]};
 	var user=null;
 	$scope.fb_say_class = "hide";
-	$scope.tw_say_class = "";
+	$scope.tw_say_class = "hide";
 
 	$scope.users=[];
 	//if move to current user
@@ -53,6 +99,9 @@ $app.controller('ProfileUserController',function($scope,$http,$routeParams,Cache
 		}).success(function(data,status,headers,config){
 			if (data!="Error#1" && data!="Error#2"){
 				//alert(data);
+				if (CacheSocial.get("currentUserName")==data.user_account.username){
+					CacheSocial.put("user",data);		
+				}
 				//CacheSocial.put("user_account",data);	
 				GetUserProfileTw(data);
 				user = data;
@@ -60,7 +109,7 @@ $app.controller('ProfileUserController',function($scope,$http,$routeParams,Cache
 			}
 			else{
 				alert("Error");
-				$location.path("login");
+				$location.path("/login");
 			}
 		});
 	}
@@ -84,11 +133,16 @@ $app.controller('ProfileUserController',function($scope,$http,$routeParams,Cache
 			if ($scope.user.tweets.length<=0){
 				$scope.user.tweets.push({created_at:'NULL',text:'No Message!'});
 			}
+			$scope.hideStatusLoading();
 
 			
 		});
 	}
 	function GetUserPost(user_account){
+
+
+
+
 		//get user tweets
 		$http({
 			url:"http://yinkeangseng.byethost8.com/login-auth/fb-auth/fb-user-wall.php",
@@ -96,15 +150,23 @@ $app.controller('ProfileUserController',function($scope,$http,$routeParams,Cache
 			method:"POST" ,
 			headers:{'Content-Type':'application/x-www-form-urlencoded'}
 		}).success(function(data){
-			//alert(data.length);
-			$scope.user.tweets = [];
-			angular.forEach(data.data,function(value,key){
-				$scope.user.tweets.push({created_at:value.updated_time,text:value.message});
-				//console.log($scope.user.tweets);
-			});
-			if ($scope.user.tweets.length<=0){
-				$scope.user.tweets.push({created_at:'NULL',text:'No Message!'});
+			if (isObject(data)==false){
+				//require user login
+				CallingSimpleLogin();
 			}
+			else{
+				$scope.user.tweets = [];
+				angular.forEach(data.data,function(value,key){
+					$scope.user.tweets.push({created_at:value.updated_time,text:value.message});
+					//console.log($scope.user.tweets);
+				});
+				//alert($scope.user.tweets.length);
+				if ($scope.user.tweets.length<=0){
+					$scope.user.tweets.push({created_at:'NULL',text:'No Message!'});
+				}
+				$scope.hideStatusLoading();
+			}
+			
 
 			//update scrolllist
 			
@@ -123,8 +185,9 @@ $app.controller('ProfileUserController',function($scope,$http,$routeParams,Cache
 				}).success(function(data){
 					
 					SetUserProfileToUI(data);
+					$scope.tw_say_class = "";
 					//stored data temp with name username_current_profile for caching data for faster read
-
+					$scope.hideProfileLoading();
 				});
 			GetUserTweet(user_account);
 			
@@ -137,9 +200,11 @@ $app.controller('ProfileUserController',function($scope,$http,$routeParams,Cache
 					headers:{'Content-Type':'application/x-www-form-urlencoded'}
 
 				}).success(function(data){
-					
+
 					//alert(data);
 					SetUserProfileToUIFb(data);
+					$scope.fb_say_class = "";
+					$scope.hideProfileLoading();
 					//stored data temp with name username_current_profile for caching data for faster read
 
 				});
@@ -150,6 +215,9 @@ $app.controller('ProfileUserController',function($scope,$http,$routeParams,Cache
 			$location.path("login");
 		}
 	}
+	isObject = function(a) {
+	    return (!!a) && (a.constructor === Object);
+	};
 	function SetUserProfileToUI(tw_user){
 		//alert(tw_user+ "-");
 		$scope.user.name = tw_user["name"];
@@ -188,8 +256,39 @@ $app.controller('ProfileUserController',function($scope,$http,$routeParams,Cache
 	 		alert("User has not sign up with his twitter yet!");
 	 	}
 	 }
-	 $scope.fb_say=function(){
-	 	alert("User has not sign up with his facebook yet or this functionality is not completed!");
+	 $scope.fb_say=function(say){
+	 	if (user!=undefined && user.user_account.priority_social=="fb" && user.fb_user_account!=undefined){
+	 		var message = say;	
+
+	 		$http({	url:"http://yinkeangseng.byethost8.com/login-auth/fb-auth/publish-say.php",
+					method: "POST",
+					data:"username=" + user.fb_user_account.fb_screen_name + "&token=" + user.fb_user_account.fb_token + "&post_message=" + message, 
+					headers:{'Content-Type':'application/x-www-form-urlencoded'}
+
+				}).success(function(data){
+					alert(data);
+					GetUserPost(user);
+					//stored data temp with name username_current_profile for caching data for faster read
+
+				});
+	 	}
+	 	else{
+	 		alert("User has not sign up with his facebook yet or this functionality is not completed!");
+	 	}
 	 }
 	
+	function CallingSimpleLogin(){
+		var inAppBrowser = $window.open("http://yinkeangseng.byethost8.com/login-auth/fb-auth/simple-login.php","_blank","location=yes");console.log(inAppBrowser);
+		
+		//set on exit event
+		if ($scope.exit instanceof Function){
+			
+			inAppBrowser.addEventListener("exit",wrappedFunction($scope.exit));
+		}
+		
+	}
+	$scope.onSimpleLoginComplete=function () {
+		
+		GetUserPost(user);
+	}
 });

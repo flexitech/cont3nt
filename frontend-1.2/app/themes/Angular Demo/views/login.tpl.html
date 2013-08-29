@@ -1,34 +1,55 @@
-<div class="kratos" style="margin-bottom:80px;">
-	<br/>
-	<div class="login grid-60 tablet-grid mobile-grid">
-		<div class="main">
-			
-			<form class="grid-120">
-				<h4>Breaking News In Realtime. Join Us!</h4>
-				<br/>
-				<div class="login">
+<div id="login-wrap-wrapper" style="position:absolute;overflow-y:scroll;bottom:0px;left:0px;top:0px;width:100%;" >
+	<div id="scroller" style="position:absolute;width:100%;">
+		<div class="kratos view-port-page"  >	
+			<br/>
+			<div class="login grid-60 tablet-grid mobile-grid">
+				<div class="main">
+					
+					<form class="grid-120">
+						<h4>Breaking News In Realtime. Join Us!</h4>
+						<br/>
+						<div class="login">
 
-					<input type="text" class="grid-120" ng-model="auth.user" placeholder="Username"/>
-					<input type="password" class="grid-120" ng-model="auth.pass" placeholder="Password"/>
-				</div>
+							<input type="text" class="grid-120" ng-model="auth.user" placeholder="Username"/>
+							<input type="password" class="grid-120" ng-model="auth.pass" placeholder="Password"/>
+						</div>
 
-				<div class="clear"></div>
-				<br/>
-				<div class="grid-30 tablet-60 mobile-grid">
-					<button class="btn grid-120 padd-lr0" ng-click="login(auth)">Login</button>
-				</div>
-				<div class="grid-50 tablet-60 mobile-grid">
-					<open-external button-class="buttonTwitter" url="urlTw" exit="closeBrowserTw()" load-start="loadStartTw()" load-stop="loadStopTw()" load-error="loadError()" >
-						+ Twitter
-					</open-external>
-				</div>
-				<div class="grid-40 tablet-60 mobile-grid">
-					<open-external button-class="buttonFacebook" url="urlFb" exit="closeBrowserFb()" load-start="loadStartFb()" load-stop="loadStopFb()" load-error="loadError()" >
-						+ Fb
-					</open-external>
-				</div>
-			</form>
-			<div class="clear"></div>
-	    </div>
+						<div class="clear"></div>
+						<br/>
+						<div class="grid-30 tablet-60 mobile-grid">
+							<button class="btn grid-120 padd-lr0" ng-click="login(auth)">Login</button>
+						</div>
+						<div class="grid-50 tablet-60 mobile-grid">
+							<open-external button-class="buttonTwitter" url="urlTw" exit="closeBrowserTw()" load-start="loadStartTw()" load-stop="loadStopTw()" load-error="loadError()" >
+								+ Twitter
+							</open-external>
+						</div>
+						<div class="grid-40 tablet-60 mobile-grid">
+							<open-external button-class="buttonFacebook" url="urlFb" exit="closeBrowserFb()" load-start="loadStartFb()" load-stop="loadStopFb()" load-error="loadError()" >
+								+ Fb
+							</open-external>
+						</div>
+					</form>
+					<div class="clear"></div>
+			    </div>
+			</div>
+		</div>
 	</div>
 </div>
+<script type="text/javascript">
+	// iscroll issue: http://code.google.com/p/iscroll-js/issues/detail?id=17
+	var myScroll = new iScroll('login-wrap-wrapper');
+	myScroll.options.onBeforeScrollStart = function(e) {                
+        var target = e.target;
+
+        while (target.nodeType != 1) target = target.parentNode;
+
+        if (target.tagName != 'SELECT' && target.tagName != 'INPUT' && target.tagName != 'TEXTAREA'){
+            e.preventDefault();
+        }
+    }
+    setInterval(function(){
+    	myScroll.refresh()
+    },1000);
+ 
+</script>
