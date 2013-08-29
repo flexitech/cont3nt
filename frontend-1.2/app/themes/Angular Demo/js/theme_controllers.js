@@ -324,7 +324,7 @@ $app.controller('LoginController',function($scope,$http,$routeParams,CacheSocial
 								CacheSocial.put("user",userobject);
 
 							//$location.path("profile/" + data.user_profile.screen_name);
-							$navigate.go("profile","slide");
+							$navigate.go("register","slide");
 						}
 						catch(e){alert(e);}
 					});
@@ -353,7 +353,7 @@ $app.controller('LoginController',function($scope,$http,$routeParams,CacheSocial
 							CacheSocial.put("user",userobject);
 
 						//$location.path("profile/" + data.fb_user_profile.username);
-							$navigate.go("profile","slide");
+							$navigate.go("register","slide");
 					});
 		}
 		catch(e){alert(e);}
@@ -391,7 +391,7 @@ $app.controller('LoginController',function($scope,$http,$routeParams,CacheSocial
 
 
 ///////////// Profile controller
-$app.controller('RegisterController',function($scope,$http,$navigate,CacheSocial){
+$app.controller('RegisterController',function($scope,$http,$navigate,CacheSocial,$location){
 	$scope.reg={username:"",password:"",email:""};
 	$scope.completeReg=function(){
 		var data =JSON.stringify($scope.reg);
@@ -418,6 +418,7 @@ $app.controller('RegisterController',function($scope,$http,$navigate,CacheSocial
 					alert(data);
 					CacheSocial.put("user_account",data);	
 					//GetUserProfileTw();
+					$location.path("/profile");
 				}
 				else{
 					alert("Error");
