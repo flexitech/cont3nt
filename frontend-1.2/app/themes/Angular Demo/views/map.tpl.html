@@ -1,1 +1,119 @@
-<google-map center="center" draggable="true" zoom="zoom" markers="markers" mark-click="true" style="height: 400px;display:block;"></google-map>
+<div id="map-wrap-wrapper" style="position:absolute;overflow-y:scroll;bottom:0px;left:0px;top:0px;width:100%;" >
+	<div id="scroller" style="position:absolute;width:100%;">
+		<br/>
+		<br/>
+		<div class="kratos view-port-page col-md-6"  style="margin:0px auto;" >	
+			<div class="" style="position:relative">
+				<div class="parent-horiz" style="width:100%;" id="horiz-wrapper">
+					<div id="scroller" class="scroller-horiz" >
+						<!--end box 1 -->
+						<div class="box-horiz" style="">
+							<h3>FOX Business</h3>
+							<p>
+								 @FoxBusiness<br/>
+								http://t.co/hP4sgDksjn 
+							</p>
+							<div class="footer">
+								Log Angeles
+							</div>
+							<div class="image">
+							</div>
+						</div>
+						<!-- end box 1 -->
+						<!--end box 1 -->
+						<div class="box-horiz" style="">
+							<h3>FOX Business</h3>
+							<p>
+								 @FoxBusiness<br/>
+								http://t.co/hP4sgDksjn 
+							</p>
+							<div class="footer">
+								Log Angeles
+							</div>
+						</div>
+						<!-- end box 1 -->
+						<!--end box 1 -->
+						<div class="box-horiz" style="">
+							<h3>FOX Business</h3>
+							<p>
+								 @FoxBusiness<br/>
+								http://t.co/hP4sgDksjn 
+							</p>
+							<div class="footer">
+								Log Angeles
+							</div>
+						</div>
+						<!-- end box 1 -->
+						<!--end box 1 -->
+						<div class="box-horiz" style="">
+							<h3>FOX Business</h3>
+							<p>
+								 @FoxBusiness<br/>
+								http://t.co/hP4sgDksjn 
+							</p>
+							<div class="footer">
+								Log Angeles
+							</div>
+						</div>
+						<!-- end box 1 -->
+						<!--end box 1 -->
+						<div class="box-horiz" style="">
+							<h3>FOX Business</h3>
+							<p>
+								 @FoxBusiness<br/>
+								http://t.co/hP4sgDksjn 
+							</p>
+							<div class="footer">
+								Log Angeles
+							</div>
+						</div>
+						<!-- end box 1 -->
+						<!--end box 1 -->
+						<div class="box-horiz" style="">
+							<h3>FOX Business</h3>
+							<p>
+								 @FoxBusiness<br/>
+								http://t.co/hP4sgDksjn 
+							</p>
+							<div class="footer">
+								Log Angeles
+							</div>
+						</div>
+						<!-- end box 1 -->
+						<!--end box 1 -->
+						<div class="box-horiz" style="">
+							<h3>FOX Business</h3>
+							<p>
+								 @FoxBusiness<br/>
+								http://t.co/hP4sgDksjn 
+							</p>
+							<div class="footer">
+								Log Angeles
+							</div>
+						</div>
+						<!-- end box 1 -->
+					</div>
+
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	var myScroll2  = new iScroll('horiz-wrapper');
+// iscroll issue: http://code.google.com/p/iscroll-js/issues/detail?id=17
+	var myScroll = new iScroll('map-wrap-wrapper');
+	myScroll.options.onBeforeScrollStart = function(e) {                
+        var target = e.target;
+
+        while (target.nodeType != 1) target = target.parentNode;
+
+        if (target.tagName != 'SELECT' && target.tagName != 'INPUT' && target.tagName != 'TEXTAREA'){
+            e.preventDefault();
+        }
+    }
+    setInterval(function(){
+    	myScroll.refresh()
+    },1000);
+</script>

@@ -74,6 +74,7 @@ $app.directive('slideMenu', function(){
 		});
 		console.log(elem.find('#panel-menu-wrapper')[0]);
 		var myScroll = new iScroll(elem.find('#panel-menu-wrapper')[0],{useObject:true});
+		setTimeout(function(){myScroll.refresh();},1000);
 			/*elem.find('.fileinput-button').click(function(){
 			
 				elem.find('.fileinput-button input[type=file]').click();

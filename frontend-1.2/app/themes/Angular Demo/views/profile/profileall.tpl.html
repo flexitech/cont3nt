@@ -20,7 +20,7 @@
 				<!-- <div id="profileall-wrap-wrapper"  > --><!--   scrollable parameters="{{ {hScrollbar : true, snap: '.row'} }}"  -->
 					<!-- <div id="scroller" style="position:absolute;width:100%;"> -->
 						<!-- block -->
-						<div class="col-xs-4 col-sm-2 col-md-2" style="height:140px" ng-repeat="user in users">
+						<div class="col-xs-6 col-sm-2 col-md-2" style="height:140px" ng-repeat="user in users">
 							<div class="profile-box"  style=" text-align:center">
 								<button class="btn" ng-click="viewprofile(user.username)">
 									<div class="row">
@@ -59,7 +59,7 @@
 			            }
 			        }
 				    setInterval(function(){
-				    	myScroll.refresh()
+				    	myScroll.refresh();
 				    },1000);
 
 				});
