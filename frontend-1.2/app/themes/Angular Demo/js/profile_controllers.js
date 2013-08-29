@@ -48,15 +48,7 @@ $app.controller('ProfileController',function($scope,$http,$routeParams,CacheSoci
 ///////////// Profile controller
 $app.controller('ProfileUserController',function($scope,$http,$routeParams,CacheSocial,$location,$window){
 
-	//function accesss loaing
-	/*$scope.setShowBig=function(fnShow){
-		$scope.show = fnShow;
-	}
-	$scope.setHideBig=function(fnHide){
-		$scope.hide = fnHide;
-	}
-	$scope.show=function(){}
-	$scope.hide=function(){}*/
+	
 
 	//function accesss loading
 	$scope.setShowStatusesLoading=function(fnShow){
@@ -279,14 +271,22 @@ $app.controller('ProfileUserController',function($scope,$http,$routeParams,Cache
 	
 	function CallingSimpleLogin(){
 		var inAppBrowser = $window.open("http://yinkeangseng.byethost8.com/login-auth/fb-auth/simple-login.php","_blank","location=yes");console.log(inAppBrowser);
-		
+		var wrappedFunction = function(action){
+			return function(){
+				$scope.$apply(function(){
+					console.log("hey why??");
+					action();
+				});
+			}
+		};
 		//set on exit event
 		if ($scope.exit instanceof Function){
 			
-			inAppBrowser.addEventListener("exit",wrappedFunction($scope.exit));
+			inAppBrowser.addEventListener("exit",wrappedFunction(onSimpleLoginComplete));
 		}
 		
 	}
+	
 	$scope.onSimpleLoginComplete=function () {
 		
 		GetUserPost(user);
